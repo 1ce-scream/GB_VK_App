@@ -164,16 +164,16 @@
             </objects>
             <point key="canvasLocation" x="830" y="94"/>
         </scene>
-        <!--Groups-->
+        <!--Groups Table View-->
         <scene sceneID="xxc-8Q-MNO">
             <objects>
-                <tableViewController title="Groups" id="t4l-fr-cCq" sceneMemberID="viewController">
+                <tableViewController title="Groups Table View" id="t4l-fr-cCq" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="utd-cb-WQA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JfX-I6-jup">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupsCells" id="JfX-I6-jup">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JfX-I6-jup" id="cDH-Q3-4Kl">
@@ -188,7 +188,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Группы" id="FUM-hj-47b">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="M6P-oa-hAM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="M6P-oa-hAM">
                             <connections>
                                 <segue destination="oFJ-em-W0I" kind="show" id="odh-hQ-3i1"/>
                             </connections>
@@ -199,16 +199,16 @@
             </objects>
             <point key="canvasLocation" x="2517" y="437"/>
         </scene>
-        <!--Поиск групп-->
+        <!--Groups Search Table View-->
         <scene sceneID="93L-RM-3xO">
             <objects>
-                <tableViewController id="oFJ-em-W0I" sceneMemberID="viewController">
+                <tableViewController title="Groups Search Table View" id="oFJ-em-W0I" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ahr-5V-8KH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lA6-Dx-MBB">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupSearchCells" id="lA6-Dx-MBB">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lA6-Dx-MBB" id="fbo-dR-Y9l">
@@ -228,16 +228,16 @@
             </objects>
             <point key="canvasLocation" x="3364" y="437"/>
         </scene>
-        <!--Friends-->
+        <!--Friends Table View-->
         <scene sceneID="ROv-Mh-zAU">
             <objects>
-                <tableViewController title="Friends" id="if1-X1-DZy" sceneMemberID="viewController">
+                <tableViewController title="Friends Table View" id="if1-X1-DZy" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJH-9b-Hv4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="66C-eD-Jlu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendsCells" id="66C-eD-Jlu">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="66C-eD-Jlu" id="vhb-6a-alg">
@@ -275,7 +275,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oYr-1G-l4n">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendsCollectionCell" id="oYr-1G-l4n">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VZ8-8t-r4G">
@@ -295,10 +295,10 @@
             </objects>
             <point key="canvasLocation" x="3365" y="-202"/>
         </scene>
-        <!--Друзья-->
+        <!--Navigation Friends-->
         <scene sceneID="zqa-UQ-N7d">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Osj-lX-nl3" sceneMemberID="viewController">
+                <navigationController title="Navigation Friends" automaticallyAdjustsScrollViewInsets="NO" id="Osj-lX-nl3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Друзья" image="person.2.circle" catalog="system" landscapeImage="person.2.circle" id="slU-H5-9AK"/>
                     <toolbarItems/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -315,10 +315,10 @@
             </objects>
             <point key="canvasLocation" x="1692.753623188406" y="-202.23214285714286"/>
         </scene>
-        <!--Группы-->
+        <!--Navigation Groups-->
         <scene sceneID="G2p-vc-lhL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vxf-KO-MZe" sceneMemberID="viewController">
+                <navigationController title="Navigation Groups" automaticallyAdjustsScrollViewInsets="NO" id="vxf-KO-MZe" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Группы" image="person.3" catalog="system" landscapeImage="person.3" id="9kt-pQ-Fl0"/>
                     <toolbarItems/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
