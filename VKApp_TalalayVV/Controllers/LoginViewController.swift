@@ -80,33 +80,35 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
 
         // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
-        NotificationCenter.default.addObserver(self,
-                                               selector:
-                                                #selector(self.keyboardWasShown),
-                                               name:
-                                                UIResponder.keyboardWillShowNotification,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardWasShown),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
         // Второе — когда она пропадает
-        NotificationCenter.default.addObserver(self,
-                                               selector:
-                                                #selector(self.keyboardWillBeHidden(notification:)),
-                                               name:
-                                                UIResponder.keyboardWillHideNotification,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardWillBeHidden(notification:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
 
     //метод отписки от центра уведомлений при исчезновении контроллера с экрана.
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        NotificationCenter.default.removeObserver(self,
-                                                  name:
-                                                    UIResponder.keyboardWillShowNotification,
-                                                  object: nil)
-        NotificationCenter.default.removeObserver(self,
-                                                  name:
-                                                    UIResponder.keyboardWillHideNotification,
-                                                  object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
 
     //метод для исчезновения клавиатуры при тапе по пустому месту
