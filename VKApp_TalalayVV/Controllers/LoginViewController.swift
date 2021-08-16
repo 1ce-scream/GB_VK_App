@@ -9,17 +9,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    override func viewDidLoad() {
-            super.viewDidLoad()
-
-        // Жест нажатия
-        let hideKeyboardGesture = UITapGestureRecognizer(target: self,
-                                                         action:
-                                                            #selector(hideKeyboard))
-        // Присваиваем его UIScrollVIew
-        scrollView?.addGestureRecognizer(hideKeyboardGesture)
-        
-        }
     /*
      Связывание элементов на storyboard с IBOutlet
      в контроллере
@@ -39,46 +28,110 @@ class LoginViewController: UIViewController {
     
     //просто проверка работоспособности нажатия кнопки
     @IBAction func entranceButton(_ sender: Any) {
-        if loginTextField.hasText && passwordTextField.hasText {
-            print("It's alive!!!")
+//        if loginTextField.hasText && passwordTextField.hasText {
+//            print("It's alive!!!")
+//        } else {
+//            print("Text fields are empty")
+//        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Жест нажатия
+        let hideKeyboardGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(hideKeyboard)
+        )
+        
+        // Присваиваем его UIScrollVIew
+        scrollView?.addGestureRecognizer(hideKeyboardGesture)
+    }
+    
+    ///метод для проверки корректности введенных значений в поля логин и пароль
+    func checkUserData() -> Bool {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text else { return false }
+        
+        if login == "admin" && password == "123456" {
+            return true
         } else {
-            print("Text fields are empty")
+            return false
         }
+    }
+    
+    ///метод для отображения пользователю ошибки в случае ввода некорректных данных
+    func showLoginError() {
+        // создание экземпляра контроллера
+        let alter = UIAlertController(
+            title: "Ошибка",
+            message: "Введены не верные данные пользователя",
+            preferredStyle: .alert
+        )
+        
+        // создания экземпляра кнопки для контроллера UIAlertController
+        let action = UIAlertAction(
+            title: "OK",
+            style: .cancel,
+            handler: nil
+        )
+        
+        // добавление кнопки на UIAlertController
+        alter.addAction(action)
+        
+        // Показываем UIAlertController
+        present(alter, animated: true, completion: nil)
+    }
+    
+    /*
+    переопределение метода shouldPerformSegue с учетом проверки корректности
+    введенных значений
+    */
+    
+    override func shouldPerformSegue(
+        withIdentifier identifier: String,
+        sender: Any?
+    ) -> Bool {
+        let checkResult = checkUserData()
+        
+        // Проверяем данные
+        // Если данные не верны, покажем ошибку
+        if !checkResult {
+            showLoginError()
+        }
+        
+        // Вернем результат
+        return checkResult
     }
     
     //Код из методички для взаимодействия клавиатуры и scrollview
     
-    /*
-     Я старался не вылезать за пределы 80 пикселей в ширину
-     (page guide in collumn), но аргументы слишком большие :(
-     */
-
     // Когда клавиатура появляется
     @objc func keyboardWasShown(notification: Notification) {
-
+        
         // Получаем размер клавиатуры
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
                         as! NSValue).cgRectValue.size
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0,
                                          bottom: kbSize.height, right: 0.0)
-
+        
         // Добавляем отступ внизу UIScrollView, равный размеру клавиатуры
         self.scrollView?.contentInset = contentInsets
         scrollView?.scrollIndicatorInsets = contentInsets
     }
-
+    
     //Когда клавиатура исчезает
     @objc func keyboardWillBeHidden(notification: Notification) {
         // Устанавливаем отступ внизу UIScrollView, равный 0
         let contentInsets = UIEdgeInsets.zero
         scrollView?.contentInset = contentInsets
     }
-
+    
     //подписываемся на сообщения из центра уведомлений
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
         NotificationCenter.default.addObserver(
             self,
@@ -94,11 +147,11 @@ class LoginViewController: UIViewController {
             object: nil
         )
     }
-
+    
     //метод отписки от центра уведомлений при исчезновении контроллера с экрана.
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         NotificationCenter.default.removeObserver(
             self,
             name: UIResponder.keyboardWillShowNotification,
@@ -110,10 +163,10 @@ class LoginViewController: UIViewController {
             object: nil
         )
     }
-
+    
     //метод для исчезновения клавиатуры при тапе по пустому месту
     @objc func hideKeyboard() {
-            self.scrollView?.endEditing(true)
-        }
-
+        self.scrollView?.endEditing(true)
+    }
+    
 }
