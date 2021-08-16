@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    //просто проверка работоспособности нажатия кнопки
+    // Просто проверка работоспособности нажатия кнопки
     @IBAction func entranceButton(_ sender: Any) {
 //        if loginTextField.hasText && passwordTextField.hasText {
 //            print("It's alive!!!")
@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //подписываемся на сообщения из центра уведомлений
+        // Подписываемся на сообщения из центра уведомлений
         // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
         NotificationCenter.default.addObserver(
             self,
@@ -69,7 +69,7 @@ class LoginViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        //Отписка от центра уведомлений при исчезновении контроллера с экрана.
+        // Отписка от центра уведомлений при исчезновении контроллера с экрана.
         NotificationCenter.default.removeObserver(
             self,
             name: UIResponder.keyboardWillShowNotification,
@@ -83,7 +83,7 @@ class LoginViewController: UIViewController {
     
     
     /*
-    переопределение метода shouldPerformSegue с учетом проверки корректности
+    Мереопределение метода shouldPerformSegue с учетом проверки корректности
     введенных значений
     */
     
@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
         return checkResult
     }
     
-    ///метод для проверки корректности введенных значений в поля логин и пароль
+    /// Метод для проверки корректности введенных значений в поля логин и пароль
     func checkUserData() -> Bool {
         guard let login = loginTextField.text,
               let password = passwordTextField.text else { return false }
@@ -115,21 +115,21 @@ class LoginViewController: UIViewController {
         }
     }
     
-    ///метод для отображения пользователю ошибки в случае ввода некорректных данных
+    /// Метод для отображения пользователю ошибки в случае ввода некорректных данных
     func showLoginError() {
-        // инициализация экземпляра контроллера
+        // Инициализация экземпляра контроллера
         let alter = UIAlertController(
             title: "Ошибка",
             message: "Введены не верные данные пользователя",
             preferredStyle: .alert)
         
-        // инициализация экземпляра кнопки для контроллера UIAlertController
+        // Инициализация экземпляра кнопки для контроллера UIAlertController
         let action = UIAlertAction(
             title: "OK",
             style: .cancel,
             handler: nil)
         
-        // добавление кнопки на UIAlertController
+        // Добавление кнопки на UIAlertController
         alter.addAction(action)
         
         // Показываем UIAlertController
@@ -137,7 +137,7 @@ class LoginViewController: UIViewController {
     }
     
     
-    //Код из методички для взаимодействия клавиатуры и scrollview
+    //Код для взаимодействия клавиатуры и scrollview
     
     // Когда клавиатура появляется
     @objc func keyboardWasShown(notification: Notification) {
@@ -156,14 +156,14 @@ class LoginViewController: UIViewController {
         scrollView?.scrollIndicatorInsets = contentInsets
     }
     
-    //Когда клавиатура исчезает
+    // Когда клавиатура исчезает
     @objc func keyboardWillBeHidden(notification: Notification) {
         // Устанавливаем отступ внизу UIScrollView, равный 0
         let contentInsets = UIEdgeInsets.zero
         scrollView?.contentInset = contentInsets
     }
     
-    //метод для исчезновения клавиатуры при тапе по пустому месту
+    // Метод для исчезновения клавиатуры при тапе по пустому месту
     @objc func hideKeyboard() {
         self.scrollView?.endEditing(true)
     }
