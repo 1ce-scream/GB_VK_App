@@ -61,7 +61,7 @@
                                                             <constraint firstAttribute="width" constant="150" id="ptF-Fu-3Km"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -77,7 +77,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="entranceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="euA-iM-lcP"/>
-                                                    <segue destination="nHG-3h-0gD" kind="show" id="w6u-UW-0YH"/>
+                                                    <segue destination="nHG-3h-0gD" kind="show" identifier="loginScreenSegue" id="w6u-UW-0YH"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -167,7 +167,7 @@
         <!--Groups Table View-->
         <scene sceneID="xxc-8Q-MNO">
             <objects>
-                <tableViewController title="Groups Table View" id="t4l-fr-cCq" sceneMemberID="viewController">
+                <tableViewController title="Groups Table View" id="t4l-fr-cCq" customClass="GroupsTableViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="utd-cb-WQA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,10 +190,13 @@
                     <navigationItem key="navigationItem" title="Группы" id="FUM-hj-47b">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="M6P-oa-hAM">
                             <connections>
-                                <segue destination="oFJ-em-W0I" kind="show" id="odh-hQ-3i1"/>
+                                <segue destination="oFJ-em-W0I" kind="show" identifier="groupsSegue" id="odh-hQ-3i1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchNavigationButton" destination="M6P-oa-hAM" id="KMH-Hf-jXr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnb-k9-iXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -202,7 +205,7 @@
         <!--Groups Search Table View-->
         <scene sceneID="93L-RM-3xO">
             <objects>
-                <tableViewController title="Groups Search Table View" id="oFJ-em-W0I" sceneMemberID="viewController">
+                <tableViewController title="Groups Search Table View" id="oFJ-em-W0I" customClass="GroupsSearchTableViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ahr-5V-8KH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,7 +234,7 @@
         <!--Friends Table View-->
         <scene sceneID="ROv-Mh-zAU">
             <objects>
-                <tableViewController title="Friends Table View" id="if1-X1-DZy" sceneMemberID="viewController">
+                <tableViewController title="Friends Table View" id="if1-X1-DZy" customClass="FriendsTableViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJH-9b-Hv4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,7 +248,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="fJf-AM-56r" kind="show" id="rCQ-JC-Ylj"/>
+                                    <segue destination="fJf-AM-56r" kind="show" identifier="friendsSegue" id="rCQ-JC-Ylj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -260,10 +263,10 @@
             </objects>
             <point key="canvasLocation" x="2517" y="-202"/>
         </scene>
-        <!--Frends Collection-->
+        <!--Friends Collection-->
         <scene sceneID="tDJ-PZ-BuX">
             <objects>
-                <collectionViewController title="Frends Collection" id="fJf-AM-56r" sceneMemberID="viewController">
+                <collectionViewController title="Friends Collection" id="fJf-AM-56r" customClass="FriendsCollectionViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Gku-DH-SaW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
