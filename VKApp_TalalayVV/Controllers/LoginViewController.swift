@@ -116,7 +116,7 @@ class LoginViewController: UIViewController {
     }
     
     /// Метод для отображения пользователю ошибки в случае ввода некорректных данных
-    func showLoginError() {
+    private func showLoginError() {
         // Инициализация экземпляра контроллера
         let alter = UIAlertController(
             title: "Ошибка",
@@ -124,16 +124,20 @@ class LoginViewController: UIViewController {
             preferredStyle: .alert)
         
         // Инициализация экземпляра кнопки для контроллера UIAlertController
+        // И обнуление информации в полях логин и пароль
         let action = UIAlertAction(
             title: "OK",
-            style: .cancel,
-            handler: nil)
-        
+            style: .cancel)
+        { _ in
+            self.loginTextField.text = ""
+            self.passwordTextField.text = ""
+        }
         // Добавление кнопки на UIAlertController
         alter.addAction(action)
         
         // Показываем UIAlertController
         present(alter, animated: true, completion: nil)
+        
     }
     
     
