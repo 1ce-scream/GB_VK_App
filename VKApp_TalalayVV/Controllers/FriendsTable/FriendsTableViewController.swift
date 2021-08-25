@@ -43,20 +43,18 @@ class FriendsTableViewController: UITableViewController {
         friends.count
     }
 
-  
-    //регистрация ячейки по идентификатору
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //проверяем, что ячейка нужного типа
+        //получаем ячейку из пула и проверяем, что ячейка нужного типа
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "friendsCells",
             for: indexPath) as? FriendsCell
         //иначе возвращаем пустую ячейку
         else { return UITableViewCell() }
 
-        //конфигурируем ячейку
+        //присваиваем данные каждой строке
         cell.configure(user: friends[indexPath.row])
         return cell
     }

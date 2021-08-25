@@ -7,20 +7,17 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
 
 class FriendsCollectionViewController: UICollectionViewController {
+    
+//    var friend: [String] = []
+    var friendPhotos: [UIImage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+//       self.collectionView!.register(FriendsCollectionCell.self, forCellWithReuseIdentifier: "friendsCollectionCell")
 
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     /*
@@ -35,22 +32,30 @@ class FriendsCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    //метод задающий количество секций коллекции
+    override func numberOfSections(
+        in collectionView: UICollectionView) -> Int {
+        return 1
     }
 
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+    //метод задающий количество айтемов коллекции
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int) -> Int {
+        friendPhotos.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        //получение ячейки из пула и проверка на соответствие ячейки необходимому типу
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "friendsCollectionCell",
+                for: indexPath) as? FriendsCollectionCell
+        else { return UICollectionViewCell() }
+        
+        cell.configure(photo: friendPhotos[indexPath.item])
         return cell
     }
 

@@ -11,37 +11,44 @@ class GroupsTableViewController: UITableViewController {
 
     @IBOutlet weak var searchNavigationButton: UIBarButtonItem!
     
+    var groups = [
+        Group(id: 1111, name: "Group 1", logo: UIImage(named: "group1")),
+        Group(id: 2222, name: "Group 2", logo: UIImage(named: "group2")),
+        Group(id: 3333, name: "Group 3", logo: UIImage(named: "group3"))
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int) -> Int {
+        groups.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "groupsCells",
+                for: indexPath) as? GroupsCell
+        else { return UITableViewCell() }
+
+        cell.configure(group: groups[indexPath.row])
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
