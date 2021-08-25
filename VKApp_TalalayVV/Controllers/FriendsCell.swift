@@ -9,15 +9,24 @@ import UIKit
 
 class FriendsCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    //связываем элементы ячейки с контроллером ячейки
+    @IBOutlet weak var friendAvatarImageView: UIImageView!
+    @IBOutlet weak var friendNameLabel: UILabel!
+   
+    //задаем конфигурацию ячейки
+    func configure(user: User) {
+        friendAvatarImageView.image = user.avatar
+        friendNameLabel.text = user.name
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        // Initialization code
+//    }
+//
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//
+//        // Configure the view for the selected state
+//    }
 
 }

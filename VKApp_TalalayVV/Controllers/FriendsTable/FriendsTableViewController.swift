@@ -9,37 +9,57 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
 
+    //массив имитирующий список друзей
+    var friends = [
+        User(id: 1111, name: "Stan Marsh",
+             avatar: UIImage(named: "StanMarsh")),
+        User(id: 2222, name: "Kyle Broflovski",
+             avatar: UIImage(named: "KyleBroflovski")),
+        User(id: 3333, name: "Eric Cartman",
+             avatar: UIImage(named: "EricCartman"))
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        //регистрация класса кастомной ячейки
+//        tableView.register(FriendsCell.self,
+//                           forCellReuseIdentifier: "friendsCells")
     }
 
     // MARK: - Table view data source
 
+    //метод задающий количество секций в таблице
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    //метод задающий количество строк в секции таблицы
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int) -> Int {
+        
+        //задается количество строк равное длине массива друзей
+        friends.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+  
+    //регистрация ячейки по идентификатору
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //проверяем, что ячейка нужного типа
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "friendsCells",
+            for: indexPath) as? FriendsCell
+        //иначе возвращаем пустую ячейку
+        else { return UITableViewCell() }
 
-        // Configure the cell...
-
+        //конфигурируем ячейку
+        cell.configure(user: friends[indexPath.row])
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
