@@ -10,13 +10,10 @@ import UIKit
 
 class FriendsCollectionViewController: UICollectionViewController {
     
-//    var friend: [String] = []
     var friendPhotos: [UIImage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//       self.collectionView!.register(FriendsCollectionCell.self, forCellWithReuseIdentifier: "friendsCollectionCell")
 
     }
 

@@ -11,6 +11,7 @@ class GroupsSearchCell: UITableViewCell {
 
     @IBOutlet weak var groupLogoImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
+    
    
     func configure(group: Group) {
         groupLogoImageView.image = group.logo
