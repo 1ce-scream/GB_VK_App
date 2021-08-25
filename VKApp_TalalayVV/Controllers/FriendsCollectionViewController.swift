@@ -17,15 +17,8 @@ class FriendsCollectionViewController: UICollectionViewController {
 
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -55,6 +48,24 @@ class FriendsCollectionViewController: UICollectionViewController {
         cell.configure(photo: friendPhotos[indexPath.item])
         return cell
     }
+    
+//    @IBAction func selectFriend(segue: UIStoryboardSegue) {
+//        // Проверяем идентификатор перехода
+//        if segue.identifier == "friendsCellSegue" {
+//            // Получаем ссылку на контроллер, с которого осуществлен переход
+//            guard let selectedFriend = segue.source as?
+//                    FriendsTableViewController else { return }
+//            // Получаем индекс выделенной ячейки
+//            if let indexPath = selectedFriend.tableView.indexPathForSelectedRow {
+//                // Получаем данные друга по индексу
+//                let selectedFriend = selectedFriend.friends[indexPath.row]
+//                // Добавляем фото друга в список
+//                friendPhotos.append(selectedFriend.avatar!)
+//                // Обновляем коллекцию
+//                collectionView.reloadData()
+//            }
+//        }
+//    }
 
     // MARK: UICollectionViewDelegate
 

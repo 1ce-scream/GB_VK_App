@@ -70,7 +70,25 @@ class FriendsTableViewController: UITableViewController {
             //метод для снятия выделения с ячейки
             tableView.deselectRow(at: indexPath, animated: true)
         }
+
     }
+    
+    //передаем данные в коллекцию при переходе
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //проверяем в нужный ли контроллер осуществляется переход
+        guard let friendCVC = segue.destination
+                as? FriendsCollectionViewController
+        else { return }
+        
+        //получаем индекс выделенной ячейки
+        if let index = tableView.indexPathForSelectedRow {
+            //получаем данные друга из выделенной ячейки
+            let selectedFriend = friends[index.row]
+            //передаем нужные данные
+            friendCVC.friendPhotos.append(selectedFriend.avatar!)
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
