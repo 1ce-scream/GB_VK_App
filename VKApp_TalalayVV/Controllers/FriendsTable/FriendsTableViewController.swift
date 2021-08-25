@@ -58,7 +58,19 @@ class FriendsTableViewController: UITableViewController {
         cell.configure(user: friends[indexPath.row])
         return cell
     }
-
+    
+    // Метод выделения ячейки
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
+        
+        //defer конструкция которая всегда выполняется в конце кода
+        //в независимоти от места ее написания
+        defer {
+            //метод для снятия выделения с ячейки
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

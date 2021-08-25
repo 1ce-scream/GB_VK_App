@@ -9,6 +9,13 @@ import UIKit
 
 class GroupsSearchCell: UITableViewCell {
 
+    @IBOutlet weak var groupLogoImageView: UIImageView!
+    @IBOutlet weak var groupNameLabel: UILabel!
+   
+    func configure(group: Group) {
+        groupLogoImageView.image = group.logo
+        groupNameLabel.text = group.name
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
