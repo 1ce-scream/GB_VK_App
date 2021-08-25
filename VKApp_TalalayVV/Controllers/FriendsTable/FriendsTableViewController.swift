@@ -23,8 +23,13 @@ class FriendsTableViewController: UITableViewController {
         super.viewDidLoad()
 
 //        //регистрация класса кастомной ячейки
-//        tableView.register(FriendsCell.self,
-//                           forCellReuseIdentifier: "friendsCells")
+//        self.tableView.register(
+//            FriendsCell.self,
+//            forCellReuseIdentifier: "friendsCells")
+//        //второй вариант
+//        tableView.register(
+//            FriendsCell.self,
+//            forCellReuseIdentifier: "friendsCells")
     }
 
     // MARK: - Table view data source
