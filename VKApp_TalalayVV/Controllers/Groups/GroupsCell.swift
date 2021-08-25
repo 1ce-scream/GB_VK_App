@@ -9,23 +9,14 @@ import UIKit
 
 class GroupsCell: UITableViewCell {
 
+    // Связываем элементы ячейки с контроллером ячейки
     @IBOutlet weak var groupLogoImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     
-    
+    // Задаем конфигурацию ячейки
     func configure(group: Group) {
         groupLogoImageView.image = group.logo
         groupNameLabel.text = group.name
-    }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

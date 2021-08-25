@@ -11,6 +11,7 @@ class GroupsTableViewController: UITableViewController {
 
     @IBOutlet weak var searchNavigationButton: UIBarButtonItem!
     
+    // Массив имитирующий список групп
     var groups = [
         Group(id: 1111, name: "Group 1", logo: UIImage(named: "group1")),
         Group(id: 2222, name: "Group 2", logo: UIImage(named: "group2")),
@@ -32,23 +33,30 @@ class GroupsTableViewController: UITableViewController {
             if let indexPath = groupsSearch.tableView.indexPathForSelectedRow {
                 // Получаем группу по индексу
                 let selectedGroup = groupsSearch.someGroups[indexPath.row]
-                // Добавляем группу в список
-                groups.append(selectedGroup)
-                // Обновляем таблицу
-                tableView.reloadData()
+                // Проверяем на наличие дубликата
+                if !groups.contains(selectedGroup) {
+                    // Если дубликата нет, то добавляем группу в список
+                    groups.append(selectedGroup)
+                    // Обновляем таблицу
+                    tableView.reloadData()
+                }
             }
         }
     }
     // MARK: - Table view data source
 
+    // Метод задающий количество секций в таблице
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
+    // Метод задающий количество строк в секции
     override func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
+        
+        //Количество строк задается равным длине массива
         groups.count
     }
 
@@ -57,13 +65,14 @@ class GroupsTableViewController: UITableViewController {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // Получаем ячейку из пула и проверяем, что ячейка нужного типа
         guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "groupsCells",
                 for: indexPath) as? GroupsCell
         else { return UITableViewCell() }
 
+        // Присваиваем данные каждой строке
         cell.configure(group: groups[indexPath.row])
-
         return cell
     }
     
@@ -75,7 +84,7 @@ class GroupsTableViewController: UITableViewController {
         //defer конструкция которая всегда выполняется в конце кода
         //в независимоти от места ее написания
         defer {
-            //метод для снятия выделения с ячейки
+            // Метод для снятия выделения с ячейки
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -93,38 +102,4 @@ class GroupsTableViewController: UITableViewController {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
