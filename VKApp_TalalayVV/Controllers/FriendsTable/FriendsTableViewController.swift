@@ -19,11 +19,11 @@ class FriendsTableViewController: UITableViewController {
              avatar: UIImage(named: "EricCartman"))
     ]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        //регистрация класса кастомной ячейки
-
+        //регистрация класса кастомной ячейки
     }
 
     // MARK: - Table view data source
@@ -70,6 +70,14 @@ class FriendsTableViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
+    }
+    
+    // Метод задающий высоту ячейки таблицы
+    override func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+       return 50
     }
     
     // Передаем данные в коллекцию при переходе

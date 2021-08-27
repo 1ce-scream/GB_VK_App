@@ -54,3 +54,4 @@ class FriendsCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
     
 }
+

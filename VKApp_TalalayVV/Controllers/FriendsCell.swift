@@ -10,9 +10,10 @@ import UIKit
 class FriendsCell: UITableViewCell {
 
     // Связываем элементы ячейки с контроллером ячейки
-    @IBOutlet weak var friendAvatarImageView: UIImageView!
+    @IBOutlet weak var friendAvatarImageView: AvatarImage!
     @IBOutlet weak var friendNameLabel: UILabel!
-   
+    @IBOutlet weak var avatarBackgroundView: AvatarBackgroundShadowView!
+    
     // Задаем конфигурацию ячейки
     func configure(user: User) {
         friendAvatarImageView.image = user.avatar
