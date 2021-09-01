@@ -138,6 +138,7 @@
 		FEBFFC1326C676A8004576D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */,
 				FEBFFC0526C5B98A004576D0 /* Main.storyboard */,
 			);
 			path = View;
@@ -147,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				FEBFFC0326C5B98A004576D0 /* LoginViewController.swift */,
-				FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */,
 				FE0D620D26D5769F005AE0EC /* Groups */,
 				FE0D621026D576D5005AE0EC /* GroupsSearch */,
 				FE0D621526D5782F005AE0EC /* FriendsTable */,
