@@ -18,6 +18,7 @@
 		FE0D621C26D5799E005AE0EC /* FriendsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621B26D5799E005AE0EC /* FriendsCollectionViewController.swift */; };
 		FE0D621E26D579C9005AE0EC /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621D26D579C9005AE0EC /* FriendsCell.swift */; };
 		FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */; };
+		FE41A26026DFAD3A008F428E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41A25F26DFAD3A008F428E /* LikeControl.swift */; };
 		FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */; };
 		FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */; };
 		FEBFFC0426C5B98A004576D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFC0326C5B98A004576D0 /* LoginViewController.swift */; };
@@ -38,6 +39,7 @@
 		FE0D621B26D5799E005AE0EC /* FriendsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsCollectionViewController.swift; path = VKApp_TalalayVV/Controllers/FriendsCollectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		FE0D621D26D579C9005AE0EC /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsCell.swift; path = ../FriendsCell.swift; sourceTree = "<group>"; };
 		FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
+		FE41A25F26DFAD3A008F428E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		FEBFFBFC26C5B98A004576D0 /* VKApp_TalalayVV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp_TalalayVV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */,
+				FE41A25F26DFAD3A008F428E /* LikeControl.swift */,
 				FEBFFC0526C5B98A004576D0 /* Main.storyboard */,
 			);
 			path = View;
@@ -233,6 +236,7 @@
 				FE0D621E26D579C9005AE0EC /* FriendsCell.swift in Sources */,
 				FE0D61EB26CAEEDD005AE0EC /* GroupsTableViewController.swift in Sources */,
 				FE0D620F26D576C0005AE0EC /* GroupsSearchCell.swift in Sources */,
+				FE41A26026DFAD3A008F428E /* LikeControl.swift in Sources */,
 				FE0D61EF26CAEF22005AE0EC /* FriendsTableViewController.swift in Sources */,
 				FE0D620C26D57671005AE0EC /* GroupsCell.swift in Sources */,
 				FE0D620826D5754F005AE0EC /* User.swift in Sources */,

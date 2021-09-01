@@ -10,6 +10,7 @@ import UIKit
 
 class FriendsCollectionViewController: UICollectionViewController {
     
+    
     // Массив имитирующий альбом фотографий друга
     var friendPhotos: [UIImage] = []
 
@@ -19,7 +20,7 @@ class FriendsCollectionViewController: UICollectionViewController {
     }
 
     // MARK: - Navigation
-
+    
 
     // MARK: UICollectionViewDataSource
 
