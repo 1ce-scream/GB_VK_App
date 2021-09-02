@@ -55,7 +55,7 @@ class LikeControl: UIControl {
     private func setLikeCounterLabel(){
         // Добавляем лейбл в subview
         addSubview(likeCountLabel)
-        // Присваиваем экземпляр переменной
+        // Присваиваем переменной значение счетчика и приводим к типу string
         let likeString = String(self.likeCounter)
         // Присваиваем значение лейблу с простенькой анимацией
         UIView.transition(with: likeCountLabel,
