@@ -84,13 +84,6 @@ class LettersControl: UIControl {
     }
     
     // MARK: Actions
-
-    private func updateSelectView() {
-        for (index, button) in self.buttons.enumerated() {
-            let letter = arrChar[index]
-            button.isSelected = letter == self.selectedLetter
-        }
-    }
     
     @objc private func selectedLetter(_ sender: UIButton) {
         guard let index = self.buttons.firstIndex(of: sender) else { return }
