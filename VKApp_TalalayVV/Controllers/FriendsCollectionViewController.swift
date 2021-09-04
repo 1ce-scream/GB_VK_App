@@ -12,7 +12,7 @@ class FriendsCollectionViewController: UICollectionViewController {
     
     
     // Массив имитирующий альбом фотографий друга
-    var friendPhotos: [UIImage] = []
+    var friendPhotos: [UIImage] = [UIImage(named: "SouthParkPhoto")!]
 
     override func viewDidLoad() {
         super.viewDidLoad()
