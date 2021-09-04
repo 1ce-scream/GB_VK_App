@@ -19,6 +19,8 @@
 		FE0D621E26D579C9005AE0EC /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621D26D579C9005AE0EC /* FriendsCell.swift */; };
 		FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */; };
 		FE41A26026DFAD3A008F428E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41A25F26DFAD3A008F428E /* LikeControl.swift */; };
+		FE52E1E926E3879700498CB9 /* LetterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52E1E826E3879700498CB9 /* LetterControl.swift */; };
+		FE52E1EB26E3880000498CB9 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52E1EA26E3880000498CB9 /* FriendsViewController.swift */; };
 		FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */; };
 		FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */; };
 		FEBFFC0426C5B98A004576D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFC0326C5B98A004576D0 /* LoginViewController.swift */; };
@@ -40,6 +42,8 @@
 		FE0D621D26D579C9005AE0EC /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsCell.swift; path = ../FriendsCell.swift; sourceTree = "<group>"; };
 		FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		FE41A25F26DFAD3A008F428E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		FE52E1E826E3879700498CB9 /* LetterControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterControl.swift; sourceTree = "<group>"; };
+		FE52E1EA26E3880000498CB9 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		FEBFFBFC26C5B98A004576D0 /* VKApp_TalalayVV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp_TalalayVV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			children = (
 				FE0D61EE26CAEF22005AE0EC /* FriendsTableViewController.swift */,
 				FE0D621D26D579C9005AE0EC /* FriendsCell.swift */,
+				FE52E1EA26E3880000498CB9 /* FriendsViewController.swift */,
 			);
 			path = FriendsTable;
 			sourceTree = "<group>";
@@ -104,6 +109,15 @@
 				FE0D621926D578E8005AE0EC /* FriendsCollectionCell.swift */,
 			);
 			path = FriendsCollection;
+			sourceTree = "<group>";
+		};
+		FE52E1E726E3874B00498CB9 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				FE41A25F26DFAD3A008F428E /* LikeControl.swift */,
+				FE52E1E826E3879700498CB9 /* LetterControl.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		FEBFFBF326C5B98A004576D0 = {
@@ -127,8 +141,9 @@
 			children = (
 				FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */,
 				FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */,
-				FE0D620626D574AD005AE0EC /* Models */,
+				FE52E1E726E3874B00498CB9 /* Controls */,
 				FEBFFC1426C676B5004576D0 /* Controllers */,
+				FE0D620626D574AD005AE0EC /* Models */,
 				FEBFFC1326C676A8004576D0 /* View */,
 				FEBFFC0826C5B98C004576D0 /* Assets.xcassets */,
 				FEBFFC0A26C5B98C004576D0 /* LaunchScreen.storyboard */,
@@ -141,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */,
-				FE41A25F26DFAD3A008F428E /* LikeControl.swift */,
 				FEBFFC0526C5B98A004576D0 /* Main.storyboard */,
 			);
 			path = View;
@@ -233,6 +247,7 @@
 				FE0D621A26D578E8005AE0EC /* FriendsCollectionCell.swift in Sources */,
 				FE0D620A26D5758C005AE0EC /* Group.swift in Sources */,
 				FEBFFC0426C5B98A004576D0 /* LoginViewController.swift in Sources */,
+				FE52E1EB26E3880000498CB9 /* FriendsViewController.swift in Sources */,
 				FE0D621E26D579C9005AE0EC /* FriendsCell.swift in Sources */,
 				FE0D61EB26CAEEDD005AE0EC /* GroupsTableViewController.swift in Sources */,
 				FE0D620F26D576C0005AE0EC /* GroupsSearchCell.swift in Sources */,
@@ -244,6 +259,7 @@
 				FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */,
 				FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */,
 				FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */,
+				FE52E1E926E3879700498CB9 /* LetterControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
