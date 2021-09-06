@@ -7,10 +7,11 @@
 
 import UIKit
 
-class FriendsViewController: UIViewController {
+class FriendsViewController: UIViewController, UISearchBarDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     /// Массив имитирующий список друзей
     var friends = [
@@ -51,6 +52,7 @@ class FriendsViewController: UIViewController {
     private var lettersControl: LettersControl?
     
     // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,16 +61,24 @@ class FriendsViewController: UIViewController {
         // Присвоение настроек внешнего вида таблицы
         self.tableView.delegate = self
         // Запонение словаря
-        self.friendsDict = self.getFriendsDict(list: friends)
+        self.friendsDict = self.getFriendsDict(searchText: nil, list: friends)
         // Вызов контрола
         setLettersControl()
+        // вызов серчбара
+        searchBar.delegate = self
+        
     }
     
     // MARK: Private methods
     
     /// Метод задающий словарь со списком друзей
-    private func getFriendsDict(list: [User]) -> [Character:[User]]{
-        let tempUsers = list
+    private func getFriendsDict(searchText: String?, list: [User]) -> [Character:[User]]{
+        var tempUsers = list
+        if let text = searchText?.lowercased(), searchText != "" {
+            tempUsers = list.filter{ $0.name.lowercased().contains(text) }
+        } else {
+            tempUsers = list
+        }
         let sortedUsers = Dictionary.init(grouping: tempUsers)
             { $0.name.lowercased().first ?? "#" }
             .mapValues{ $0.sorted
@@ -76,7 +86,6 @@ class FriendsViewController: UIViewController {
             }
         self.tableView.reloadData()
         return sortedUsers
-        
     }
     
     /// Метод добавляющий контрол перехода по букве
@@ -90,7 +99,7 @@ class FriendsViewController: UIViewController {
         view.addSubview(lettersControl)
         // Задаем внешний вид контрола
         lettersControl.translatesAutoresizingMaskIntoConstraints = false
-        lettersControl.arrChar = firstLetters //sorted(friends: friends)
+        lettersControl.arrChar = firstLetters
         lettersControl.backgroundColor = .clear
         // Задаем действие по нажатию
         lettersControl.addTarget(
@@ -112,6 +121,16 @@ class FriendsViewController: UIViewController {
         tableView.reloadData()
     }
     
+    // MARK: Methods
+    
+    /// Метод для реализации поиска
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // Перезаписываем словарь в соответствии с введенным текстом
+        friendsDict = getFriendsDict(searchText: searchText, list: friends)
+        // Обновляем данные в таблице
+        tableView.reloadData()
+    }
+    
     /// Метод для перехода к нужной секции по нажатии на кнопку контрола
     @objc func scrollToSelectedLetter(){
         guard let lettersControl = lettersControl else {
@@ -127,8 +146,6 @@ class FriendsViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: Methods
     
     // Передаем данные в коллекцию при переходе
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -150,6 +167,7 @@ class FriendsViewController: UIViewController {
         }
     }
 }
+
 //MARK: - UITableViewDataSource
 
 extension FriendsViewController: UITableViewDataSource{

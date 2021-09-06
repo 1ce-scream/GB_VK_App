@@ -287,7 +287,7 @@
             </objects>
             <point key="canvasLocation" x="3364" y="437"/>
         </scene>
-        <!--Friends View Controller-->
+        <!--Друзья-->
         <scene sceneID="9ni-K8-aXN">
             <objects>
                 <viewController id="gzJ-xq-84a" customClass="FriendsViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
@@ -298,9 +298,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bfL-kK-bU0">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Поиск" id="yJt-io-ieL">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendsCells" id="2zD-ec-rAs" customClass="FriendsCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="68.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2zD-ec-rAs" id="d2G-Ud-0ei">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -360,14 +365,15 @@
                             <constraint firstItem="bfL-kK-bU0" firstAttribute="top" secondItem="xgH-nV-pdJ" secondAttribute="top" id="gJ0-9f-AzV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GRr-Zl-dZj"/>
+                    <navigationItem key="navigationItem" title="Друзья" id="GRr-Zl-dZj"/>
                     <connections>
+                        <outlet property="searchBar" destination="yJt-io-ieL" id="Czr-4h-zDH"/>
                         <outlet property="tableView" destination="bfL-kK-bU0" id="PLE-Oo-Ydx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ght-gZ-hGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2555" y="-202"/>
+            <point key="canvasLocation" x="2516" y="-202"/>
         </scene>
         <!--Friends Collection-->
         <scene sceneID="tDJ-PZ-BuX">
