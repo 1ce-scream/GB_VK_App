@@ -27,6 +27,9 @@
 		FEBFFC0726C5B98A004576D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEBFFC0526C5B98A004576D0 /* Main.storyboard */; };
 		FEBFFC0926C5B98C004576D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEBFFC0826C5B98C004576D0 /* Assets.xcassets */; };
 		FEBFFC0C26C5B98C004576D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEBFFC0A26C5B98C004576D0 /* LaunchScreen.storyboard */; };
+		FEE9F5F526E6378B00DCEDDA /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F426E6378B00DCEDDA /* NewsViewController.swift */; };
+		FEE9F5F826E63D7900DCEDDA /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F726E63D7900DCEDDA /* NewsCell.swift */; };
+		FEE9F5FA26E63D9600DCEDDA /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F926E63D9600DCEDDA /* News.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		FEBFFC0826C5B98C004576D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEBFFC0B26C5B98C004576D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEBFFC0D26C5B98C004576D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEE9F5F426E6378B00DCEDDA /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		FEE9F5F726E63D7900DCEDDA /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		FEE9F5F926E63D9600DCEDDA /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 			children = (
 				FE0D620726D5754F005AE0EC /* User.swift */,
 				FE0D620926D5758C005AE0EC /* Group.swift */,
+				FEE9F5F926E63D9600DCEDDA /* News.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,8 +176,18 @@
 				FE0D621026D576D5005AE0EC /* GroupsSearch */,
 				FE0D621526D5782F005AE0EC /* FriendsTable */,
 				FE0D621826D57896005AE0EC /* FriendsCollection */,
+				FEE9F5F626E6379900DCEDDA /* News */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FEE9F5F626E6379900DCEDDA /* News */ = {
+			isa = PBXGroup;
+			children = (
+				FEE9F5F426E6378B00DCEDDA /* NewsViewController.swift */,
+				FEE9F5F726E63D7900DCEDDA /* NewsCell.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,11 +271,14 @@
 				FE41A26026DFAD3A008F428E /* LikeControl.swift in Sources */,
 				FE0D61EF26CAEF22005AE0EC /* FriendsTableViewController.swift in Sources */,
 				FE0D620C26D57671005AE0EC /* GroupsCell.swift in Sources */,
+				FEE9F5F826E63D7900DCEDDA /* NewsCell.swift in Sources */,
 				FE0D620826D5754F005AE0EC /* User.swift in Sources */,
 				FE0D621C26D5799E005AE0EC /* FriendsCollectionViewController.swift in Sources */,
 				FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */,
 				FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */,
+				FEE9F5F526E6378B00DCEDDA /* NewsViewController.swift in Sources */,
 				FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */,
+				FEE9F5FA26E63D9600DCEDDA /* News.swift in Sources */,
 				FE52E1E926E3879700498CB9 /* LetterControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
