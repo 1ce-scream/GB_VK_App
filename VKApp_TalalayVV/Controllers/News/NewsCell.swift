@@ -14,6 +14,7 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var newsTextLabel: UILabel!
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var viewsCount: UILabel!
+    @IBOutlet weak var likeControl: LikeControl!
     
     func configure(news: News) {
         avatarImageView.image = news.avatar
@@ -21,5 +22,6 @@ class NewsCell: UITableViewCell {
         newsTextLabel.text = news.newsText
         newsImageView.image = news.photo
         viewsCount.text = "Просмотров: " + String(news.viewsCount)
+        self.likeControl.setLike(count: news.likeCount)
     }
 }

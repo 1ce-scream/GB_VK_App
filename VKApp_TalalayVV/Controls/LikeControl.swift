@@ -80,6 +80,13 @@ class LikeControl: UIControl {
             equalTo: imageView.centerYAnchor).isActive = true
     }
     
+    // MARK: Methods
+    
+    func setLike(count: Int){
+        likeCounter = count
+        setLikeCounterLabel()
+    }
+    
     // MARK: Actions
     
     // Метод для переключения состояний изображения и счетчика

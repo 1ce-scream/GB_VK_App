@@ -14,10 +14,10 @@ class NewsViewController: UIViewController {
     var news = [
         News(avatar: UIImage(named: "StanMarsh"), creatorName: "Stan Marsh",
              newsText: "Marshe's rulesss!!! That was the greatest concert ever!!!",
-             photo: UIImage(named: "MarshConcert"), viewsCount: 1),
+             photo: UIImage(named: "MarshConcert"), viewsCount: 4, likeCount: 3),
         News(avatar: UIImage(named: "EricCartman"), creatorName: "Eric Cartman",
              newsText: "Now we have a pool",
-             photo: UIImage(named: "Pool"), viewsCount: 10)
+             photo: UIImage(named: "Pool"), viewsCount: 10, likeCount: 5)
     ]
         
     override func viewDidLoad() {
@@ -33,7 +33,6 @@ extension NewsViewController: UITableViewDataSource{
     
     // Метод задающий количество секций в таблице
     func numberOfSections(in tableView: UITableView) -> Int {
-        // Возвращаем значение равное количеству ключей в словаре
         return 1
     }
     

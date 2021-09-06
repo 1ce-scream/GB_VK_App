@@ -13,4 +13,5 @@ struct News {
     var newsText: String
     var photo: UIImage?
     var viewsCount: Int
+    var likeCount: Int
 }
