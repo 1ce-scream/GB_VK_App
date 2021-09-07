@@ -480,12 +480,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="518"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pjm-sw-MKE">
-                                                    <rect key="frame" x="0.0" y="73" width="414" height="414"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="pjm-sw-MKE" secondAttribute="height" id="wbo-9D-Dt8"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FI1-X6-W1a">
                                                     <rect key="frame" x="8" y="47.5" width="404" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -554,35 +548,44 @@
                                                     </constraints>
                                                     <state key="normal" image="arrowshape.turn.up.right" catalog="system"/>
                                                 </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Hl-mB-48l" customClass="PhotoView" customModule="VKApp_TalalayVV" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="73" width="414" height="414"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="6Hl-mB-48l" secondAttribute="height" multiplier="1:1" id="mlF-T6-UwV"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="T38-5j-eQs" firstAttribute="leading" secondItem="1vM-EQ-0LW" secondAttribute="trailing" constant="30" id="2IG-eb-dFG"/>
-                                                <constraint firstItem="4KW-o2-Lwi" firstAttribute="top" secondItem="pjm-sw-MKE" secondAttribute="bottom" constant="5" id="Ck7-jf-21i"/>
+                                                <constraint firstItem="6Hl-mB-48l" firstAttribute="leading" secondItem="GqO-Vg-esp" secondAttribute="leading" id="8Ba-rw-MgH"/>
+                                                <constraint firstItem="T38-5j-eQs" firstAttribute="top" secondItem="6Hl-mB-48l" secondAttribute="bottom" constant="5" id="9Ab-Yl-kAO"/>
                                                 <constraint firstItem="FSH-Ll-79x" firstAttribute="leading" secondItem="GqO-Vg-esp" secondAttribute="leading" constant="8" id="DQl-Ol-9tx"/>
-                                                <constraint firstAttribute="trailing" secondItem="pjm-sw-MKE" secondAttribute="trailing" id="K1j-7A-ryN"/>
-                                                <constraint firstItem="pjm-sw-MKE" firstAttribute="leading" secondItem="GqO-Vg-esp" secondAttribute="leading" id="LTk-Gy-FsZ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="T38-5j-eQs" secondAttribute="bottom" id="PAH-bn-HrC"/>
                                                 <constraint firstItem="FI1-X6-W1a" firstAttribute="leading" secondItem="GqO-Vg-esp" secondAttribute="leading" constant="8" id="Q9o-M5-urg"/>
+                                                <constraint firstItem="4KW-o2-Lwi" firstAttribute="top" secondItem="6Hl-mB-48l" secondAttribute="bottom" constant="5" id="Rza-Xh-aau"/>
                                                 <constraint firstAttribute="trailing" secondItem="FI1-X6-W1a" secondAttribute="trailing" constant="2" id="TVf-hI-CB4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="T38-5j-eQs" secondAttribute="trailing" id="Tys-NZ-pak"/>
                                                 <constraint firstItem="L2H-hz-zGt" firstAttribute="top" secondItem="GqO-Vg-esp" secondAttribute="top" constant="1" id="Uzk-Bh-vwE"/>
-                                                <constraint firstItem="1vM-EQ-0LW" firstAttribute="top" secondItem="pjm-sw-MKE" secondAttribute="bottom" constant="5" id="XBQ-eF-ym7"/>
                                                 <constraint firstItem="L2H-hz-zGt" firstAttribute="leading" secondItem="GqO-Vg-esp" secondAttribute="leading" constant="8" id="YaM-3d-BOM"/>
                                                 <constraint firstAttribute="trailing" secondItem="L2H-hz-zGt" secondAttribute="trailing" id="Z5Y-RA-Woq"/>
                                                 <constraint firstItem="FI1-X6-W1a" firstAttribute="top" secondItem="L2H-hz-zGt" secondAttribute="bottom" constant="1" id="dRY-VX-OHK"/>
                                                 <constraint firstItem="T38-5j-eQs" firstAttribute="width" secondItem="T38-5j-eQs" secondAttribute="height" id="dY6-UI-93Q"/>
                                                 <constraint firstItem="1vM-EQ-0LW" firstAttribute="leading" secondItem="4KW-o2-Lwi" secondAttribute="trailing" constant="10" id="h19-2O-UU3"/>
-                                                <constraint firstItem="T38-5j-eQs" firstAttribute="top" secondItem="pjm-sw-MKE" secondAttribute="bottom" constant="5" id="ukf-w7-PNY"/>
-                                                <constraint firstItem="pjm-sw-MKE" firstAttribute="top" secondItem="FI1-X6-W1a" secondAttribute="bottom" constant="5" id="wFP-0J-dty"/>
-                                                <constraint firstItem="FSH-Ll-79x" firstAttribute="top" secondItem="pjm-sw-MKE" secondAttribute="bottom" constant="5" id="yuH-Jy-c4Q"/>
+                                                <constraint firstItem="6Hl-mB-48l" firstAttribute="top" secondItem="FI1-X6-W1a" secondAttribute="bottom" constant="5" id="kCC-4Y-BdS"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Hl-mB-48l" secondAttribute="trailing" id="tUY-9K-XfI"/>
+                                                <constraint firstItem="FSH-Ll-79x" firstAttribute="top" secondItem="6Hl-mB-48l" secondAttribute="bottom" constant="5" id="wac-xM-8O8"/>
+                                                <constraint firstItem="1vM-EQ-0LW" firstAttribute="top" secondItem="6Hl-mB-48l" secondAttribute="bottom" constant="5" id="zwy-cS-h1K"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="avatarImageView" destination="Vyz-FF-Eej" id="vFk-hS-5cq"/>
                                             <outlet property="creatorNameTextLabel" destination="HOI-eS-btg" id="WIh-lA-1fy"/>
                                             <outlet property="likeControl" destination="T38-5j-eQs" id="VKM-wO-645"/>
-                                            <outlet property="newsImageView" destination="pjm-sw-MKE" id="d0S-f5-vRr"/>
+                                            <outlet property="makeCommentButton" destination="4KW-o2-Lwi" id="L3H-pd-IJE"/>
                                             <outlet property="newsTextLabel" destination="FI1-X6-W1a" id="I1t-HZ-NM2"/>
+                                            <outlet property="photoView" destination="6Hl-mB-48l" id="IWn-on-yPt"/>
+                                            <outlet property="repostButton" destination="1vM-EQ-0LW" id="k0B-8H-9do"/>
                                             <outlet property="viewsCount" destination="FSH-Ll-79x" id="ZuE-Ks-ui8"/>
                                         </connections>
                                     </tableViewCell>

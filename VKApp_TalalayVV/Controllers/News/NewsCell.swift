@@ -12,16 +12,22 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: AvatarImage!
     @IBOutlet weak var creatorNameTextLabel: UILabel!
     @IBOutlet weak var newsTextLabel: UILabel!
-    @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var viewsCount: UILabel!
     @IBOutlet weak var likeControl: LikeControl!
+    @IBOutlet weak var photoView: PhotoView!
+    @IBOutlet weak var makeCommentButton: UIButton!
+    @IBOutlet weak var repostButton: UIButton!
     
     func configure(news: News) {
         avatarImageView.image = news.avatar
         creatorNameTextLabel.text = news.creatorName
         newsTextLabel.text = news.newsText
-        newsImageView.image = news.photo
+        photoView.setImages(photos: news.photos)
         viewsCount.text = "Просмотров: " + String(news.viewsCount)
         self.likeControl.setLike(count: news.likeCount)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 }

@@ -11,7 +11,7 @@ struct News {
     let avatar: UIImage?
     let creatorName: String
     var newsText: String
-    var photo: UIImage?
+    var photos: [UIImage?]
     var viewsCount: Int
     var likeCount: Int
 }
