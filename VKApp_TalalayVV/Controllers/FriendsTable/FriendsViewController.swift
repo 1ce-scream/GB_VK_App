@@ -251,7 +251,30 @@ extension FriendsViewController: UITableViewDelegate {
     }
     
     // Метод задающий высоту хэдера
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        heightForHeaderInSection section: Int) -> CGFloat {
+        
         return 15
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath) {
+        
+        let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        cell.transform = scale
+        cell.alpha = 0.3
+        
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 0.6,
+                       initialSpringVelocity: 1,
+                       options: [.curveEaseInOut],
+                       animations: {
+                        cell.transform = .identity
+                        cell.alpha = 1
+                       })
     }
 }
