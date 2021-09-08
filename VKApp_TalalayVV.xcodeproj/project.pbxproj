@@ -20,6 +20,7 @@
 		FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */; };
 		FE41A26026DFAD3A008F428E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41A25F26DFAD3A008F428E /* LikeControl.swift */; };
 		FE43FCF726E77AE1005449ED /* PhotoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE43FCF626E77AE1005449ED /* PhotoContainer.swift */; };
+		FE43FCF926E8BF50005449ED /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE43FCF826E8BF50005449ED /* LoadingViewController.swift */; };
 		FE52E1E926E3879700498CB9 /* LetterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52E1E826E3879700498CB9 /* LetterControl.swift */; };
 		FE52E1EB26E3880000498CB9 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52E1EA26E3880000498CB9 /* FriendsViewController.swift */; };
 		FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		FE41A25F26DFAD3A008F428E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		FE43FCF626E77AE1005449ED /* PhotoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContainer.swift; sourceTree = "<group>"; };
+		FE43FCF826E8BF50005449ED /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		FE52E1E826E3879700498CB9 /* LetterControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterControl.swift; sourceTree = "<group>"; };
 		FE52E1EA26E3880000498CB9 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		FEBFFBFC26C5B98A004576D0 /* VKApp_TalalayVV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp_TalalayVV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				FEBFFC0326C5B98A004576D0 /* LoginViewController.swift */,
+				FE43FCF826E8BF50005449ED /* LoadingViewController.swift */,
 				FE0D620D26D5769F005AE0EC /* Groups */,
 				FE0D621026D576D5005AE0EC /* GroupsSearch */,
 				FE0D621526D5782F005AE0EC /* FriendsTable */,
@@ -282,6 +285,7 @@
 				FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */,
 				FEE9F5F526E6378B00DCEDDA /* NewsViewController.swift in Sources */,
 				FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */,
+				FE43FCF926E8BF50005449ED /* LoadingViewController.swift in Sources */,
 				FEE9F5FA26E63D9600DCEDDA /* News.swift in Sources */,
 				FE52E1E926E3879700498CB9 /* LetterControl.swift in Sources */,
 			);

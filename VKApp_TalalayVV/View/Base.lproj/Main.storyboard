@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KuH-Sr-2F4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,6 +127,9 @@
                             <constraint firstItem="lbo-jV-bPu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tnL-eO-9pT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GHA-Xa-XYV"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="appLogoImage" destination="iPV-o8-Nx6" id="aXr-gM-PMZ"/>
                         <outlet property="appNameLabel" destination="rQn-QQ-ynH" id="Btr-4N-2Px"/>
@@ -144,6 +147,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
+        </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="azY-Ep-gUq">
+            <objects>
+                <viewController id="KuH-Sr-2F4" customClass="LoadingViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MHs-oE-vHB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="4gX-me-Zqz">
+                                <rect key="frame" x="143" y="433" width="128" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KTr-a0-8rv">
+                                        <rect key="frame" x="0.0" y="0.5" width="30" height="29"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Ka6-Tk-x34"/>
+                                            <constraint firstAttribute="height" constant="30" id="YlP-bq-UzM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ABa-WY-UUd">
+                                        <rect key="frame" x="49" y="0.5" width="30" height="29"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="4bk-qE-mJg"/>
+                                            <constraint firstAttribute="height" constant="30" id="I5d-ji-WTH"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9gM-wm-vuq">
+                                        <rect key="frame" x="98" y="0.5" width="30" height="29"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="bii-xg-N5G"/>
+                                            <constraint firstAttribute="height" constant="30" id="qms-h1-yYD"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h6a-so-VVf"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstItem="4gX-me-Zqz" firstAttribute="centerX" secondItem="MHs-oE-vHB" secondAttribute="centerX" id="6fy-s8-15F"/>
+                            <constraint firstItem="4gX-me-Zqz" firstAttribute="centerY" secondItem="MHs-oE-vHB" secondAttribute="centerY" id="u9F-CR-gO3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dotStack" destination="4gX-me-Zqz" id="vLw-gE-U06"/>
+                        <outlet property="leftDot" destination="KTr-a0-8rv" id="Gj2-Yu-DRO"/>
+                        <outlet property="middleDot" destination="ABa-WY-UUd" id="Uwp-zL-oY1"/>
+                        <outlet property="rightDot" destination="9gM-wm-vuq" id="OvE-Mk-QN5"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loadToLoginSegue" id="XyL-zZ-1cF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJS-v0-hnA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722" y="94"/>
         </scene>
         <!--Main TabBarController-->
         <scene sceneID="WjE-sD-MuU">
@@ -654,6 +714,7 @@
     <resources>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="book" catalog="system" width="128" height="102"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.2.circle" catalog="system" width="128" height="121"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
