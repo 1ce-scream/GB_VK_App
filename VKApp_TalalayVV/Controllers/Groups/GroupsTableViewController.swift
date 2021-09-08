@@ -73,9 +73,10 @@ class GroupsTableViewController: UITableViewController {
 
         // Присваиваем данные каждой строке
         cell.configure(group: groups[indexPath.row])
+        
         return cell
     }
-    
+   
     // Метод выделения ячейки
     override func tableView(
         _ tableView: UITableView,
