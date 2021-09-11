@@ -24,6 +24,7 @@ class LoadingViewController: UIViewController {
         self.middleDot.alpha = 0
         // Вызываем метод анимации
         showDotsAnimation()
+//        showDotsAnimation2()
     }
     
     /// Метод анимирующий точки на экране
@@ -60,7 +61,7 @@ class LoadingViewController: UIViewController {
                         //и заново вызываем метод анимации
                         self.counter += 1
                         self.showDotsAnimation()
-//                        self.fadeDotsAnimation()
+                        //                        self.fadeDotsAnimation()
                     } else {
                         // Присваиваем переменной логин контроллер по ID
                         let loginViewController = self.storyboard?
@@ -80,6 +81,56 @@ class LoadingViewController: UIViewController {
                             completion: nil)
                     }
                 }
+            }
+        }
+    }
+    
+    /// Второй вариант анимации через keyFrames
+    private func showDotsAnimation2() {
+        UIView.animateKeyframes(
+            withDuration: 1.5,
+            delay: 0,
+            options: [.repeat],
+            animations: {
+                UIView.addKeyframe(
+                    withRelativeStartTime: 0,
+                    relativeDuration: 1/3) {
+                    self.leftDot.alpha = 1
+                    self.rightDot.alpha = 0
+                }
+                UIView.addKeyframe(
+                    withRelativeStartTime: 1/3,
+                    relativeDuration: 1/3) {
+                    self.middleDot.alpha = 1
+                    self.leftDot.alpha = 0
+                }
+                UIView.addKeyframe(
+                    withRelativeStartTime: 2/3,
+                    relativeDuration: 1/3) {
+                    self.rightDot.alpha = 1
+                    self.middleDot.alpha = 0
+                }
+            }) { _ in
+            if self.counter < 2 {
+                self.counter += 1
+                self.showDotsAnimation2()
+            } else {
+                // Присваиваем переменной логин контроллер по ID
+                let loginViewController = self.storyboard?
+                    .instantiateViewController(
+                        withIdentifier: "LoginViewController")
+                    as! LoginViewController
+                // Задаем полноэкранный режим контроллеру
+                loginViewController.modalPresentationStyle =
+                    UIModalPresentationStyle.fullScreen
+                // Задаем анимацию перехода
+                loginViewController.modalTransitionStyle =
+                    UIModalTransitionStyle.flipHorizontal
+                // Переходим к контроллеру
+                self.present(
+                    loginViewController,
+                    animated: true,
+                    completion: nil)
             }
         }
     }
