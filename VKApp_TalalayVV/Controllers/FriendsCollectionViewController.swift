@@ -12,7 +12,10 @@ class FriendsCollectionViewController: UICollectionViewController {
     // MARK: - Properties
     
     // Массив имитирующий альбом фотографий друга
-    var friendPhotos: [UIImage] = [UIImage(named: "SouthParkPhoto")!]
+    var friendPhotos: [UIImage] = [
+        UIImage(named: "South0099")!,
+        UIImage(named: "SouthPoster")!,
+    ]
     
     // MARK: - Lifecycle
     
