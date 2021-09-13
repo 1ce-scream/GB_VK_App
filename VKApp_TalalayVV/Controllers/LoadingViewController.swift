@@ -13,9 +13,12 @@ class LoadingViewController: UIViewController {
     @IBOutlet weak var middleDot: UIImageView!
     @IBOutlet weak var rightDot: UIImageView!
     
+    // MARK: - Private properties
+    
     /// Счетчик для выхода из цикла
     private var counter = 0
     
+    // MARK: - Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Задаем начальное значение alpha
@@ -31,6 +34,8 @@ class LoadingViewController: UIViewController {
 //        showDotsAnimation2()
         showCloudAnimation()
     }
+    
+    // MARK: - Private methods
     
     /// Метод анимирующий точки на экране
     private func showDotsAnimation() {
