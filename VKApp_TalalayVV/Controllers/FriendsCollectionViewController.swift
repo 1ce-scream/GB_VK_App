@@ -9,20 +9,38 @@ import UIKit
 
 
 class FriendsCollectionViewController: UICollectionViewController {
-    
+    // MARK: - Properties
     
     // Массив имитирующий альбом фотографий друга
     var friendPhotos: [UIImage] = [UIImage(named: "SouthParkPhoto")!]
-
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    // MARK: - Navigation
+    // MARK: - Methods
     
-
-    // MARK: UICollectionViewDataSource
+    // Передаем данные в фото контроллер при переходе
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Проверяем в нужный ли контроллер осуществляется переход
+        guard let friendPVC = segue.destination
+                as? PhotoViewController
+        else { return }
+        
+        // Задаем ячейку как отправителя
+        let cell: FriendsCollectionCell  = sender as! FriendsCollectionCell
+        // Берем фото из ячейки
+        let image = cell.friendImageView.image
+        // Добавляем фото в массив в PhotoViewController
+        friendPVC.photos.append(image!)
+        friendPVC.photos.append(friendPhotos[0])
+        friendPVC.photos.append(friendPhotos[1])
+    }
+    
+    // MARK: - UICollectionViewDataSource
 
     // Метод задающий количество секций коллекции
     override func numberOfSections(
