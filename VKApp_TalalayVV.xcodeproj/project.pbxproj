@@ -33,6 +33,7 @@
 		FECDAB8426F8B5FD005047A7 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDAB8326F8B5FD005047A7 /* PushAnimator.swift */; };
 		FECDAB8626F8B611005047A7 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDAB8526F8B611005047A7 /* PopAnimator.swift */; };
 		FECDAB8826F8B68B005047A7 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDAB8726F8B68B005047A7 /* CustomNavigationController.swift */; };
+		FECDAB8A26F8BCB8005047A7 /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDAB8926F8BCB8005047A7 /* CustomInteractiveTransition.swift */; };
 		FEE9F5F526E6378B00DCEDDA /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F426E6378B00DCEDDA /* NewsViewController.swift */; };
 		FEE9F5F826E63D7900DCEDDA /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F726E63D7900DCEDDA /* NewsCell.swift */; };
 		FEE9F5FA26E63D9600DCEDDA /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F926E63D9600DCEDDA /* News.swift */; };
@@ -67,6 +68,7 @@
 		FECDAB8326F8B5FD005047A7 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
 		FECDAB8526F8B611005047A7 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		FECDAB8726F8B68B005047A7 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		FECDAB8926F8BCB8005047A7 /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
 		FEE9F5F426E6378B00DCEDDA /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		FEE9F5F726E63D7900DCEDDA /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		FEE9F5F926E63D9600DCEDDA /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				FECDAB8326F8B5FD005047A7 /* PushAnimator.swift */,
 				FECDAB8526F8B611005047A7 /* PopAnimator.swift */,
 				FECDAB8726F8B68B005047A7 /* CustomNavigationController.swift */,
+				FECDAB8926F8BCB8005047A7 /* CustomInteractiveTransition.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				FE0D61EF26CAEF22005AE0EC /* FriendsTableViewController.swift in Sources */,
 				FECDAB8826F8B68B005047A7 /* CustomNavigationController.swift in Sources */,
 				FE0D620C26D57671005AE0EC /* GroupsCell.swift in Sources */,
+				FECDAB8A26F8BCB8005047A7 /* CustomInteractiveTransition.swift in Sources */,
 				FEE9F5F826E63D7900DCEDDA /* NewsCell.swift in Sources */,
 				FE0D620826D5754F005AE0EC /* User.swift in Sources */,
 				FE0D621C26D5799E005AE0EC /* FriendsCollectionViewController.swift in Sources */,
