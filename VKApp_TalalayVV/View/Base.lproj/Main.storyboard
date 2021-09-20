@@ -521,7 +521,7 @@
         <!--Navigation Friends-->
         <scene sceneID="zqa-UQ-N7d">
             <objects>
-                <navigationController title="Navigation Friends" automaticallyAdjustsScrollViewInsets="NO" id="Osj-lX-nl3" sceneMemberID="viewController">
+                <navigationController title="Navigation Friends" automaticallyAdjustsScrollViewInsets="NO" id="Osj-lX-nl3" customClass="CustomNavigationController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Друзья" image="person.2.circle" catalog="system" landscapeImage="person.2.circle" id="slU-H5-9AK"/>
                     <toolbarItems/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -690,7 +690,7 @@
         <!--Navigation Groups-->
         <scene sceneID="G2p-vc-lhL">
             <objects>
-                <navigationController title="Navigation Groups" automaticallyAdjustsScrollViewInsets="NO" id="vxf-KO-MZe" sceneMemberID="viewController">
+                <navigationController title="Navigation Groups" automaticallyAdjustsScrollViewInsets="NO" id="vxf-KO-MZe" customClass="CustomNavigationController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Группы" image="person.3" catalog="system" landscapeImage="person.3" id="9kt-pQ-Fl0"/>
                     <toolbarItems/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
