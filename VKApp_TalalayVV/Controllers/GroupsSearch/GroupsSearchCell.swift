@@ -13,9 +13,43 @@ class GroupsSearchCell: UITableViewCell {
     @IBOutlet weak var groupLogoImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        // Инициализируем распознаватель жестов
+        let tap = UITapGestureRecognizer()
+        // Добавляем действие при нажатии
+        tap.addTarget(self, action: #selector(tapOnGroupLogo(_:)))
+        // Добавляем распознаватель жестов к лого
+        groupLogoImageView.addGestureRecognizer(tap)
+        // Разрешаем взаимодействие
+        groupLogoImageView.isUserInteractionEnabled = true
+    }
+    
     // Задаем конфигурацию ячейки
     func configure(group: Group) {
         groupLogoImageView.image = group.logo
         groupNameLabel.text = group.name
+    }
+    
+    @objc func tapOnGroupLogo(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            options: [],
+            animations: {
+                let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                self.groupLogoImageView.transform = scale
+            }) { _ in
+            UIView.animate(
+                withDuration: 0.3,
+                delay: 0,
+                usingSpringWithDamping: 0.3,
+                initialSpringVelocity: 1.0,
+                options: [],
+                animations: {
+                    self.groupLogoImageView.transform = .identity
+                })
+        }
     }
 }

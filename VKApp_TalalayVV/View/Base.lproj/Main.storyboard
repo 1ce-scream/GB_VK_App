@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KuH-Sr-2F4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -12,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,6 +128,9 @@
                             <constraint firstItem="lbo-jV-bPu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tnL-eO-9pT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GHA-Xa-XYV"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="appLogoImage" destination="iPV-o8-Nx6" id="aXr-gM-PMZ"/>
                         <outlet property="appNameLabel" destination="rQn-QQ-ynH" id="Btr-4N-2Px"/>
@@ -144,6 +148,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
+        </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="azY-Ep-gUq">
+            <objects>
+                <viewController id="KuH-Sr-2F4" customClass="LoadingViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MHs-oE-vHB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="4gX-me-Zqz">
+                                <rect key="frame" x="143" y="433" width="128" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KTr-a0-8rv">
+                                        <rect key="frame" x="0.0" y="0.5" width="30" height="29"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Ka6-Tk-x34"/>
+                                            <constraint firstAttribute="height" constant="30" id="YlP-bq-UzM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ABa-WY-UUd">
+                                        <rect key="frame" x="49" y="0.5" width="30" height="29"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="4bk-qE-mJg"/>
+                                            <constraint firstAttribute="height" constant="30" id="I5d-ji-WTH"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9gM-wm-vuq">
+                                        <rect key="frame" x="98" y="0.5" width="30" height="29"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="bii-xg-N5G"/>
+                                            <constraint firstAttribute="height" constant="30" id="qms-h1-yYD"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h6a-so-VVf"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstItem="4gX-me-Zqz" firstAttribute="centerX" secondItem="MHs-oE-vHB" secondAttribute="centerX" id="6fy-s8-15F"/>
+                            <constraint firstItem="4gX-me-Zqz" firstAttribute="centerY" secondItem="MHs-oE-vHB" secondAttribute="centerY" id="u9F-CR-gO3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dotStack" destination="4gX-me-Zqz" id="vLw-gE-U06"/>
+                        <outlet property="leftDot" destination="KTr-a0-8rv" id="Gj2-Yu-DRO"/>
+                        <outlet property="middleDot" destination="ABa-WY-UUd" id="Uwp-zL-oY1"/>
+                        <outlet property="rightDot" destination="9gM-wm-vuq" id="OvE-Mk-QN5"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loadToLoginSegue" id="XyL-zZ-1cF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJS-v0-hnA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722" y="94"/>
         </scene>
         <!--Main TabBarController-->
         <scene sceneID="WjE-sD-MuU">
@@ -175,7 +236,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupsCells" id="JfX-I6-jup" customClass="GroupsCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="45.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="45.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JfX-I6-jup" id="cDH-Q3-4Kl">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
@@ -240,7 +301,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupSearchCells" id="lA6-Dx-MBB" customClass="GroupsSearchCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lA6-Dx-MBB" id="fbo-dR-Y9l">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
@@ -306,7 +367,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendsCells" id="2zD-ec-rAs" customClass="FriendsCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="68.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="88.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2zD-ec-rAs" id="d2G-Ud-0ei">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -427,6 +488,7 @@
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="friendImageView" destination="NwO-No-Mpv" id="wSY-ff-4zj"/>
+                                    <segue destination="BvW-zV-dAw" kind="show" id="qSa-1d-xMb"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -435,16 +497,32 @@
                             <outlet property="delegate" destination="fJf-AM-56r" id="Myr-OR-7w9"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Qrp-eZ-sGR"/>
+                    <navigationItem key="navigationItem" title="Альбом" id="Qrp-eZ-sGR"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atd-KT-5GN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3363.7681159420295" y="-202.23214285714286"/>
         </scene>
+        <!--Фото-->
+        <scene sceneID="Mzt-rO-bMD">
+            <objects>
+                <viewController id="BvW-zV-dAw" customClass="PhotoViewController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zdD-me-tnz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ymN-9O-Mz2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Фото" id="x9I-e8-WLB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqb-I4-9Gd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4238" y="-202"/>
+        </scene>
         <!--Navigation Friends-->
         <scene sceneID="zqa-UQ-N7d">
             <objects>
-                <navigationController title="Navigation Friends" automaticallyAdjustsScrollViewInsets="NO" id="Osj-lX-nl3" sceneMemberID="viewController">
+                <navigationController title="Navigation Friends" automaticallyAdjustsScrollViewInsets="NO" id="Osj-lX-nl3" customClass="CustomNavigationController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Друзья" image="person.2.circle" catalog="system" landscapeImage="person.2.circle" id="slU-H5-9AK"/>
                     <toolbarItems/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -474,7 +552,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" id="6YW-kx-V9r" customClass="NewsCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="518"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="518"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6YW-kx-V9r" id="GqO-Vg-esp">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="518"/>
@@ -613,7 +691,7 @@
         <!--Navigation Groups-->
         <scene sceneID="G2p-vc-lhL">
             <objects>
-                <navigationController title="Navigation Groups" automaticallyAdjustsScrollViewInsets="NO" id="vxf-KO-MZe" sceneMemberID="viewController">
+                <navigationController title="Navigation Groups" automaticallyAdjustsScrollViewInsets="NO" id="vxf-KO-MZe" customClass="CustomNavigationController" customModule="VKApp_TalalayVV" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Группы" image="person.3" catalog="system" landscapeImage="person.3" id="9kt-pQ-Fl0"/>
                     <toolbarItems/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -653,7 +731,8 @@
     </scenes>
     <resources>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
-        <image name="book" catalog="system" width="128" height="102"/>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.2.circle" catalog="system" width="128" height="121"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
