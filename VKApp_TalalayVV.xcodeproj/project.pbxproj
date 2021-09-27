@@ -18,6 +18,7 @@
 		FE0D621C26D5799E005AE0EC /* FriendsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621B26D5799E005AE0EC /* FriendsCollectionViewController.swift */; };
 		FE0D621E26D579C9005AE0EC /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621D26D579C9005AE0EC /* FriendsCell.swift */; };
 		FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */; };
+		FE1EB0BE2701E74600C80914 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1EB0BD2701E74600C80914 /* Session.swift */; };
 		FE41A26026DFAD3A008F428E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41A25F26DFAD3A008F428E /* LikeControl.swift */; };
 		FE43FCF726E77AE1005449ED /* PhotoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE43FCF626E77AE1005449ED /* PhotoContainer.swift */; };
 		FE43FCF926E8BF50005449ED /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE43FCF826E8BF50005449ED /* LoadingViewController.swift */; };
@@ -51,6 +52,7 @@
 		FE0D621B26D5799E005AE0EC /* FriendsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsCollectionViewController.swift; path = VKApp_TalalayVV/Controllers/FriendsCollectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		FE0D621D26D579C9005AE0EC /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsCell.swift; path = ../FriendsCell.swift; sourceTree = "<group>"; };
 		FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
+		FE1EB0BD2701E74600C80914 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		FE41A25F26DFAD3A008F428E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		FE43FCF626E77AE1005449ED /* PhotoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContainer.swift; sourceTree = "<group>"; };
 		FE43FCF826E8BF50005449ED /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 			path = FriendsCollection;
 			sourceTree = "<group>";
 		};
+		FE1EB0BC2701E70C00C80914 /* NetworkingService */ = {
+			isa = PBXGroup;
+			children = (
+				FE1EB0BD2701E74600C80914 /* Session.swift */,
+			);
+			path = NetworkingService;
+			sourceTree = "<group>";
+		};
 		FE52E1E726E3874B00498CB9 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 				FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */,
 				FE52E1E726E3874B00498CB9 /* Controls */,
 				FEBFFC1426C676B5004576D0 /* Controllers */,
+				FE1EB0BC2701E70C00C80914 /* NetworkingService */,
 				FE0D620626D574AD005AE0EC /* Models */,
 				FEBFFC1326C676A8004576D0 /* View */,
 				FEBFFC0826C5B98C004576D0 /* Assets.xcassets */,
@@ -289,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE1EB0BE2701E74600C80914 /* Session.swift in Sources */,
 				FE0D621226D577B2005AE0EC /* GroupsSearchTableViewController.swift in Sources */,
 				FE0D621A26D578E8005AE0EC /* FriendsCollectionCell.swift in Sources */,
 				FE43FD0726EFBB3F005449ED /* PhotoViewController.swift in Sources */,
