@@ -8,13 +8,13 @@
 import Foundation
 
 /// Синглтон содержащий данные сессии
-class Session {
+final class Session {
     /// Экземпляр класса session
-    static var shared = Session()
+    public static let shared = Session()
     /// Токен сессии
     var token: String?
     /// Идентификатор  пользователя
     var userID: Int?
-    
+    // Приватим инициализатор
     private init() {}
 }
