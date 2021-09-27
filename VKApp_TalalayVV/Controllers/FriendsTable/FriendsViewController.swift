@@ -39,7 +39,8 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
              avatar: UIImage(named: "EricCartman"))
     ]
     
-    // MARK: Private properties
+    // MARK: - Private properties
+    
     /// Словарь со списком друзей
     private var friendsDict = [Character:[User]]()
     /// Массив первых букв имен друзей
@@ -51,7 +52,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     /// Контрол по буквам имен
     private var lettersControl: LettersControl?
     
-    // MARK: Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +70,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-    // MARK: Private methods
+    // MARK: - Private methods
     
     /// Метод задающий словарь со списком друзей
     private func getFriendsDict(searchText: String?, list: [User]) -> [Character:[User]]{
@@ -121,7 +122,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         tableView.reloadData()
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     /// Метод для реализации поиска
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
