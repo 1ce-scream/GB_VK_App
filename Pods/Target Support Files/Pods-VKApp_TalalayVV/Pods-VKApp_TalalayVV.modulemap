@@ -1,0 +1,6 @@
+framework module Pods_VKApp_TalalayVV {
+  umbrella header "Pods-VKApp_TalalayVV-umbrella.h"
+
+  export *
+  module * { export * }
+}
