@@ -17,6 +17,8 @@ class LoadingViewController: UIViewController {
     
     /// Счетчик для выхода из цикла
     private var counter = 0
+    /// ID контроллера для перехода
+    private let storyboardID = "LoginWebViewController"
     
     // MARK: - Lyfecycle
     override func viewDidLoad() {
@@ -76,8 +78,8 @@ class LoadingViewController: UIViewController {
                         // Присваиваем переменной логин контроллер по ID
                         let loginViewController = self.storyboard?
                             .instantiateViewController(
-                                withIdentifier: "LoginViewController")
-                            as! LoginViewController
+                                withIdentifier: self.storyboardID)
+                            as! LoginWebViewController
                         // Задаем полноэкранный режим контроллеру
                         loginViewController.modalPresentationStyle =
                             UIModalPresentationStyle.fullScreen
@@ -128,8 +130,8 @@ class LoadingViewController: UIViewController {
                 // Присваиваем переменной логин контроллер по ID
                 let loginViewController = self.storyboard?
                     .instantiateViewController(
-                        withIdentifier: "LoginViewController")
-                    as! LoginViewController
+                        withIdentifier: self.storyboardID)
+                    as! LoginWebViewController
                 // Задаем полноэкранный режим контроллеру
                 loginViewController.modalPresentationStyle =
                     UIModalPresentationStyle.fullScreen

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,7 @@
 		FEE9F5F526E6378B00DCEDDA /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F426E6378B00DCEDDA /* NewsViewController.swift */; };
 		FEE9F5F826E63D7900DCEDDA /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F726E63D7900DCEDDA /* NewsCell.swift */; };
 		FEE9F5FA26E63D9600DCEDDA /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F926E63D9600DCEDDA /* News.swift */; };
+		FEEB7D9E2707180400F74813 /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEB7D9D2707180400F74813 /* LoginWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		FEE9F5F426E6378B00DCEDDA /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		FEE9F5F726E63D7900DCEDDA /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		FEE9F5F926E63D9600DCEDDA /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		FEEB7D9D2707180400F74813 /* LoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,6 @@
 				365A419EA9DFBD551661FC14 /* Pods-VKApp_TalalayVV.debug.xcconfig */,
 				33D94AF057BFB3CD0BF38599 /* Pods-VKApp_TalalayVV.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -223,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				FEBFFC0326C5B98A004576D0 /* LoginViewController.swift */,
+				FEEB7D9D2707180400F74813 /* LoginWebViewController.swift */,
 				FE43FCF826E8BF50005449ED /* LoadingViewController.swift */,
 				FE43FD0626EFBB3F005449ED /* PhotoViewController.swift */,
 				FECDAB8226F8B5D8005047A7 /* Animations */,
@@ -389,6 +391,7 @@
 				FE0D620826D5754F005AE0EC /* User.swift in Sources */,
 				FE0D621C26D5799E005AE0EC /* FriendsCollectionViewController.swift in Sources */,
 				FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */,
+				FEEB7D9E2707180400F74813 /* LoginWebViewController.swift in Sources */,
 				FECDAB8426F8B5FD005047A7 /* PushAnimator.swift in Sources */,
 				FE43FCF726E77AE1005449ED /* PhotoContainer.swift in Sources */,
 				FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */,

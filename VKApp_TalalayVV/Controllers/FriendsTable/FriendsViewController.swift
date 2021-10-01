@@ -255,8 +255,8 @@ extension FriendsViewController: UITableViewDelegate {
     func tableView(
         _ tableView: UITableView,
         heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 15
+
+        return 10
     }
     
     func tableView(
