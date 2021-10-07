@@ -62,7 +62,10 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     // MARK: - Private methods
     
     /// Метод задающий словарь со списком друзей
-    private func getFriendsDict(searchText: String?, list: [Friend]) -> [Character:[Friend]]{
+    private func getFriendsDict(
+        searchText: String?,
+        list: [Friend]) -> [Character:[Friend]]{
+            
         var tempUsers = list
         if let text = searchText?.lowercased(), searchText != "" {
             tempUsers = list.filter{ $0.firstName.lowercased().contains(text) }
@@ -153,7 +156,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
             // Получаем данные конкретного друга
             guard let friend = friendsForKey?[index.row] else { return }
             // Добавляеем аватарку в массив
-//            friendCVC.friendPhotos.append(friend.avatar!)
+            friendCVC.userID = friend.id
         }
     }
 }

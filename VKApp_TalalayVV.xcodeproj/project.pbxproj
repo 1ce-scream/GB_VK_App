@@ -10,6 +10,8 @@
 		7AE39CD49A19B1E542AAAB1E /* Pods_VKApp_TalalayVV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544E5FF4F0A1D4049537F0EA /* Pods_VKApp_TalalayVV.framework */; };
 		FE077BB2270F312400AB88D8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB1270F312400AB88D8 /* Friend.swift */; };
 		FE077BB4270F325200AB88D8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB3270F325200AB88D8 /* Response.swift */; };
+		FE077BB6270F472000AB88D8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB5270F472000AB88D8 /* Photo.swift */; };
+		FE077BB9270F58B300AB88D8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB8270F58B300AB88D8 /* UIImageView.swift */; };
 		FE0D61EB26CAEEDD005AE0EC /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D61EA26CAEEDD005AE0EC /* GroupsTableViewController.swift */; };
 		FE0D61EF26CAEF22005AE0EC /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D61EE26CAEF22005AE0EC /* FriendsTableViewController.swift */; };
 		FE0D620826D5754F005AE0EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D620726D5754F005AE0EC /* User.swift */; };
@@ -53,6 +55,8 @@
 		544E5FF4F0A1D4049537F0EA /* Pods_VKApp_TalalayVV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKApp_TalalayVV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE077BB1270F312400AB88D8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		FE077BB3270F325200AB88D8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		FE077BB5270F472000AB88D8 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		FE077BB8270F58B300AB88D8 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		FE0D61EA26CAEEDD005AE0EC /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		FE0D61EE26CAEF22005AE0EC /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		FE0D620726D5754F005AE0EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -121,6 +125,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE077BB7270F58A100AB88D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FE077BB8270F58B300AB88D8 /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FE0D620626D574AD005AE0EC /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +140,7 @@
 				FE0D620926D5758C005AE0EC /* Group.swift */,
 				FEE9F5F926E63D9600DCEDDA /* News.swift */,
 				FE077BB1270F312400AB88D8 /* Friend.swift */,
+				FE077BB5270F472000AB88D8 /* Photo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +225,7 @@
 		FEBFFBFE26C5B98A004576D0 /* VKApp_TalalayVV */ = {
 			isa = PBXGroup;
 			children = (
+				FE077BB7270F58A100AB88D8 /* Extensions */,
 				FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */,
 				FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */,
 				FE52E1E726E3874B00498CB9 /* Controls */,
@@ -400,6 +414,7 @@
 				FE0D61EB26CAEEDD005AE0EC /* GroupsTableViewController.swift in Sources */,
 				FE0D620F26D576C0005AE0EC /* GroupsSearchCell.swift in Sources */,
 				FECDAB8626F8B611005047A7 /* PopAnimator.swift in Sources */,
+				FE077BB6270F472000AB88D8 /* Photo.swift in Sources */,
 				FE41A26026DFAD3A008F428E /* LikeControl.swift in Sources */,
 				FE0D61EF26CAEF22005AE0EC /* FriendsTableViewController.swift in Sources */,
 				FECDAB8826F8B68B005047A7 /* CustomNavigationController.swift in Sources */,
@@ -413,6 +428,7 @@
 				FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */,
 				FEEB7D9E2707180400F74813 /* LoginWebViewController.swift in Sources */,
 				FECDAB8426F8B5FD005047A7 /* PushAnimator.swift in Sources */,
+				FE077BB9270F58B300AB88D8 /* UIImageView.swift in Sources */,
 				FE43FCF726E77AE1005449ED /* PhotoContainer.swift in Sources */,
 				FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */,
 				FEE9F5F526E6378B00DCEDDA /* NewsViewController.swift in Sources */,

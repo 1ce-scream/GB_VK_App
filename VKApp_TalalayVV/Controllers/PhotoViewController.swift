@@ -12,12 +12,12 @@ class PhotoViewController: UIViewController {
     // MARK: - Рroperties
     
     /// Массив с фото
-    var photos = [UIImage]()
-    
+//    var photos = [UIImage]()
+    var photos = [Photo]()
+    /// Индекс выбранного фото
+    var selectedPhoto = 0
     // MARK: - Private properties
     
-    /// Индекс выбранного фото
-    private var selectedPhoto = 0
     /// Фото в левой стороне экрана
     private var leftImageView: UIImageView!
     /// Фото по центру экрана
@@ -132,10 +132,12 @@ class PhotoViewController: UIViewController {
         ])
         
         // Присваиваем фото из массива по индексу
-        middleImageView.image = photos[indexPhotoMid]
-        leftImageView.image = photos[indexPhotoLeft]
-        rightImageView.image = photos[indexPhotoRight]
-        
+//        middleImageView.image = photos[indexPhotoMid]
+//        leftImageView.image = photos[indexPhotoLeft]
+//        rightImageView.image = photos[indexPhotoRight]
+        leftImageView.loadImage(by: (photos[indexPhotoLeft].sizes.last!.url))
+        middleImageView.loadImage(by: (photos[indexPhotoMid].sizes.last!.url))
+        rightImageView.loadImage(by: (photos[indexPhotoRight].sizes.last!.url))
         /// Размер вьюхи для дальнейшей анимации увеличения
         let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
         self.middleImageView.transform = scale

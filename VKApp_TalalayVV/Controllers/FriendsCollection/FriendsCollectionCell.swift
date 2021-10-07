@@ -10,10 +10,11 @@ import UIKit
 class FriendsCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var friendImageView: UIImageView!
-
     
-
-    func configure(photo: UIImage) {
-        friendImageView.image = photo
-    }
+//    func configure(photo: Size) {
+//        let url = URL(string: photo.url)
+//        let data = try? Data(contentsOf: url!)
+//        friendImageView.image = UIImage(data: data!)
+//
+//    }
 }

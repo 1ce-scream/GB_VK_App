@@ -5,7 +5,7 @@
 //  Created by Vitaliy Talalay on 03.10.2021.
 //
 
-import Foundation
+import UIKit
 
 class NetworkService {
     
@@ -22,7 +22,7 @@ class NetworkService {
     }
     
     //MARK: - User Friends
-    func getFriends(onComplete: @escaping ([Friend]) -> Void, onError: @escaping (Error) -> Void) {
+    func getFriends(onComplete: @escaping ([Friend]) -> Void) {
         urlConstructor.path = "/method/friends.get"
         
         urlConstructor.queryItems = [
@@ -43,7 +43,11 @@ class NetworkService {
                 error == nil,
                 let responseData = responseData
             else { return }
-            guard let friends = try? JSONDecoder().decode(Response<Friend>.self, from: responseData).response.items else {return}
+            
+            guard let friends = try? JSONDecoder().decode(
+                Response<Friend>.self,
+                from: responseData).response.items
+            else { return }
             DispatchQueue.main.async {
                 onComplete(friends)
             }
@@ -52,7 +56,7 @@ class NetworkService {
     }
     
     //MARK: - Photo
-    func getPhoto(for ownerID: Int?) {
+    func getPhoto(for ownerID: Int?, onComplete: @escaping ([Photo]) -> Void) {
         
         
         urlConstructor.path = "/method/photos.getAll"
@@ -80,18 +84,19 @@ class NetworkService {
                 let responseData = responseData
             else { return }
             
-            let json = try? JSONSerialization.jsonObject(
-                with: responseData,
-                options: .fragmentsAllowed)
+            guard let photos = try? JSONDecoder().decode(
+                Response<Photo>.self,
+                from: responseData).response.items
+            else { return }
             DispatchQueue.main.async {
-                print(json!)
+                onComplete(photos)
             }
         }
         task.resume()
     }
     
     //MARK: - User Communities
-    func getCommunities(onComplete: @escaping ([Community]) -> Void, onError: @escaping (Error) -> Void)  {
+    func getCommunities(onComplete: @escaping ([Community]) -> Void)  {
         urlConstructor.path = "/method/groups.get"
         
         urlConstructor.queryItems = [
@@ -112,9 +117,10 @@ class NetworkService {
                 let responseData = responseData
             else { return }
             
-            guard let communities = try? JSONDecoder().decode(Response<Community>.self, from: responseData).response.items else {
-                return
-            }
+            guard let communities = try? JSONDecoder().decode(
+                Response<Community>.self,
+                from: responseData).response.items
+            else { return }
             
             DispatchQueue.main.async {
                 onComplete(communities)
@@ -152,5 +158,32 @@ class NetworkService {
             }
         }
         task.resume()
+    }
+
+private var images = [String: UIImage]()
+    
+private func loadPhoto(atIndexpath indexPath: IndexPath, byUrl url: String) {
+        
+        guard let urlRequest = URL(string: url) else { return }
+        let request = URLRequest(url: urlRequest)
+        URLSession.shared.dataTask(with: request) { (data, response, _ ) in
+            guard
+                let data = data,
+                let image = UIImage(data: data) else { return }
+            DispatchQueue.main.async {
+                self.images[url] = image
+            }
+        }.resume()
+        
+    }
+    
+func photo(atIndexpath indexPath: IndexPath, byUrl url: String) -> UIImage? {
+        var image: UIImage?
+        if let photo = images[url] {
+            image = photo
+        } else {
+            loadPhoto(atIndexpath: indexPath, byUrl: url)
+        }
+        return image
     }
 }
