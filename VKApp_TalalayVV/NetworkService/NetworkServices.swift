@@ -91,12 +91,12 @@ class NetworkService {
     }
     
     //MARK: - User Communities
-    func getCommunities() {
+    func getCommunities(onComplete: @escaping ([Community]) -> Void, onError: @escaping (Error) -> Void)  {
         urlConstructor.path = "/method/groups.get"
         
         urlConstructor.queryItems = [
             URLQueryItem(name: "extended", value: "1"),
-            URLQueryItem(name: "fields", value: "description"),
+            URLQueryItem(name: "fields", value: "photo_100"),
             URLQueryItem(name: "access_token", value: Session.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
@@ -112,11 +112,12 @@ class NetworkService {
                 let responseData = responseData
             else { return }
             
-            let json = try? JSONSerialization.jsonObject(
-                with: responseData,
-                options: .fragmentsAllowed)
+            guard let communities = try? JSONDecoder().decode(Response<Community>.self, from: responseData).response.items else {
+                return
+            }
+            
             DispatchQueue.main.async {
-                print(json!)
+                onComplete(communities)
             }
         }
         task.resume()

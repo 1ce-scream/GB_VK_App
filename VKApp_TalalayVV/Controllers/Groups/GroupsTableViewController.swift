@@ -11,38 +11,42 @@ class GroupsTableViewController: UITableViewController {
 
     @IBOutlet weak var searchNavigationButton: UIBarButtonItem!
     
+    let networkService = NetworkService()
+    
     // Массив имитирующий список групп
-    var groups = [
-        Group(id: 1111, name: "Group 1", logo: UIImage(named: "group1")),
-        Group(id: 2222, name: "Group 2", logo: UIImage(named: "group2")),
-        Group(id: 3333, name: "Group 3", logo: UIImage(named: "group3"))
-    ]
+    var groups = [Community]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        networkService.getCommunities(onComplete: { [weak self] (communites) in
+                    self?.groups = communites
+                    self?.tableView.reloadData()
+                }) { (error) in
+                    print(error)
+                }
     }
 
     //unwind segue
-    @IBAction func addGroup(segue: UIStoryboardSegue) {
-        // Проверяем идентификатор перехода
-        if segue.identifier == "addGroupSegue" {
-            // Получаем ссылку на контроллер, с которого осуществлен переход
-            guard let groupsSearch = segue.source as?
-                    GroupsSearchTableViewController else { return }
-            // Получаем индекс выделенной ячейки
-            if let indexPath = groupsSearch.tableView.indexPathForSelectedRow {
-                // Получаем группу по индексу
-                let selectedGroup = groupsSearch.someGroups[indexPath.row]
-                // Проверяем на наличие дубликата
-                if !groups.contains(selectedGroup) {
-                    // Если дубликата нет, то добавляем группу в список
-                    groups.append(selectedGroup)
-                    // Обновляем таблицу
-                    tableView.reloadData()
-                }
-            }
-        }
-    }
+//    @IBAction func addGroup(segue: UIStoryboardSegue) {
+//        // Проверяем идентификатор перехода
+//        if segue.identifier == "addGroupSegue" {
+//            // Получаем ссылку на контроллер, с которого осуществлен переход
+//            guard let groupsSearch = segue.source as?
+//                    GroupsSearchTableViewController else { return }
+//            // Получаем индекс выделенной ячейки
+//            if let indexPath = groupsSearch.tableView.indexPathForSelectedRow {
+//                // Получаем группу по индексу
+//                let selectedGroup = groupsSearch.someGroups[indexPath.row]
+//                // Проверяем на наличие дубликата
+//                if !groups.contains(selectedGroup) {
+//                    // Если дубликата нет, то добавляем группу в список
+//                    groups.append(selectedGroup)
+//                    // Обновляем таблицу
+//                    tableView.reloadData()
+//                }
+//            }
+//        }
+//    }
     // MARK: - Table view data source
 
     // Метод задающий количество секций в таблице

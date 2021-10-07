@@ -28,8 +28,10 @@ class GroupsCell: UITableViewCell {
     }
     
     // Задаем конфигурацию ячейки
-    func configure(group: Group) {
-        groupLogoImageView.image = group.logo
+    func configure(group: Community) {
+        let url = URL(string: group.avatarURL)
+        let data = try? Data(contentsOf: url!)
+        groupLogoImageView.image = UIImage(data: data!)
         groupNameLabel.text = group.name
     }
     

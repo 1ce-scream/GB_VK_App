@@ -12,3 +12,15 @@ struct Group: Equatable {
     var name: String
     var logo: UIImage?
 }
+
+class Community: Codable {
+    var id: Int = 0
+    var name: String = ""
+    var avatarURL: String = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case avatarURL = "photo_100"
+    }
+}
