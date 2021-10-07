@@ -28,9 +28,11 @@ class FriendsCell: UITableViewCell {
     }
     
     /// Метод конфигурации ячейки
-    func configure(user: User) {
-        friendAvatarImageView.image = user.avatar
-        friendNameLabel.text = user.name
+    func configure(user: Friend) {
+        let url = URL(string: user.avatarURL)
+        let data = try? Data(contentsOf: url!)
+        friendAvatarImageView.image = UIImage(data: data!)
+        friendNameLabel.text = user.firstName + " " + user.lastName
     }
 
     /// Метод действия при нажатии на аватарку

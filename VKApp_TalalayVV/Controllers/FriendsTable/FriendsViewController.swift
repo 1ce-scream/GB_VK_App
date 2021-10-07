@@ -14,35 +14,12 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     /// Массив имитирующий список друзей
-    var friends = [
-        User(id: 1111, name: "Stan Marsh",
-             avatar: UIImage(named: "StanMarsh")),
-        User(id: 1111, name: "Stan Marsh",
-             avatar: UIImage(named: "StanMarsh")),
-        User(id: 1111, name: "Stan Marsh",
-             avatar: UIImage(named: "StanMarsh")),
-        User(id: 1111, name: "Stan Marsh",
-             avatar: UIImage(named: "StanMarsh")),
-        User(id: 1111, name: "Stan Marsh",
-             avatar: UIImage(named: "StanMarsh")),
-        User(id: 1111, name: "Stan Marsh",
-             avatar: UIImage(named: "StanMarsh")),
-        User(id: 1111, name: "Stan Marsh",
-             avatar: UIImage(named: "StanMarsh")),
-        User(id: 1111, name: "Stan Marsh",
-             avatar: UIImage(named: "StanMarsh")),
-        User(id: 1111, name: "Stan Marsh",
-             avatar: UIImage(named: "StanMarsh")),
-        User(id: 2222, name: "Kyle Broflovski",
-             avatar: UIImage(named: "KyleBroflovski")),
-        User(id: 3333, name: "Eric Cartman",
-             avatar: UIImage(named: "EricCartman"))
-    ]
-    
+    var friends = [Friend]()
+    let networkService = NetworkService()
     // MARK: - Private properties
     
     /// Словарь со списком друзей
-    private var friendsDict = [Character:[User]]()
+    private var friendsDict = [Character:[Friend]]()
     /// Массив первых букв имен друзей
     private var firstLetters: [Character] {
         get {
@@ -57,12 +34,24 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        networkService.getFriends(onComplete: { [weak self] (friends) in
+            let tmpFriends = friends.filter{ !$0.lastName.isEmpty }
+            
+            self?.friendsDict = self?.getFriendsDict(
+                searchText: nil,
+                list: tmpFriends) ?? [Character : [Friend]]()
+            
+            self?.tableView.reloadData()
+        }) { (error) in
+            print(error)
+        }
+        
         // Присвоение данных таблице
         self.tableView.dataSource = self
         // Присвоение настроек внешнего вида таблицы
         self.tableView.delegate = self
         // Запонение словаря
-        self.friendsDict = self.getFriendsDict(searchText: nil, list: friends)
+//        self.friendsDict = self.getFriendsDict(searchText: nil, list: friends)
         // Вызов контрола
         setLettersControl()
         // вызов серчбара
@@ -73,17 +62,17 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     // MARK: - Private methods
     
     /// Метод задающий словарь со списком друзей
-    private func getFriendsDict(searchText: String?, list: [User]) -> [Character:[User]]{
+    private func getFriendsDict(searchText: String?, list: [Friend]) -> [Character:[Friend]]{
         var tempUsers = list
         if let text = searchText?.lowercased(), searchText != "" {
-            tempUsers = list.filter{ $0.name.lowercased().contains(text) }
+            tempUsers = list.filter{ $0.firstName.lowercased().contains(text) }
         } else {
             tempUsers = list
         }
         let sortedUsers = Dictionary.init(grouping: tempUsers)
-            { $0.name.lowercased().first ?? "#" }
+            { $0.firstName.lowercased().first ?? "#" }
             .mapValues{ $0.sorted
-            { $0.name.lowercased() < $1.name.lowercased() }
+            { $0.firstName.lowercased() < $1.firstName.lowercased() }
             }
         self.tableView.reloadData()
         return sortedUsers
@@ -164,7 +153,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
             // Получаем данные конкретного друга
             guard let friend = friendsForKey?[index.row] else { return }
             // Добавляеем аватарку в массив
-            friendCVC.friendPhotos.append(friend.avatar!)
+//            friendCVC.friendPhotos.append(friend.avatar!)
         }
     }
 }

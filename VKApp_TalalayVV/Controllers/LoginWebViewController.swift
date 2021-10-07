@@ -84,13 +84,13 @@ extension LoginWebViewController: WKNavigationDelegate {
             
             // MARK: - Segue from LoginWebView
             
-//            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//            let loginViewController = storyBoard
-//                .instantiateViewController(withIdentifier: "LoginViewController")
-//            as! LoginViewController
-//
-//            loginViewController.modalPresentationStyle = .fullScreen
-//            self.present(loginViewController, animated: true, completion: nil)
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let loginViewController = storyBoard
+                .instantiateViewController(withIdentifier: "LoginViewController")
+            as! LoginViewController
+
+            loginViewController.modalPresentationStyle = .fullScreen
+            self.present(loginViewController, animated: true, completion: nil)
             
             
             // MARK: - Requests checking

@@ -22,20 +22,12 @@ class NetworkService {
     }
     
     //MARK: - User Friends
-    func getFriends() {
+    func getFriends(onComplete: @escaping ([Friend]) -> Void, onError: @escaping (Error) -> Void) {
         urlConstructor.path = "/method/friends.get"
         
         urlConstructor.queryItems = [
             URLQueryItem(name: "order", value: "name"),
-            URLQueryItem(name: "fields",
-                         value: """
-                         sex,
-                         bdate,
-                         city,
-                         country,
-                         photo_100,
-                         photo_200_orig
-                         """),
+            URLQueryItem(name: "fields", value: "photo_100"),
             URLQueryItem(name: "access_token", value: Session.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
@@ -51,12 +43,9 @@ class NetworkService {
                 error == nil,
                 let responseData = responseData
             else { return }
-            
-            let json = try? JSONSerialization.jsonObject(
-                with: responseData,
-                options: .fragmentsAllowed)
+            guard let friends = try? JSONDecoder().decode(Response<Friend>.self, from: responseData).response.items else {return}
             DispatchQueue.main.async {
-                print(json!)
+                onComplete(friends)
             }
         }
         task.resume()

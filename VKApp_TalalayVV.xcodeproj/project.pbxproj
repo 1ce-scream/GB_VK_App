@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7AE39CD49A19B1E542AAAB1E /* Pods_VKApp_TalalayVV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544E5FF4F0A1D4049537F0EA /* Pods_VKApp_TalalayVV.framework */; };
+		FE077BB2270F312400AB88D8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB1270F312400AB88D8 /* Friend.swift */; };
+		FE077BB4270F325200AB88D8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB3270F325200AB88D8 /* Response.swift */; };
 		FE0D61EB26CAEEDD005AE0EC /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D61EA26CAEEDD005AE0EC /* GroupsTableViewController.swift */; };
 		FE0D61EF26CAEF22005AE0EC /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D61EE26CAEF22005AE0EC /* FriendsTableViewController.swift */; };
 		FE0D620826D5754F005AE0EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D620726D5754F005AE0EC /* User.swift */; };
@@ -49,6 +51,8 @@
 		33D94AF057BFB3CD0BF38599 /* Pods-VKApp_TalalayVV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApp_TalalayVV.release.xcconfig"; path = "Target Support Files/Pods-VKApp_TalalayVV/Pods-VKApp_TalalayVV.release.xcconfig"; sourceTree = "<group>"; };
 		365A419EA9DFBD551661FC14 /* Pods-VKApp_TalalayVV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApp_TalalayVV.debug.xcconfig"; path = "Target Support Files/Pods-VKApp_TalalayVV/Pods-VKApp_TalalayVV.debug.xcconfig"; sourceTree = "<group>"; };
 		544E5FF4F0A1D4049537F0EA /* Pods_VKApp_TalalayVV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKApp_TalalayVV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE077BB1270F312400AB88D8 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		FE077BB3270F325200AB88D8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		FE0D61EA26CAEEDD005AE0EC /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		FE0D61EE26CAEF22005AE0EC /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		FE0D620726D5754F005AE0EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				FE0D620726D5754F005AE0EC /* User.swift */,
 				FE0D620926D5758C005AE0EC /* Group.swift */,
 				FEE9F5F926E63D9600DCEDDA /* News.swift */,
+				FE077BB1270F312400AB88D8 /* Friend.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				FEEB7D9F2709A5A600F74813 /* NetworkServices.swift */,
 				FEEB7DA52709B65D00F74813 /* AlamofireNS.swift */,
 				FEEB7DA12709A61D00F74813 /* NetworkConstants.swift */,
+				FE077BB3270F325200AB88D8 /* Response.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -400,7 +406,9 @@
 				FE0D620C26D57671005AE0EC /* GroupsCell.swift in Sources */,
 				FECDAB8A26F8BCB8005047A7 /* CustomInteractiveTransition.swift in Sources */,
 				FEE9F5F826E63D7900DCEDDA /* NewsCell.swift in Sources */,
+				FE077BB4270F325200AB88D8 /* Response.swift in Sources */,
 				FE0D620826D5754F005AE0EC /* User.swift in Sources */,
+				FE077BB2270F312400AB88D8 /* Friend.swift in Sources */,
 				FE0D621C26D5799E005AE0EC /* FriendsCollectionViewController.swift in Sources */,
 				FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */,
 				FEEB7D9E2707180400F74813 /* LoginWebViewController.swift in Sources */,
