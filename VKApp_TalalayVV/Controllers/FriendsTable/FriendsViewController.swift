@@ -36,7 +36,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         
         networkService.getFriends(onComplete: { [weak self] (friends) in
             let tmpFriends = friends.filter{ !$0.lastName.isEmpty }
-            
+            self?.friends = tmpFriends
             self?.friendsDict = self?.getFriendsDict(
                 searchText: nil,
                 list: tmpFriends) ?? [Character : [Friend]]()
