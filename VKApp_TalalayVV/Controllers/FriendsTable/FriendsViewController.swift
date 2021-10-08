@@ -118,6 +118,12 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // Перезаписываем словарь в соответствии с введенным текстом
         friendsDict = getFriendsDict(searchText: searchText, list: friends)
+        
+        if searchText == "" {
+            lettersControl?.isHidden = false
+        }else{
+            lettersControl?.isHidden = true
+        }
         // Обновляем данные в таблице
         tableView.reloadData()
     }
