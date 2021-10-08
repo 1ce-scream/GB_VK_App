@@ -40,11 +40,11 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
             self?.friendsDict = self?.getFriendsDict(
                 searchText: nil,
                 list: tmpFriends) ?? [Character : [Friend]]()
+            // Вызов контрола
+            self?.setLettersControl()
             
             self?.tableView.reloadData()
-        }) { (error) in
-            print(error)
-        }
+        })
         
         // Присвоение данных таблице
         self.tableView.dataSource = self
@@ -52,8 +52,6 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         self.tableView.delegate = self
         // Запонение словаря
 //        self.friendsDict = self.getFriendsDict(searchText: nil, list: friends)
-        // Вызов контрола
-        setLettersControl()
         // вызов серчбара
         searchBar.delegate = self
         

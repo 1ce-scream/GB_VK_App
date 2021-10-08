@@ -21,9 +21,7 @@ class GroupsTableViewController: UITableViewController {
         networkService.getCommunities(onComplete: { [weak self] (communites) in
                     self?.groups = communites
                     self?.tableView.reloadData()
-                }) { (error) in
-                    print(error)
-                }
+                }) 
     }
 
     //unwind segue

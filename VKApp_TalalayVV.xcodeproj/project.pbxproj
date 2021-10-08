@@ -225,9 +225,10 @@
 		FEBFFBFE26C5B98A004576D0 /* VKApp_TalalayVV */ = {
 			isa = PBXGroup;
 			children = (
-				FE077BB7270F58A100AB88D8 /* Extensions */,
 				FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */,
 				FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */,
+				FE077BB7270F58A100AB88D8 /* Extensions */,
+				FECDAB8226F8B5D8005047A7 /* Animations */,
 				FE52E1E726E3874B00498CB9 /* Controls */,
 				FEBFFC1426C676B5004576D0 /* Controllers */,
 				FE1EB0BC2701E70C00C80914 /* NetworkService */,
@@ -256,7 +257,6 @@
 				FEEB7D9D2707180400F74813 /* LoginWebViewController.swift */,
 				FE43FCF826E8BF50005449ED /* LoadingViewController.swift */,
 				FE43FD0626EFBB3F005449ED /* PhotoViewController.swift */,
-				FECDAB8226F8B5D8005047A7 /* Animations */,
 				FE0D620D26D5769F005AE0EC /* Groups */,
 				FE0D621026D576D5005AE0EC /* GroupsSearch */,
 				FE0D621526D5782F005AE0EC /* FriendsTable */,

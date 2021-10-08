@@ -32,7 +32,7 @@ class FriendsCollectionViewController: UICollectionViewController {
     func set(photos: [Photo]) {
         self.photos = photos
     }
-    // Передаем данные в фото контроллер при переходе
+//     Передаем данные в фото контроллер при переходе
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Проверяем в нужный ли контроллер осуществляется переход
         guard let friendPVC = segue.destination
@@ -40,12 +40,11 @@ class FriendsCollectionViewController: UICollectionViewController {
         else { return }
 
         friendPVC.photos = photos
-        
+
 //        let index = collectionView.indexPathsForSelectedItems?.first
 //        friendPVC.selectedPhoto = index!.first!
         
     }
-    
     
     // MARK: - UICollectionViewDataSource
     
@@ -82,9 +81,17 @@ class FriendsCollectionViewController: UICollectionViewController {
                 byUrl: photoURL)
             return cell
         }
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let friendPVC = PhotoViewController()
-//        friendPVC.selectedPhoto = indexPath.item
+    
+//    override func collectionView(
+//        _ collectionView: UICollectionView,
+//        didSelectItemAt indexPath: IndexPath) {
+//
+//            let photoView = PhotoViewController()
+//            photoView.photos = photos
+//            photoView.selectedPhoto = indexPath.item
+//            photoView.modalPresentationStyle = .automatic
+//            photoView.modalTransitionStyle = .coverVertical
+//            navigationController?.pushViewController(photoView, animated: true)
 //    }
     // MARK: UICollectionViewDelegate
     
