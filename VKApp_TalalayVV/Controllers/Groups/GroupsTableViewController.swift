@@ -23,40 +23,7 @@ class GroupsTableViewController: UITableViewController {
                 }) 
     }
 
-    //unwind segue
-//    @IBAction func addGroup(segue: UIStoryboardSegue) {
-//        // Проверяем идентификатор перехода
-//        if segue.identifier == "addGroupSegue" {
-//            // Получаем ссылку на контроллер, с которого осуществлен переход
-//            guard let groupsSearch = segue.source as?
-//                    GroupsSearchTableViewController else { return }
-//
-////            guard let index = groupsSearch.didSelectIndexCommunity else { return }
-////            let community = groupsSearch.communities[index]
-//            networkService.joinCommunity(id: community.id, onComplete: { [weak self] (value) in
-//                guard value == 1 else {
-//                    print("Запрос отклонен")
-//                    return
-//                })
-//            // Получаем индекс выделенной ячейки
-//            if let indexPath = groupsSearch.tableView.indexPathForSelectedRow {
-//                // Получаем группу по индексу
-//                let selectedGroup = groupsSearch.communities[indexPath.row]
-//
-//                // Проверяем на наличие дубликата
-//                if !groups.contains(selectedGroup.id) {
-//                    // Если дубликата нет, то добавляем группу в список
-//                    networkService.joinCommunity(id: selectedGroup.id, onComplete: { [weak self] (value) in
-//                        guard value == 1 else {
-//                            print("Запрос отклонен")
-//                            return
-//                        })
-//                    // Обновляем таблицу
-//                    tableView.reloadData()
-//                }
-//            }
-//        }
-//    }
+
     @IBAction func addGroup(segue: UIStoryboardSegue) {
             // Проверяем идентификатор перехода
             if segue.identifier == "addGroupSegue" {

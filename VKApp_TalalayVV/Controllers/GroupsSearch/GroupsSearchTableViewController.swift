@@ -7,28 +7,36 @@
 
 import UIKit
 
-class GroupsSearchTableViewController: UITableViewController {
+class GroupsSearchTableViewController: UITableViewController, UISearchBarDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     // Массив имитирующий список групп пользователя
-//    var someGroups = [
-//        Group(id: 4444, name: "Group 4", logo: UIImage(named: "group4")),
-//        Group(id: 5555, name: "Group 5", logo: UIImage(named: "group5")),
-//        Group(id: 6666, name: "Group 6", logo: UIImage(named: "group6"))
-//    ]
     
     private let networkService = NetworkService()
+    
     var communities = [Community]()
-    var didSelectIndexCommunity: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.getSearchCommunity(text: "Привидения", onComplete: { [weak self] (communities) in
-                    self?.communities = communities
-                    self?.tableView.reloadData()
-                })
+        searchBar.delegate = self
+        networkService.getSearchCommunity(
+            text: "",
+            onComplete: { [weak self] (communities) in
+                self?.communities = communities
+                self?.tableView.reloadData()
+            })
     }
-
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        networkService.getSearchCommunity(
+            text: searchText,
+            onComplete: { [weak self] (communities) in
+                self?.communities = communities
+                self?.tableView.reloadData()
+            })
+    }
+    
     // MARK: - Table view data source
 
     // Метод задающий количество секций в таблице
