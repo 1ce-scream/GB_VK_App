@@ -12,7 +12,6 @@ class GroupsTableViewController: UITableViewController {
     @IBOutlet weak var searchNavigationButton: UIBarButtonItem!
     
     let networkService = NetworkService()
-    
     // Массив имитирующий список групп
     var groups = [Community]()
     override func viewDidLoad() {
@@ -96,13 +95,23 @@ class GroupsTableViewController: UITableViewController {
         _ tableView: UITableView,
         commit editingStyle: UITableViewCell.EditingStyle,
         forRowAt indexPath: IndexPath) {
-        
+            
             // Если была нажата кнопка «Удалить»
             if editingStyle == .delete {
-            // Удаляем группу из массива
-                groups.remove(at: indexPath.row)
-            // И удаляем строку из таблицы
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                let currentGroup = groups[indexPath.row]
+                let index = currentGroup.id
+                networkService.leaveCommunity(id: index, onComplete: { (value) in
+                    if value == 1 {
+                        print("Вы покинули группу")
+                        // Удаляем группу из массива
+                        self.groups.remove(at: indexPath.row)
+                        // И удаляем строку из таблицы
+                        self.tableView.deleteRows(at: [indexPath], with: .fade)
+                    } else {
+                        print("Ошибка запроса")
+                    }
+                })
             }
         }
 }

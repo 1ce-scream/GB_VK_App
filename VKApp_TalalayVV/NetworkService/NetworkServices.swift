@@ -129,6 +129,61 @@ class NetworkService {
         task.resume()
     }
     
+    func leaveCommunity(id: Int, onComplete: @escaping (Int) -> Void) {
+        urlConstructor.path = "/method/groups.leave"
+        
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "group_id", value: String(id)),
+            URLQueryItem(name: "access_token", value: Session.shared.token),
+            URLQueryItem(name: "v", value: constants.versionAPI),
+        ]
+        let task = session.dataTask(with: urlConstructor.url!) {
+            (data, response, error) in
+            
+            guard
+                let data = data
+            else { return }
+            guard
+                let response = try? JSONDecoder().decode(
+                    ResponseJoin.self,
+                    from: data)
+            else { return }
+            
+            DispatchQueue.main.async {
+                onComplete(response.response)
+            }
+        }
+        task.resume()
+    }
+    
+    func joinCommunity(id: Int, onComplete: @escaping (Int) -> Void) {
+        urlConstructor.path = "/method/groups.join"
+        
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "group_id", value: String(id)),
+            URLQueryItem(name: "access_token", value: Session.shared.token),
+            URLQueryItem(name: "v", value: constants.versionAPI),
+        ]
+        let task = session.dataTask(with: urlConstructor.url!) {
+            (data, response, error) in
+            
+            guard
+                let data = data
+            else { return }
+            
+            guard
+                let response = try? JSONDecoder().decode(
+                    ResponseJoin.self,
+                    from: data)
+            else { return }
+            
+            DispatchQueue.main.async {
+                onComplete(response.response)
+            }
+        }
+        task.resume()
+    }
+    
     func getSearchCommunity(text: String?) {
         urlConstructor.path = "/method/groups.search"
         
