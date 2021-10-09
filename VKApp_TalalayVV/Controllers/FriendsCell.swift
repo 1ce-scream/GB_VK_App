@@ -8,7 +8,7 @@
 import UIKit
 
 class FriendsCell: UITableViewCell {
-
+    
     // Связываем элементы ячейки с контроллером ячейки
     @IBOutlet weak var friendAvatarImageView: AvatarImage!
     @IBOutlet weak var friendNameLabel: UILabel!
@@ -34,7 +34,7 @@ class FriendsCell: UITableViewCell {
         friendAvatarImageView.image = UIImage(data: data!)
         friendNameLabel.text = user.firstName + " " + user.lastName
     }
-
+    
     /// Метод действия при нажатии на аватарку
     @objc func tapOnAvatar(_ tapGestureRecognizer: UITapGestureRecognizer) {
         UIView.animate(
@@ -46,16 +46,16 @@ class FriendsCell: UITableViewCell {
                 self.friendAvatarImageView.transform = scale
                 self.avatarBackgroundView.transform = scale
             }) { _ in
-            UIView.animate(
-                withDuration: 0.3,
-                delay: 0,
-                usingSpringWithDamping: 0.3,
-                initialSpringVelocity: 1.0,
-                options: [],
-                animations: {
-                    self.friendAvatarImageView.transform = .identity
-                    self.avatarBackgroundView.transform = .identity
-                })
-        }
+                UIView.animate(
+                    withDuration: 0.3,
+                    delay: 0,
+                    usingSpringWithDamping: 0.3,
+                    initialSpringVelocity: 1.0,
+                    options: [],
+                    animations: {
+                        self.friendAvatarImageView.transform = .identity
+                        self.avatarBackgroundView.transform = .identity
+                    })
+            }
     }
 }

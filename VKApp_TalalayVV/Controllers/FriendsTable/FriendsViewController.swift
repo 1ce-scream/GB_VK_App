@@ -50,8 +50,6 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         self.tableView.dataSource = self
         // Присвоение настроек внешнего вида таблицы
         self.tableView.delegate = self
-        // Запонение словаря
-//        self.friendsDict = self.getFriendsDict(searchText: nil, list: friends)
         // вызов серчбара
         searchBar.delegate = self
         
@@ -64,20 +62,20 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         searchText: String?,
         list: [Friend]) -> [Character:[Friend]]{
             
-        var tempUsers = list
-        if let text = searchText?.lowercased(), searchText != "" {
-            tempUsers = list.filter{ $0.firstName.lowercased().contains(text) }
-        } else {
-            tempUsers = list
-        }
-        let sortedUsers = Dictionary.init(grouping: tempUsers)
+            var tempUsers = list
+            if let text = searchText?.lowercased(), searchText != "" {
+                tempUsers = list.filter{ $0.firstName.lowercased().contains(text) }
+            } else {
+                tempUsers = list
+            }
+            let sortedUsers = Dictionary.init(grouping: tempUsers)
             { $0.firstName.lowercased().first ?? "#" }
             .mapValues{ $0.sorted
-            { $0.firstName.lowercased() < $1.firstName.lowercased() }
+                { $0.firstName.lowercased() < $1.firstName.lowercased() }
             }
-        self.tableView.reloadData()
-        return sortedUsers
-    }
+            self.tableView.reloadData()
+            return sortedUsers
+        }
     
     /// Метод добавляющий контрол перехода по букве
     private func setLettersControl(){
@@ -179,47 +177,47 @@ extension FriendsViewController: UITableViewDataSource{
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-        
-        // Проверяем чтоб словарь не был пустым
-        guard !firstLetters.isEmpty else { return 0 }
-        // Задаем ключ
-        let key = firstLetters[section]
-        // Возвращаем количество друзей из словаря по ключу
-        return friendsDict[key]?.count ?? 0
-    }
+            
+            // Проверяем чтоб словарь не был пустым
+            guard !firstLetters.isEmpty else { return 0 }
+            // Задаем ключ
+            let key = firstLetters[section]
+            // Возвращаем количество друзей из словаря по ключу
+            return friendsDict[key]?.count ?? 0
+        }
     
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Получаем ячейку из пула и проверяем, что ячейка нужного типа
-        guard let cell = tableView.dequeueReusableCell(
+            
+            // Получаем ячейку из пула и проверяем, что ячейка нужного типа
+            guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "friendsCells",
                 for: indexPath) as? FriendsCell
-        // Иначе возвращаем пустую ячейку
-        else { return UITableViewCell() }
-        
-        // Задаем ключ
-        let key = firstLetters[indexPath.section]
-        // Получаем массив друзей из словаря по ключу
-        let friendsForKey = friendsDict[key]
-        // Получаем данные конкретного друга для каждой строки по индексу строки
-        guard let friend = friendsForKey?[indexPath.row] else { return cell }
-        // Присваиваем данные каждой строке
-        cell.configure(user: friend)
-        return cell
-    }
+                    // Иначе возвращаем пустую ячейку
+            else { return UITableViewCell() }
+            
+            // Задаем ключ
+            let key = firstLetters[indexPath.section]
+            // Получаем массив друзей из словаря по ключу
+            let friendsForKey = friendsDict[key]
+            // Получаем данные конкретного друга для каждой строки по индексу строки
+            guard let friend = friendsForKey?[indexPath.row] else { return cell }
+            // Присваиваем данные каждой строке
+            cell.configure(user: friend)
+            return cell
+        }
     
     
     // Метод задающий хэдер секциям
     func tableView(
         _ tableView: UITableView,
         titleForHeaderInSection section: Int) -> String? {
-        
-        let letter = firstLetters[section].uppercased()
-        let header = String(letter)
-        return header
-    }
+            
+            let letter = firstLetters[section].uppercased()
+            let header = String(letter)
+            return header
+        }
 }
 
 
@@ -230,48 +228,48 @@ extension FriendsViewController: UITableViewDelegate {
     func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) {
-        
-        //defer конструкция которая всегда выполняется в конце кода
-        //в независимоти от места ее написания
-        defer {
-            // Метод для снятия выделения с ячейки
-            tableView.deselectRow(at: indexPath, animated: true)
+            
+            //defer конструкция которая всегда выполняется в конце кода
+            //в независимоти от места ее написания
+            defer {
+                // Метод для снятия выделения с ячейки
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            
         }
-        
-    }
     
     // Метод задающий высоту ячейки таблицы
     func tableView(
         _ tableView: UITableView,
         heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 52
-    }
+            return 52
+        }
     
     // Метод задающий высоту хэдера
     func tableView(
         _ tableView: UITableView,
         heightForHeaderInSection section: Int) -> CGFloat {
-
-        return 10
-    }
+            
+            return 10
+        }
     
     func tableView(
         _ tableView: UITableView,
         willDisplay cell: UITableViewCell,
         forRowAt indexPath: IndexPath) {
-        
-        let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        cell.transform = scale
-        cell.alpha = 0.3
-        
-        UIView.animate(withDuration: 1,
-                       delay: 0,
-                       usingSpringWithDamping: 0.6,
-                       initialSpringVelocity: 1,
-                       options: [.curveEaseInOut],
-                       animations: {
-                        cell.transform = .identity
-                        cell.alpha = 1
-                       })
-    }
+            
+            let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            cell.transform = scale
+            cell.alpha = 0.3
+            
+            UIView.animate(withDuration: 1,
+                           delay: 0,
+                           usingSpringWithDamping: 0.6,
+                           initialSpringVelocity: 1,
+                           options: [.curveEaseInOut],
+                           animations: {
+                cell.transform = .identity
+                cell.alpha = 1
+            })
+        }
 }

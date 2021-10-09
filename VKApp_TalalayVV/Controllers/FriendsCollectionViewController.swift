@@ -11,9 +11,11 @@ import UIKit
 class FriendsCollectionViewController: UICollectionViewController {
     // MARK: - Properties
     
-    // Массив имитирующий альбом фотографий друга
+    /// Массив с фотографиями друга
     var photos = [Photo]()
+    /// ID друга
     var userID: Int?
+    
     let networkService = NetworkService()
     // MARK: - Lifecycle
     
@@ -32,15 +34,15 @@ class FriendsCollectionViewController: UICollectionViewController {
     func set(photos: [Photo]) {
         self.photos = photos
     }
-//     Передаем данные в фото контроллер при переходе
+    //     Передаем данные в фото контроллер при переходе
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Проверяем в нужный ли контроллер осуществляется переход
         guard let friendPVC = segue.destination
                 as? PhotoViewController
         else { return }
-
+        
         friendPVC.photos = photos
-
+        
 //        let index = collectionView.indexPathsForSelectedItems?.first
 //        friendPVC.selectedPhoto = index!.first!
         
@@ -92,7 +94,7 @@ class FriendsCollectionViewController: UICollectionViewController {
 //            photoView.modalPresentationStyle = .automatic
 //            photoView.modalTransitionStyle = .coverVertical
 //            navigationController?.pushViewController(photoView, animated: true)
-//    }
+//        }
     // MARK: UICollectionViewDelegate
     
 }

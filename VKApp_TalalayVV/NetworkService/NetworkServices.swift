@@ -22,6 +22,7 @@ class NetworkService {
     }
     
     //MARK: - User Friends
+    /// Метод для получения списка друзей пользователя
     func getFriends(onComplete: @escaping ([Friend]) -> Void) {
         urlConstructor.path = "/method/friends.get"
         
@@ -48,6 +49,7 @@ class NetworkService {
                 Response<Friend>.self,
                 from: responseData).response.items
             else { return }
+            
             DispatchQueue.main.async {
                 onComplete(friends)
             }
@@ -56,9 +58,8 @@ class NetworkService {
     }
     
     //MARK: - Photo
+    /// Метод для получения всех фотографий пользователя
     func getPhoto(for ownerID: Int?, onComplete: @escaping ([Photo]) -> Void) {
-        
-        
         urlConstructor.path = "/method/photos.getAll"
         
         guard let owner = ownerID else { return }
@@ -88,6 +89,7 @@ class NetworkService {
                 Response<Photo>.self,
                 from: responseData).response.items
             else { return }
+            
             DispatchQueue.main.async {
                 onComplete(photos)
             }
@@ -96,6 +98,7 @@ class NetworkService {
     }
     
     //MARK: - User Communities
+    /// Метод для получения групп пользователя
     func getCommunities(onComplete: @escaping ([Community]) -> Void)  {
         urlConstructor.path = "/method/groups.get"
         
@@ -105,6 +108,7 @@ class NetworkService {
             URLQueryItem(name: "access_token", value: Session.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
+        
         let task = session.dataTask(with: urlConstructor.url!) {
             (responseData, urlResponse, error) in
             
@@ -129,6 +133,7 @@ class NetworkService {
         task.resume()
     }
     
+    /// Метод для выхода из группы
     func leaveCommunity(id: Int, onComplete: @escaping (Int) -> Void) {
         urlConstructor.path = "/method/groups.leave"
         
@@ -137,12 +142,19 @@ class NetworkService {
             URLQueryItem(name: "access_token", value: Session.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
+        
         let task = session.dataTask(with: urlConstructor.url!) {
-            (data, response, error) in
+            (responseData, urlResponse, error) in
+            
+            if let response = urlResponse as? HTTPURLResponse {
+                print(response.statusCode)
+            }
             
             guard
-                let data = data
+                error == nil,
+                let data = responseData
             else { return }
+            
             guard
                 let response = try? JSONDecoder().decode(
                     ResponseJoin.self,
@@ -156,6 +168,7 @@ class NetworkService {
         task.resume()
     }
     
+    /// Метод для вступления в группу
     func joinCommunity(id: Int, onComplete: @escaping (Int) -> Void) {
         urlConstructor.path = "/method/groups.join"
         
@@ -164,11 +177,17 @@ class NetworkService {
             URLQueryItem(name: "access_token", value: Session.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
+        
         let task = session.dataTask(with: urlConstructor.url!) {
-            (data, response, error) in
+            (responseData, urlResponse, error) in
+            
+            if let response = urlResponse as? HTTPURLResponse {
+                print(response.statusCode)
+            }
             
             guard
-                let data = data
+                error == nil,
+                let data = responseData
             else { return }
             
             guard
@@ -184,7 +203,11 @@ class NetworkService {
         task.resume()
     }
     
-    func getSearchCommunity(text: String?, onComplete: @escaping ([Community]) -> Void) {
+    /// Метод для поиска групп
+    func getSearchCommunity(text: String?,
+                            onComplete: @escaping ([Community])
+                            -> Void) {
+        
         urlConstructor.path = "/method/groups.search"
         
         urlConstructor.queryItems = [
@@ -206,7 +229,9 @@ class NetworkService {
             else { return }
             
             guard
-                let communities = try? JSONDecoder().decode(Response<Community>.self, from: responseData).response.items
+                let communities = try? JSONDecoder().decode(
+                    Response<Community>.self,
+                    from: responseData).response.items
             else { return }
             DispatchQueue.main.async {
                 onComplete(communities)
@@ -214,10 +239,11 @@ class NetworkService {
         }
         task.resume()
     }
-
-private var images = [String: UIImage]()
     
-private func loadPhoto(atIndexpath indexPath: IndexPath, byUrl url: String) {
+    // MARK: - Image Services
+    
+    private var images = [String: UIImage]()
+    private func loadPhoto(atIndexpath indexPath: IndexPath, byUrl url: String) {
         
         guard let urlRequest = URL(string: url) else { return }
         let request = URLRequest(url: urlRequest)
@@ -232,7 +258,7 @@ private func loadPhoto(atIndexpath indexPath: IndexPath, byUrl url: String) {
         
     }
     
-func photo(atIndexpath indexPath: IndexPath, byUrl url: String) -> UIImage? {
+    func photo(atIndexpath indexPath: IndexPath, byUrl url: String) -> UIImage? {
         var image: UIImage?
         if let photo = images[url] {
             image = photo

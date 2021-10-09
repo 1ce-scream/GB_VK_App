@@ -44,15 +44,15 @@ class GroupsCell: UITableViewCell {
                 let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
                 self.groupLogoImageView.transform = scale
             }) { _ in
-            UIView.animate(
-                withDuration: 0.3,
-                delay: 0,
-                usingSpringWithDamping: 0.3,
-                initialSpringVelocity: 1.0,
-                options: [],
-                animations: {
-                    self.groupLogoImageView.transform = .identity
-                })
-        }
+                UIView.animate(
+                    withDuration: 0.3,
+                    delay: 0,
+                    usingSpringWithDamping: 0.3,
+                    initialSpringVelocity: 1.0,
+                    options: [],
+                    animations: {
+                        self.groupLogoImageView.transform = .identity
+                    })
+            }
     }
 }
