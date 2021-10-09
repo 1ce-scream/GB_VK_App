@@ -80,7 +80,15 @@ class FriendsCollectionViewController: UICollectionViewController {
             cell.friendImageView.image = networkService.photo(
                 atIndexpath: indexPath,
                 byUrl: photoURL)
-            cell.likeControl.setIsLiked(isLiked: photos[indexPath.item].likes.userLikes)
+
+            let isLiked = photos[indexPath.item].likes.userLikes
+            if isLiked == 1 {
+                cell.likeControl.isLike = true
+                cell.likeControl.imageView.image = UIImage(systemName: "heart.fill")
+            } else {
+                cell.likeControl.isLike = false
+                cell.likeControl.imageView.image = UIImage(systemName: "heart")
+            }
             cell.likeControl.setLike(count: photos[indexPath.item].likes.count)
             cell.likeControl.ownerId = photos[indexPath.item].ownerID
             cell.likeControl.itemId = photos[indexPath.item].id

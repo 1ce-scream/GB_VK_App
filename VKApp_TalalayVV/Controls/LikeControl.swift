@@ -15,13 +15,13 @@ class LikeControl: UIControl {
     // MARK: Private properties
     
     // Инициализация экземпляра UIImageView
-    private var imageView = UIImageView()
+    var imageView = UIImageView()
     // Инициализация экземпляра лейбла
     private var likeCountLabel = UILabel()
     // Счетчик лайков
     private var likeCounter = 0
     // Флаг переключения
-    private var isLike = false
+    var isLike = false
     
     // MARK: Lifecycle
     override init(frame: CGRect) {
@@ -88,15 +88,6 @@ class LikeControl: UIControl {
     func setLike(count: Int){
         likeCounter = count
         setLikeCounterLabel()
-    }
-    
-    func setIsLiked(isLiked: Int) -> Bool{
-        if isLiked == 1 {
-            isLike = true
-        } else {
-            isLike = false
-        }
-        return isLike
     }
     
     // MARK: Actions
