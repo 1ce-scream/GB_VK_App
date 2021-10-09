@@ -97,6 +97,32 @@ class NetworkService {
         task.resume()
     }
     
+    func addLike(type: String, ownerId: Int, itemId: Int) {
+        urlConstructor.path = "/method/likes.add"
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "type", value: type),
+            URLQueryItem(name: "owner_id", value: String(ownerId)),
+            URLQueryItem(name: "item_id", value: String(itemId)),
+            URLQueryItem(name: "access_token", value: Session.shared.token),
+            URLQueryItem(name: "v", value: constants.versionAPI),
+        ]
+        let task = session.dataTask(with: urlConstructor.url!)
+        task.resume()
+    }
+    
+    func deleteLike(type: String, ownerId: Int, itemId: Int) {
+        urlConstructor.path = "/method/likes.delete"
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "type", value: type),
+            URLQueryItem(name: "owner_id", value: String(ownerId)),
+            URLQueryItem(name: "item_id", value: String(itemId)),
+            URLQueryItem(name: "access_token", value: Session.shared.token),
+            URLQueryItem(name: "v", value: constants.versionAPI),
+        ]
+        let task = session.dataTask(with: urlConstructor.url!)
+        task.resume()
+    }
+    
     //MARK: - User Communities
     /// Метод для получения групп пользователя
     func getCommunities(onComplete: @escaping ([Community]) -> Void)  {

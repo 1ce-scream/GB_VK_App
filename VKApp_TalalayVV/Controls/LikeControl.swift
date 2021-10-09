@@ -9,6 +9,9 @@ import UIKit
 
 class LikeControl: UIControl {
     
+    let networkService = NetworkService()
+    var ownerId = 0
+    var itemId = 0
     // MARK: Private properties
     
     // Инициализация экземпляра UIImageView
@@ -18,7 +21,7 @@ class LikeControl: UIControl {
     // Счетчик лайков
     private var likeCounter = 0
     // Флаг переключения
-    private var isLike: Bool = false
+    private var isLike = false
     
     // MARK: Lifecycle
     override init(frame: CGRect) {
@@ -87,6 +90,15 @@ class LikeControl: UIControl {
         setLikeCounterLabel()
     }
     
+    func setIsLiked(isLiked: Int) -> Bool{
+        if isLiked == 1 {
+            isLike = true
+        } else {
+            isLike = false
+        }
+        return isLike
+    }
+    
     // MARK: Actions
     
     // Метод для переключения состояний изображения и счетчика
@@ -97,10 +109,12 @@ class LikeControl: UIControl {
             imageView.image = UIImage(systemName: "heart.fill")
             likeCounter += 1
             setLikeCounterLabel()
+            networkService.addLike(type: "photo", ownerId: ownerId, itemId: itemId)
         } else {
             imageView.image = UIImage(systemName: "heart")
             likeCounter -= 1
             setLikeCounterLabel()
+            networkService.deleteLike(type: "photo", ownerId: ownerId, itemId: itemId)
         }
     }
 }

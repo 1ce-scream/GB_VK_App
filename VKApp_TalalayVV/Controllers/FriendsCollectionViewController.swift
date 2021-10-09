@@ -77,10 +77,13 @@ class FriendsCollectionViewController: UICollectionViewController {
             //        cell.configure(photo: photos[indexPath.item])
             guard let photoURL = photos[indexPath.item].sizes.last?.url
             else { return cell }
-            
             cell.friendImageView.image = networkService.photo(
                 atIndexpath: indexPath,
                 byUrl: photoURL)
+            cell.likeControl.setIsLiked(isLiked: photos[indexPath.item].likes.userLikes)
+            cell.likeControl.setLike(count: photos[indexPath.item].likes.count)
+            cell.likeControl.ownerId = photos[indexPath.item].ownerID
+            cell.likeControl.itemId = photos[indexPath.item].id
             return cell
         }
     

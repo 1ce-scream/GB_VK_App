@@ -10,6 +10,7 @@ import UIKit
 class FriendsCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var friendImageView: UIImageView!
+    @IBOutlet weak var likeControl: LikeControl!
     
 //    func configure(photo: Size) {
 //        let url = URL(string: photo.url)
