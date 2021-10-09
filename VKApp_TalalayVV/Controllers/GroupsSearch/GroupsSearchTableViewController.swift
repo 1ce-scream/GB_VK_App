@@ -10,16 +10,23 @@ import UIKit
 class GroupsSearchTableViewController: UITableViewController {
     
     // Массив имитирующий список групп пользователя
-    var someGroups = [
-        Group(id: 4444, name: "Group 4", logo: UIImage(named: "group4")),
-        Group(id: 5555, name: "Group 5", logo: UIImage(named: "group5")),
-        Group(id: 6666, name: "Group 6", logo: UIImage(named: "group6"))
-    ]
+//    var someGroups = [
+//        Group(id: 4444, name: "Group 4", logo: UIImage(named: "group4")),
+//        Group(id: 5555, name: "Group 5", logo: UIImage(named: "group5")),
+//        Group(id: 6666, name: "Group 6", logo: UIImage(named: "group6"))
+//    ]
     
+    private let networkService = NetworkService()
+    var communities = [Community]()
+    var didSelectIndexCommunity: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        networkService.getSearchCommunity(text: "Привидения", onComplete: { [weak self] (communities) in
+                    self?.communities = communities
+                    self?.tableView.reloadData()
+                })
     }
 
     // MARK: - Table view data source
@@ -34,7 +41,7 @@ class GroupsSearchTableViewController: UITableViewController {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
         
-        someGroups.count
+        communities.count
     }
 
 
@@ -49,7 +56,7 @@ class GroupsSearchTableViewController: UITableViewController {
         else { return UITableViewCell() }
         
         // Присваиваем данные каждой строке
-        cell.configure(group: someGroups[indexPath.row])
+        cell.configure(group: communities[indexPath.row])
 
         return cell
     }

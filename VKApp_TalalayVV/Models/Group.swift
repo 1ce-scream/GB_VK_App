@@ -13,7 +13,16 @@ struct Group: Equatable {
     var logo: UIImage?
 }
 
-class Community: Codable {
+/// Codable модель группы
+class Community: Codable, Equatable {
+    static func == (lhs: Community, rhs: Community) -> Bool {
+        if lhs.id == rhs.id {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var id: Int = 0
     var name: String = ""
     var avatarURL: String = ""
