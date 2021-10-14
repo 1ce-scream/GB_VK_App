@@ -267,6 +267,7 @@ class NetworkService {
     }
     
     func getNews(onComplete: @escaping ([NewsModel]) -> Void) {
+//    func getNews() {
             urlConstructor.path = "/method/newsfeed.get"
             
             urlConstructor.queryItems = [
@@ -287,7 +288,11 @@ class NetworkService {
                     error == nil,
                     let data = responseData
                 else { return }
-               
+                
+                
+//                let json = try? JSONSerialization.jsonObject(
+//                    with: data,
+//                    options: .fragmentsAllowed)
                 guard
                     let news = try? JSONDecoder().decode(
                         Response<NewsModel>.self,
@@ -296,7 +301,7 @@ class NetworkService {
                     print("News Error")
                     return
                 }
-                    
+
                 guard
                     let profiles = try? JSONDecoder().decode(
                         ResponseNews.self,
@@ -305,7 +310,7 @@ class NetworkService {
                     print("Profiles error")
                     return
                 }
-                
+
                 guard
                     let groups = try? JSONDecoder().decode(
                         ResponseNews.self,
@@ -314,7 +319,7 @@ class NetworkService {
                     print("Groups error")
                     return
                 }
-                
+
                 for i in 0..<news.count {
                     if news[i].sourceID < 0 {
                         let group = groups.first(
@@ -328,7 +333,7 @@ class NetworkService {
                         news[i].creatorName = profile?.firstName
                     }
                 }
-                
+
                 DispatchQueue.main.async {
                     onComplete(news)
                 }

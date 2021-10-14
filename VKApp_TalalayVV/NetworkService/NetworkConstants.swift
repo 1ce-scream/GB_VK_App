@@ -13,5 +13,5 @@ struct NetworkConstants {
     
     let clientID = "7965024"
     let scope = "401502"
-    let versionAPI = "5.130"
+    let versionAPI = "5.131"
 }

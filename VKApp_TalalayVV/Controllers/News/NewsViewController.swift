@@ -20,6 +20,7 @@ class NewsViewController: UIViewController {
                     self?.news = news
                     self?.tableView.reloadData()
                 })
+//        networkService.getNews()
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
