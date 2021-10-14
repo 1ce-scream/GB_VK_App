@@ -52,6 +52,11 @@ class Attachment: Codable {
 class LikeModel: Codable {
     let count: Int
     let userLike: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case count
+        case userLike = "user_likes"
+    }
 }
 
 class ViewsModel: Codable {
