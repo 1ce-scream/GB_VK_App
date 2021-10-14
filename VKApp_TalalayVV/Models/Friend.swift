@@ -25,4 +25,8 @@ class Friend: Object, Codable {
     override static func primaryKey() -> String? {
         return "id"
     }
+    
+    override static func indexedProperties() -> [String] {
+        return ["firstName", "lastName"]
+    }
 }

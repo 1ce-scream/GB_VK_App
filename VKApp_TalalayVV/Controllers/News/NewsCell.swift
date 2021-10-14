@@ -19,7 +19,6 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var repostButton: UIButton!
     
     func configure(news: NewsModel) {
-    //        avatarImageView.image = news.avatar
             self.avatarImageView.loadImage(by: news.avatarURL ?? "")
             self.creatorNameTextLabel.text = news.creatorName
             self.newsTextLabel.text = news.text

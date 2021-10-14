@@ -134,9 +134,9 @@
 		FE0D620626D574AD005AE0EC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FE0D620926D5758C005AE0EC /* Group.swift */,
 				FEE9F5F926E63D9600DCEDDA /* News.swift */,
 				FE1FE335271866BF007D41EE /* ResponseNews.swift */,
+				FE0D620926D5758C005AE0EC /* Group.swift */,
 				FE077BB1270F312400AB88D8 /* Friend.swift */,
 				FE077BB5270F472000AB88D8 /* Photo.swift */,
 			);

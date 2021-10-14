@@ -32,4 +32,8 @@ class Community: Object, Codable {
     override static func primaryKey() -> String? {
         return "id"
     }
+    
+    override static func indexedProperties() -> [String] {
+        return ["name"]
+    }
 }
