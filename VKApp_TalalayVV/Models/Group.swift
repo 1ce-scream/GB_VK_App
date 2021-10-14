@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 struct Group: Equatable {
     var id: Int
@@ -14,23 +15,21 @@ struct Group: Equatable {
 }
 
 /// Codable модель группы
-class Community: Codable, Equatable {
+class Community: Object, Codable {
     
-    var id: Int = 0
-    var name: String = ""
-    var avatarURL: String = ""
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var avatarURL: String = ""
     
-    static func == (lhs: Community, rhs: Community) -> Bool {
-        if lhs.id == rhs.id {
-            return true
-        } else {
-            return false
-        }
-    }
+    
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case avatarURL = "photo_100"
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

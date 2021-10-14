@@ -18,14 +18,15 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var makeCommentButton: UIButton!
     @IBOutlet weak var repostButton: UIButton!
     
-    func configure(news: News) {
-        avatarImageView.image = news.avatar
-        creatorNameTextLabel.text = news.creatorName
-        newsTextLabel.text = news.newsText
-        photoView.setImages(photos: news.photos)
-        viewsCount.text = "Просмотров: " + String(news.viewsCount)
-        self.likeControl.setLike(count: news.likeCount)
-    }
+    func configure(news: NewsModel) {
+    //        avatarImageView.image = news.avatar
+            self.avatarImageView.loadImage(by: news.avatarURL ?? "")
+            self.creatorNameTextLabel.text = news.creatorName
+            self.newsTextLabel.text = news.text
+    //        photoView.setImages(photos: news.photos)
+            self.viewsCount.text = "Просмотров: " + String(news.views.count)
+            self.likeControl.setLike(count: news.likes.count)
+        }
     
     override func prepareForReuse() {
         super.prepareForReuse()

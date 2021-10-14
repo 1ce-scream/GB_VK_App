@@ -81,7 +81,7 @@ class FriendsCollectionViewController: UICollectionViewController {
                 atIndexpath: indexPath,
                 byUrl: photoURL)
 
-            let isLiked = photos[indexPath.item].likes.userLikes
+            let isLiked = photos[indexPath.item].likes!.userLikes
             if isLiked == 1 {
                 cell.likeControl.isLike = true
                 cell.likeControl.imageView.image = UIImage(systemName: "heart.fill")
@@ -89,7 +89,7 @@ class FriendsCollectionViewController: UICollectionViewController {
                 cell.likeControl.isLike = false
                 cell.likeControl.imageView.image = UIImage(systemName: "heart")
             }
-            cell.likeControl.setLike(count: photos[indexPath.item].likes.count)
+            cell.likeControl.setLike(count: photos[indexPath.item].likes!.count)
             cell.likeControl.ownerId = photos[indexPath.item].ownerID
             cell.likeControl.itemId = photos[indexPath.item].id
             return cell

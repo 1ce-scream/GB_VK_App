@@ -11,40 +11,17 @@ class NewsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var news = [
-        News(
-            avatar: UIImage(named: "StanMarsh"),
-            creatorName: "Stan Marsh",
-            newsText: "Marshe's rulesss!!! That was the greatest concert ever!!!",
-            photos: [UIImage(named: "MarshConcert"),
-                     UIImage(named: "Concert2"),
-                     UIImage(named: "Concert3"),
-                     UIImage(named: "Concert5")],
-            viewsCount: 40,
-            likeCount: 39),
-        News(
-            avatar: UIImage(named: "EricCartman"),
-            creatorName: "Eric Cartman",
-            newsText: "Now we have a pool",
-            photos: [UIImage(named: "Pool")],
-            viewsCount: 10,
-            likeCount: 5),
-        News(
-            avatar: UIImage(named: "KyleBroflovski"),
-            creatorName: "Kyle Broflovski",
-            newsText: "Photos from my best friend's perfomance! That's really cool!!!",
-            photos: [UIImage(named: "Concert5"),
-                     UIImage(named: "Concert3"),
-                     UIImage(named: "Concert4")],
-            viewsCount: 10,
-            likeCount: 8)
-    ]
-        
+    var news = [NewsModel]()
+    let networkService = NetworkService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkService.getNews(onComplete: { [weak self] (news) in
+                    self?.news = news
+                    self?.tableView.reloadData()
+                })
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        // Do any additional setup after loading the view.
     }
 
 }

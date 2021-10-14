@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Friend: Codable {
-    var id: Int = 0
-    var firstName: String = ""
-    var lastName: String = ""
-    var avatarURL: String = ""
+class Friend: Object, Codable {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var firstName: String = ""
+    @objc dynamic var lastName: String = ""
+    @objc dynamic var avatarURL: String = ""
     
     
     enum CodingKeys: String, CodingKey {
@@ -19,5 +20,9 @@ class Friend: Codable {
         case firstName = "first_name"
         case lastName = "last_name"
         case avatarURL = "photo_100"
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
