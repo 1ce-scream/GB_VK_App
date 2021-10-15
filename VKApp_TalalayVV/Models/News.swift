@@ -7,15 +7,6 @@
 
 import UIKit
 
-//struct News {
-//    let avatar: UIImage?
-//    let creatorName: String
-//    var newsText: String
-//    var photos: [UIImage?]
-//    var viewsCount: Int
-//    var likeCount: Int
-//}
-
 class NewsModel: Codable {
     let postID: Int
     let text: String
@@ -31,6 +22,7 @@ class NewsModel: Codable {
             return photosURL
         }
     }
+    
     enum CodingKeys: String, CodingKey {
         case postID = "post_id"
         case text
@@ -41,7 +33,6 @@ class NewsModel: Codable {
         case views
         case creatorName
     }
-
 }
 
 class Attachment: Codable {
