@@ -36,7 +36,6 @@ class LikeControl: UIControl {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         imageView.frame = bounds
     }
     
@@ -72,8 +71,6 @@ class LikeControl: UIControl {
         likeCountLabel.textColor = .systemRed
         // Отключаем autoresize
         likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Устанавливаем констрейнты для лейбла
         // Привязка к изображению
         likeCountLabel.trailingAnchor.constraint(
             equalTo: imageView.leadingAnchor,

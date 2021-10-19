@@ -13,6 +13,7 @@ class NetworkService {
     private let constants = NetworkConstants()
     private let configuration: URLSessionConfiguration!
     private let session: URLSession!
+    private let realmService = RealmService()
     
     init(){
         urlConstructor.scheme = constants.scheme
@@ -35,7 +36,6 @@ class NetworkService {
         
         let task = session.dataTask(with: urlConstructor.url!) {
             (responseData, urlResponse, error) in
-            
             if let response = urlResponse as? HTTPURLResponse {
                 print(response.statusCode)
             }
@@ -49,6 +49,9 @@ class NetworkService {
                 Response<Friend>.self,
                 from: responseData).response.items
             else { return }
+            
+//            let realmFriends = friends.map { }
+            try? RealmService.save(items: friends)
             
             DispatchQueue.main.async {
                 onComplete(friends)

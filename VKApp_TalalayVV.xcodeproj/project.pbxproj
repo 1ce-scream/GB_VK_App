@@ -23,6 +23,7 @@
 		FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */; };
 		FE1EB0BE2701E74600C80914 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1EB0BD2701E74600C80914 /* Session.swift */; };
 		FE1FE336271866BF007D41EE /* ResponseNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1FE335271866BF007D41EE /* ResponseNews.swift */; };
+		FE22817F271D91730068B5DB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22817E271D91730068B5DB /* RealmService.swift */; };
 		FE41A26026DFAD3A008F428E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41A25F26DFAD3A008F428E /* LikeControl.swift */; };
 		FE43FCF726E77AE1005449ED /* PhotoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE43FCF626E77AE1005449ED /* PhotoContainer.swift */; };
 		FE43FCF926E8BF50005449ED /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE43FCF826E8BF50005449ED /* LoadingViewController.swift */; };
@@ -67,6 +68,7 @@
 		FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		FE1EB0BD2701E74600C80914 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		FE1FE335271866BF007D41EE /* ResponseNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseNews.swift; sourceTree = "<group>"; };
+		FE22817E271D91730068B5DB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		FE41A25F26DFAD3A008F428E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		FE43FCF626E77AE1005449ED /* PhotoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContainer.swift; sourceTree = "<group>"; };
 		FE43FCF826E8BF50005449ED /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -179,16 +181,17 @@
 			path = FriendsCollection;
 			sourceTree = "<group>";
 		};
-		FE1EB0BC2701E70C00C80914 /* NetworkService */ = {
+		FE1EB0BC2701E70C00C80914 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FE1EB0BD2701E74600C80914 /* Session.swift */,
+				FE22817E271D91730068B5DB /* RealmService.swift */,
 				FEEB7D9F2709A5A600F74813 /* NetworkServices.swift */,
+				FE1EB0BD2701E74600C80914 /* Session.swift */,
 				FEEB7DA52709B65D00F74813 /* AlamofireNS.swift */,
 				FEEB7DA12709A61D00F74813 /* NetworkConstants.swift */,
 				FE077BB3270F325200AB88D8 /* Response.swift */,
 			);
-			path = NetworkService;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FE52E1E726E3874B00498CB9 /* Controls */ = {
@@ -228,7 +231,7 @@
 				FECDAB8226F8B5D8005047A7 /* Animations */,
 				FE52E1E726E3874B00498CB9 /* Controls */,
 				FEBFFC1426C676B5004576D0 /* Controllers */,
-				FE1EB0BC2701E70C00C80914 /* NetworkService */,
+				FE1EB0BC2701E70C00C80914 /* Services */,
 				FE0D620626D574AD005AE0EC /* Models */,
 				FEBFFC1326C676A8004576D0 /* View */,
 				FEBFFC0826C5B98C004576D0 /* Assets.xcassets */,
@@ -428,6 +431,7 @@
 				FE43FCF726E77AE1005449ED /* PhotoContainer.swift in Sources */,
 				FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */,
 				FEE9F5F526E6378B00DCEDDA /* NewsViewController.swift in Sources */,
+				FE22817F271D91730068B5DB /* RealmService.swift in Sources */,
 				FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */,
 				FE43FCF926E8BF50005449ED /* LoadingViewController.swift in Sources */,
 				FEE9F5FA26E63D9600DCEDDA /* News.swift in Sources */,
