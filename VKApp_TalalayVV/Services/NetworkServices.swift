@@ -14,7 +14,6 @@ class NetworkService {
     private let constants = NetworkConstants()
     private let configuration: URLSessionConfiguration!
     private let session: URLSession!
-    private let realmService = RealmService()
     
     init(){
         urlConstructor.scheme = constants.scheme
@@ -93,7 +92,12 @@ class NetworkService {
                 from: responseData).response.items
             else { return }
             
-            try? RealmService.save(items: photos)
+            do {
+                try RealmService.save(items: photos)
+            } catch {
+                print(error)
+            }
+            
             
             DispatchQueue.main.async {
                 onComplete(photos)
