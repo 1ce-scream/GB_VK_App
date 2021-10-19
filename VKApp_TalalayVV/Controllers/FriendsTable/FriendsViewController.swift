@@ -176,6 +176,9 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
             guard let friend = friendsForKey?[index.row] else { return }
             // Добавляеем аватарку в массив
             friendCVC.userID = friend.id
+//            friendCVC.networkService.getPhoto(for: friend.id, onComplete: { _ in
+//                print("smth")
+//            })
         }
     }
 }
