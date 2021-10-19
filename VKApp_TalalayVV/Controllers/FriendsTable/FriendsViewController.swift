@@ -18,10 +18,8 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     // MARK: - Private properties
     /// Массив имитирующий список друзей
     private var friends = [Friend]()
-//    private var friends: Results<Friend>?
     private let networkService = NetworkService()
     private let realmService = RealmService()
-//    private var token: NotificationToken?
     
     /// Словарь со списком друзей
     private var friendsDict = [Character:[Friend]]()
@@ -51,66 +49,30 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
 //            self?.tableView.reloadData()
 //        })
        
-//        pairTableAndRealm()
-//        self.friendsDict = self.getFriendsDict(
-//            searchText: nil,
-//            list: data)
-//        self.tableView.reloadData()
+
         // Присвоение данных таблице
         self.tableView.dataSource = self
         // Присвоение настроек внешнего вида таблицы
         self.tableView.delegate = self
         // вызов серчбара
         searchBar.delegate = self
-//        realmService.updateFriends()
-//        loadData()
-//        networkService.getFriends(onComplete: { [weak self] (friends) in
-//            print("smth")
-//        })
-        self.friendsDict = self.getFriendsDict(searchText: nil, list: friends)
-//        setFriends()
         
+        networkService.getFriends(onComplete: {_ in
+            print("It's Alive !!!")
+        })
+        
+        loadData()
     }
     
     func loadData() {
-        do {
-            let realm = try Realm()
-            let friends = realm.objects(Friend.self)
-            self.friends = Array(friends)
-        } catch {
-            print(error)
-        }
-    }
-//    func pairTableAndRealm() {
-//        guard let realm = try? Realm() else { return }
-//        friends = realm.objects(Friend.self)
-//        token = friends?.observe { [weak self] (changes: RealmCollectionChange) in
-//            switch changes {
-//            case .initial:
-//                self?.setFriends()
-//            case .update(_, _, _ , _):
-//                self?.setFriends()
-//            case .error(let error):
-//                fatalError("\(error)")
-//            }
-//        }
-//        self.data = Array(friends!)
-//        self.tableView.reloadData()
-//    }
-    
-    // MARK: - Private methods
-    
-    private func setFriends(){
-//        guard let friends = self.friends else { return }
-        guard let realm = try? Realm() else { return }
-        let tmpFriends = realm.objects(Friend.self)
-        self.friends = Array(tmpFriends)
-        self.friendsDict = self.getFriendsDict(
-            searchText: nil,
-            list: Array(tmpFriends))
-        self.tableView.reloadData()
+        let tmpFriends = try? RealmService.load(typeOf: Friend.self)
+        self.friends = Array(tmpFriends!).filter{ !$0.lastName.isEmpty }
+        self.friendsDict = self.getFriendsDict(searchText: nil, list: friends)
+        tableView.reloadData()
         self.setLettersControl()
     }
+    
+    // MARK: - Private methods
     
     /// Метод задающий словарь со списком друзей
     private func getFriendsDict(

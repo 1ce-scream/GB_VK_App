@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NetworkService {
     
@@ -50,7 +51,6 @@ class NetworkService {
                 from: responseData).response.items
             else { return }
             
-//            let realmFriends = friends.map { }
             try? RealmService.save(items: friends)
             
             DispatchQueue.main.async {
@@ -92,6 +92,8 @@ class NetworkService {
                 Response<Photo>.self,
                 from: responseData).response.items
             else { return }
+            
+            try? RealmService.save(items: photos)
             
             DispatchQueue.main.async {
                 onComplete(photos)
@@ -154,6 +156,8 @@ class NetworkService {
                 Response<Community>.self,
                 from: responseData).response.items
             else { return }
+            
+            try? RealmService.save(items: communities)
             
             DispatchQueue.main.async {
                 onComplete(communities)

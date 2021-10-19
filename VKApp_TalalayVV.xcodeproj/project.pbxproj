@@ -186,9 +186,9 @@
 			children = (
 				FE22817E271D91730068B5DB /* RealmService.swift */,
 				FEEB7D9F2709A5A600F74813 /* NetworkServices.swift */,
+				FEEB7DA12709A61D00F74813 /* NetworkConstants.swift */,
 				FE1EB0BD2701E74600C80914 /* Session.swift */,
 				FEEB7DA52709B65D00F74813 /* AlamofireNS.swift */,
-				FEEB7DA12709A61D00F74813 /* NetworkConstants.swift */,
 				FE077BB3270F325200AB88D8 /* Response.swift */,
 			);
 			path = Services;

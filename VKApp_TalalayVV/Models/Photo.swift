@@ -42,4 +42,9 @@ class Likes: Object, Codable {
 class Size: Object, Codable {
     @objc dynamic var type: String = ""
     @objc dynamic var url: String = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case type
+        case url
+    }
 }

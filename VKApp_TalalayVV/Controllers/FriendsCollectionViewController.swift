@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class FriendsCollectionViewController: UICollectionViewController {
@@ -22,14 +23,22 @@ class FriendsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.getPhoto(for: userID, onComplete: { [weak self] (photos) in
-            self?.set(photos: photos)
-            self?.collectionView.reloadData()
+        networkService.getPhoto(for: userID, onComplete: { _ in
+//            self?.set(photos: photos)
+//            self?.collectionView.reloadData()
+            print("Photo Works")
         })
-        
+        loadData()
+        collectionView.reloadData()
     }
     
     // MARK: - Methods
+    
+    func loadData() {
+        let tmpPhoto = try? RealmService.load(typeOf: Photo.self)
+        self.photos = Array(tmpPhoto!)
+        collectionView.reloadData()
+    }
     
     func set(photos: [Photo]) {
         self.photos = photos

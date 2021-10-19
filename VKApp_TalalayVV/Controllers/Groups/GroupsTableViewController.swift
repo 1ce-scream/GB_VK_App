@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GroupsTableViewController: UITableViewController {
     
@@ -19,12 +20,20 @@ class GroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.getCommunities(onComplete: { [weak self] (communites) in
-            self?.groups = communites
-            self?.tableView.reloadData()
+        networkService.getCommunities(onComplete: { _ in
+//            self?.groups = communites
+//            self?.tableView.reloadData()
+            print("Our Groups WORK!!! ")
         })
+        
+        loadData()
     }
     
+    func loadData() {
+        let tmpCommunities = try? RealmService.load(typeOf: Community.self)
+        self.groups = Array(tmpCommunities!)
+        tableView.reloadData()
+    }
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         // Проверяем идентификатор перехода
