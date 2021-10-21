@@ -194,6 +194,12 @@ class NetworkService {
                     from: data)
             else { return }
             
+            let objectsToDelete = try? RealmService.load(typeOf: Community.self)
+                .filter("id = %f", id)
+
+            guard let item = objectsToDelete else { return }
+            try? RealmService.delete(object: item)
+            
             DispatchQueue.main.async {
                 onComplete(response.response)
             }

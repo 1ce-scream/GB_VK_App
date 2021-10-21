@@ -16,6 +16,7 @@ class GroupsTableViewController: UITableViewController {
     private let networkService = NetworkService()
     /// Массив со списоком групп пользователя
     private var groups = [Community]()
+//    private var groups: Results<Community>?
     private var groupsNotification: NotificationToken?
     
     override func viewDidLoad() {
@@ -35,10 +36,13 @@ class GroupsTableViewController: UITableViewController {
                 
             case .initial(let objects):
                 self?.groups = Array(objects)
+//                self?.groups = objects
                 self?.tableView.reloadData()
                 
             case let .update(objects, deletions, insertions, modifications):
                 self?.groups = Array(objects)
+                self?.tableView.reloadData()
+//                self?.groups = objects
                 self?.tableView.performBatchUpdates {
                     let delete = deletions.map {IndexPath(
                         item: $0,
@@ -61,8 +65,6 @@ class GroupsTableViewController: UITableViewController {
                 print(error)
             }
         }
-//        self.groups = Array(tmpCommunities!)
-//        tableView.reloadData()
     }
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
@@ -152,7 +154,6 @@ class GroupsTableViewController: UITableViewController {
                 
                 let currentGroup = groups[indexPath.row]
                 let index = currentGroup.id
-                
                 networkService.leaveCommunity(
                     id: index,
                     onComplete: { (value) in
@@ -161,8 +162,7 @@ class GroupsTableViewController: UITableViewController {
                             print("Вы покинули группу")
                             // Удаляем группу из массива
                             self.groups.remove(at: indexPath.row)
-                            // И удаляем строку из таблицы
-                            self.tableView.deleteRows(at: [indexPath], with: .fade)
+                            self.tableView.reloadData()
                         } else {
                             print("Ошибка запроса")
                         }
