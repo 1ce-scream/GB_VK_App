@@ -13,26 +13,56 @@ class GroupsTableViewController: UITableViewController {
     @IBOutlet weak var searchNavigationButton: UIBarButtonItem!
     
     /// Сетевые сервисы
-    let networkService = NetworkService()
+    private let networkService = NetworkService()
     /// Массив со списоком групп пользователя
-    var groups = [Community]()
+    private var groups = [Community]()
+    private var groupsNotification: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.getCommunities(onComplete: { _ in
-//            self?.groups = communites
-//            self?.tableView.reloadData()
-            print("Our Groups WORK!!! ")
-        })
+        networkService.getCommunities()
         
         loadData()
     }
     
     func loadData() {
         let tmpCommunities = try? RealmService.load(typeOf: Community.self)
-        self.groups = Array(tmpCommunities!)
-        tableView.reloadData()
+        groupsNotification = tmpCommunities?.observe(on: .main)
+        { [weak self] realmChange in
+            
+            switch realmChange {
+                
+            case .initial(let objects):
+                self?.groups = Array(objects)
+                self?.tableView.reloadData()
+                
+            case let .update(objects, deletions, insertions, modifications):
+                self?.groups = Array(objects)
+                self?.tableView.performBatchUpdates {
+                    let delete = deletions.map {IndexPath(
+                        item: $0,
+                        section: 0) }
+                    self?.tableView.deleteRows(at: delete, with: .automatic)
+
+                    let insert = insertions.map { IndexPath(
+                        item: $0,
+                        section: 0) }
+
+                    self?.tableView.insertRows(at: insert, with: .automatic)
+
+                    let modify = modifications.map { IndexPath(
+                        item: $0,
+                        section: 0) }
+                    self?.tableView.reloadRows(at: modify, with: .automatic)
+                }
+                
+            case .error(let error):
+                print(error)
+            }
+        }
+//        self.groups = Array(tmpCommunities!)
+//        tableView.reloadData()
     }
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {

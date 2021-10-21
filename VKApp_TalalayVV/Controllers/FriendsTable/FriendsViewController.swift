@@ -18,9 +18,9 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     // MARK: - Private properties
     /// Массив имитирующий список друзей
     private var friends = [Friend]()
+    private var data: Results<Friend>?
     private let networkService = NetworkService()
-    private let realmService = RealmService()
-    
+    private var friendsNotification: NotificationToken?
     /// Словарь со списком друзей
     private var friendsDict = [Character:[Friend]]()
     /// Массив первых букв имен друзей
@@ -37,41 +37,46 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        networkService.getFriends(onComplete: { [weak self] (friends) in
-//            let tmpFriends = friends.filter{ !$0.lastName.isEmpty }
-//            self?.friends = tmpFriends
-//            self?.friendsDict = self?.getFriendsDict(
-//                searchText: nil,
-//                list: tmpFriends) ?? [Character : [Friend]]()
-//            // Вызов контрола
-//            self?.setLettersControl()
-//
-//            self?.tableView.reloadData()
-//        })
-       
-
-        // Присвоение данных таблице
         self.tableView.dataSource = self
-        // Присвоение настроек внешнего вида таблицы
         self.tableView.delegate = self
-        // вызов серчбара
         searchBar.delegate = self
-        
-        networkService.getFriends(onComplete: {_ in
-            print("It's Alive !!!")
-        })
-        
+    
         loadData()
     }
     
-    func loadData() {
-        let tmpFriends = try? RealmService.load(typeOf: Friend.self)
-        self.friends = Array(tmpFriends!).filter{ !$0.lastName.isEmpty }
-        self.friendsDict = self.getFriendsDict(searchText: nil, list: friends)
-        tableView.reloadData()
-        self.setLettersControl()
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        friendsNotification?.invalidate()
     }
     
+    func loadData() {
+        networkService.getFriends()
+        
+        let tmpFriends = try? RealmService.load(typeOf: Friend.self)
+        friendsNotification = tmpFriends?.observe(on: .main)
+        { [weak self] realmChange in
+            
+            switch realmChange {
+            case .initial(let objects):
+                self?.data = objects
+                self?.setFriends()
+            case .update(let objects, _, _, _):
+                self?.data = objects
+                self?.setFriends()
+            case .error(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func setFriends() {
+        guard let data = self.data else { return }
+        let tmpFriends = data.filter{ !$0.lastName.isEmpty }
+        self.friends = Array(tmpFriends)
+        self.friendsDict = self.getFriendsDict(searchText: nil, list: Array(tmpFriends))
+        self.tableView.reloadData()
+        self.setLettersControl()
+    }
     // MARK: - Private methods
     
     /// Метод задающий словарь со списком друзей
@@ -96,23 +101,21 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     
     /// Метод добавляющий контрол перехода по букве
     private func setLettersControl(){
-        // Присваиваем контрол и разворачиваем опционал
         lettersControl = LettersControl()
         guard let lettersControl = lettersControl else {
             return
         }
-        // Добавляем контрол в сабвью
         view.addSubview(lettersControl)
-        // Задаем внешний вид контрола
+        
         lettersControl.translatesAutoresizingMaskIntoConstraints = false
         lettersControl.arrChar = firstLetters
         lettersControl.backgroundColor = .clear
-        // Задаем действие по нажатию
+        
         lettersControl.addTarget(
             self,
             action: #selector(scrollToSelectedLetter),
             for: [.touchUpInside])
-        // Задаем констрейнты
+        
         NSLayoutConstraint.activate([
             lettersControl.heightAnchor.constraint(
                 equalToConstant: CGFloat(15*lettersControl.arrChar.count)),
@@ -123,7 +126,6 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
             lettersControl.trailingAnchor.constraint(
                 equalTo: view.trailingAnchor)
         ])
-        // Обновляем данные таблицы
         tableView.reloadData()
     }
     
@@ -139,7 +141,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         }else{
             lettersControl?.isHidden = true
         }
-        // Обновляем данные в таблице
+        
         tableView.reloadData()
     }
     

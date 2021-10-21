@@ -13,39 +13,46 @@ class FriendsCollectionViewController: UICollectionViewController {
     // MARK: - Properties
     
     /// Массив с фотографиями друга
-    var photos = [Photo]()
+    private var photos = [Photo]()
     /// ID друга
     var userID: Int?
-    
-    let networkService = NetworkService()
+    private var notificationToken: NotificationToken?
+    private let networkService = NetworkService()
+   
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.getPhoto(for: userID, onComplete: { _ in
-//            self?.set(photos: photos)
-//            self?.collectionView.reloadData()
-            print("Photo Works")
-        })
         loadData()
-        collectionView.reloadData()
+//        collectionView.reloadData()
     }
     
     // MARK: - Methods
     
     func loadData() {
+        networkService.getPhoto(for: userID)
+        
         let tmpPhoto = try? RealmService.load(typeOf: Photo.self)
-        self.photos = Array(tmpPhoto!)
-        collectionView.reloadData()
+        notificationToken = tmpPhoto?.observe(on: .main)
+        { [weak self] realmChange in
+            
+            switch realmChange {
+            case .initial(let objects):
+                self?.photos = Array(objects).filter {
+                    $0.ownerID == self!.userID }
+                self?.collectionView.reloadData()
+            case .update(let objects, _, _, _):
+                self?.photos = Array(objects).filter {
+                    $0.ownerID == self!.userID }
+            case .error(let error):
+                print(error)
+            }
+        }
     }
     
-    func set(photos: [Photo]) {
-        self.photos = photos
-    }
-    //     Передаем данные в фото контроллер при переходе
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Проверяем в нужный ли контроллер осуществляется переход
+        
         guard let friendPVC = segue.destination
                 as? PhotoViewController
         else { return }
@@ -83,14 +90,18 @@ class FriendsCollectionViewController: UICollectionViewController {
             else { return UICollectionViewCell() }
             
             //Присваиваем данные каждому айтему
-            //        cell.configure(photo: photos[indexPath.item])
+//            cell.configure(photo: photos[indexPath.item].sizes.last!.url)
+           
+            
             guard let photoURL = photos[indexPath.item].sizes.last?.url
             else { return cell }
             cell.friendImageView.image = networkService.photo(
                 atIndexpath: indexPath,
                 byUrl: photoURL)
 
-            let isLiked = photos[indexPath.item].likes!.userLikes
+            guard let isLiked = photos[indexPath.item].likes?.userLikes
+            else { return cell }
+            
             if isLiked == 1 {
                 cell.likeControl.isLike = true
                 cell.likeControl.imageView.image = UIImage(systemName: "heart.fill")

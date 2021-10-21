@@ -24,7 +24,7 @@ class NetworkService {
     
     //MARK: - User Friends
     /// Метод для получения списка друзей пользователя
-    func getFriends(onComplete: @escaping ([Friend]) -> Void) {
+    func getFriends() {
         urlConstructor.path = "/method/friends.get"
         
         urlConstructor.queryItems = [
@@ -50,10 +50,8 @@ class NetworkService {
                 from: responseData).response.items
             else { return }
             
-            try? RealmService.save(items: friends)
-            
             DispatchQueue.main.async {
-                onComplete(friends)
+                try? RealmService.save(items: friends)
             }
         }
         task.resume()
@@ -61,7 +59,7 @@ class NetworkService {
     
     //MARK: - Photo
     /// Метод для получения всех фотографий пользователя
-    func getPhoto(for ownerID: Int?, onComplete: @escaping ([Photo]) -> Void) {
+    func getPhoto(for ownerID: Int?) {
         urlConstructor.path = "/method/photos.getAll"
         
         guard let owner = ownerID else { return }
@@ -92,15 +90,15 @@ class NetworkService {
                 from: responseData).response.items
             else { return }
             
-            do {
-                try RealmService.save(items: photos)
-            } catch {
-                print(error)
-            }
+//            do {
+//                try RealmService.save(items: photos)
+//            } catch {
+//                print(error)
+//            }
             
             
             DispatchQueue.main.async {
-                onComplete(photos)
+                try? RealmService.save(items: photos)
             }
         }
         task.resume()
@@ -134,7 +132,7 @@ class NetworkService {
     
     //MARK: - User Communities
     /// Метод для получения групп пользователя
-    func getCommunities(onComplete: @escaping ([Community]) -> Void)  {
+    func getCommunities()  {
         urlConstructor.path = "/method/groups.get"
         
         urlConstructor.queryItems = [
@@ -161,10 +159,8 @@ class NetworkService {
                 from: responseData).response.items
             else { return }
             
-            try? RealmService.save(items: communities)
-            
             DispatchQueue.main.async {
-                onComplete(communities)
+                try? RealmService.save(items: communities)
             }
         }
         task.resume()

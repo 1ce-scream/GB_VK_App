@@ -13,6 +13,7 @@ class Photo: Object, Codable {
     @objc dynamic var ownerID: Int = 0
     var sizes = List<Size>()
     var likes: Likes? = nil
+//    let likes = LinkingObjects(fromType: Likes.self, property: "user_likes")
     
     enum CodingKeys: String, CodingKey {
         case id
