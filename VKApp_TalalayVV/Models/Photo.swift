@@ -12,8 +12,8 @@ class Photo: Object, Codable {
     @objc dynamic var id: Int = 0
     @objc dynamic var ownerID: Int = 0
     var sizes = List<Size>()
+//    var likes = List<Likes>() // в этом варианте фото вообще не сохраняются
     var likes: Likes? = nil
-//    let likes = LinkingObjects(fromType: Likes.self, property: "user_likes")
     
     enum CodingKeys: String, CodingKey {
         case id

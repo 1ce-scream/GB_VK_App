@@ -42,6 +42,7 @@ class GroupsTableViewController: UITableViewController {
             case let .update(objects, deletions, insertions, modifications):
                 self?.groups = Array(objects)
                 self?.tableView.reloadData()
+                
 //                self?.groups = objects
                 self?.tableView.performBatchUpdates {
                     let delete = deletions.map {IndexPath(
