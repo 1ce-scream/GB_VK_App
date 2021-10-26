@@ -90,12 +90,10 @@ class NetworkService {
                 from: responseData).response.items
             else { return }
             
-//            do {
-//                try RealmService.save(items: photos)
-//            } catch {
-//                print(error)
-//            }
-            
+            photos.forEach {
+            $0.likesCount = $0.likes?.count ?? 0
+            $0.isLiked = $0.likes?.userLikes ?? 0 > 0
+            }
             
             DispatchQueue.main.async {
                 try? RealmService.save(items: photos)
@@ -380,4 +378,5 @@ class NetworkService {
         }
         return image
     }
+    
 }

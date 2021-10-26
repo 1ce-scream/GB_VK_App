@@ -25,7 +25,7 @@ class FriendsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         loadData()
-//        collectionView.reloadData()
+        collectionView.reloadData()
     }
     
     // MARK: - Methods
@@ -89,29 +89,24 @@ class FriendsCollectionViewController: UICollectionViewController {
                 for: indexPath) as? FriendsCollectionCell
             else { return UICollectionViewCell() }
             
-            //Присваиваем данные каждому айтему
-//            cell.configure(photo: photos[indexPath.item].sizes.last!.url)
-           
-            
             guard let photoURL = photos[indexPath.item].sizes.last?.url
             else { return cell }
+            
             cell.friendImageView.image = networkService.photo(
                 atIndexpath: indexPath,
                 byUrl: photoURL)
 
-////            guard let isLiked = photos[indexPath.item].likes?.userLikes
-////            else { return cell }
-//            
-//            if isLiked == 1 {
-//                cell.likeControl.isLike = true
-//                cell.likeControl.imageView.image = UIImage(systemName: "heart.fill")
-//            } else {
-//                cell.likeControl.isLike = false
-//                cell.likeControl.imageView.image = UIImage(systemName: "heart")
-//            }
-//            cell.likeControl.setLike(count: photos[indexPath.item].likes!.count)
-//            cell.likeControl.ownerId = photos[indexPath.item].ownerID
-//            cell.likeControl.itemId = photos[indexPath.item].id
+            let isLiked = photos[indexPath.item].isLiked
+            if isLiked {
+                cell.likeControl.isLike = true
+                cell.likeControl.imageView.image = UIImage(systemName: "heart.fill")
+            } else {
+                cell.likeControl.isLike = false
+                cell.likeControl.imageView.image = UIImage(systemName: "heart")
+            }
+            cell.likeControl.setLike(count: photos[indexPath.item].likesCount)
+            cell.likeControl.ownerId = photos[indexPath.item].ownerID
+            cell.likeControl.itemId = photos[indexPath.item].id
             return cell
         }
     

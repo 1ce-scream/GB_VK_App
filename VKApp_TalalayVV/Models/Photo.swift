@@ -11,8 +11,9 @@ import RealmSwift
 class Photo: Object, Codable {
     @objc dynamic var id: Int = 0
     @objc dynamic var ownerID: Int = 0
+    @objc dynamic var likesCount: Int = 0
+    @objc dynamic var isLiked: Bool = false
     var sizes = List<Size>()
-//    var likes = List<Likes>() // в этом варианте фото вообще не сохраняются
     var likes: Likes? = nil
     
     enum CodingKeys: String, CodingKey {

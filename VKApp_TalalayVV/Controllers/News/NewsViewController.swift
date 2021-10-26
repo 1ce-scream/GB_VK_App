@@ -13,6 +13,7 @@ class NewsViewController: UIViewController {
     
     var news = [NewsModel]()
     let networkService = NetworkService()
+    var photos: [String]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,6 @@ extension NewsViewController: UITableViewDataSource{
 //MARK: - UITableViewDelegate
 
 extension NewsViewController: UITableViewDelegate {
-    // Метод выделения ячейки
     func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) {

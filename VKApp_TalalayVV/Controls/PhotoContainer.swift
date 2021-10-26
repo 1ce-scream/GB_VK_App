@@ -30,7 +30,15 @@ class  PhotoView: UIView {
     }
     
     // MARK: Methods
-    
+    func loadImages(photosUrl: [String]) -> [UIImage?] {
+        var photos: [UIImage?] = [UIImage(named: "Concert 3"),]
+        photosUrl.forEach { index in
+            let data = try? Data(contentsOf: URL(string: index)!)
+            let image = UIImage(data: data!)
+            photos.append(image)
+        }
+        return photos
+    }
     /// Метод устанавливающий фото в контейнер исходя из их колличества
     func setImages(photos: [UIImage?] = []){
         // Проверяем не пуст ли массив с фото

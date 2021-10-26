@@ -12,16 +12,14 @@ class LikeControl: UIControl {
     let networkService = NetworkService()
     var ownerId = 0
     var itemId = 0
+    var imageView = UIImageView()
+    var isLike = false
+    
     // MARK: Private properties
     
-    // Инициализация экземпляра UIImageView
-    var imageView = UIImageView()
-    // Инициализация экземпляра лейбла
     private var likeCountLabel = UILabel()
-    // Счетчик лайков
+    
     private var likeCounter = 0
-    // Флаг переключения
-    var isLike = false
     
     // MARK: Lifecycle
     override init(frame: CGRect) {
