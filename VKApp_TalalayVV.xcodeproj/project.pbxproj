@@ -21,6 +21,7 @@
 		FE0D621C26D5799E005AE0EC /* FriendsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621B26D5799E005AE0EC /* FriendsCollectionViewController.swift */; };
 		FE0D621E26D579C9005AE0EC /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621D26D579C9005AE0EC /* FriendsCell.swift */; };
 		FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */; };
+		FE10E8DB272AC05A00A0BF97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE10E8DA272AC05A00A0BF97 /* GoogleService-Info.plist */; };
 		FE1EB0BE2701E74600C80914 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1EB0BD2701E74600C80914 /* Session.swift */; };
 		FE1FE336271866BF007D41EE /* ResponseNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1FE335271866BF007D41EE /* ResponseNews.swift */; };
 		FE22817F271D91730068B5DB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE22817E271D91730068B5DB /* RealmService.swift */; };
@@ -66,6 +67,7 @@
 		FE0D621B26D5799E005AE0EC /* FriendsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsCollectionViewController.swift; path = VKApp_TalalayVV/Controllers/FriendsCollectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		FE0D621D26D579C9005AE0EC /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsCell.swift; path = ../FriendsCell.swift; sourceTree = "<group>"; };
 		FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
+		FE10E8DA272AC05A00A0BF97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FE1EB0BD2701E74600C80914 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		FE1FE335271866BF007D41EE /* ResponseNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseNews.swift; sourceTree = "<group>"; };
 		FE22817E271D91730068B5DB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		FEBFFBFE26C5B98A004576D0 /* VKApp_TalalayVV */ = {
 			isa = PBXGroup;
 			children = (
+				FE10E8DA272AC05A00A0BF97 /* GoogleService-Info.plist */,
 				FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */,
 				FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */,
 				FE077BB7270F58A100AB88D8 /* Extensions */,
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEBFFC0C26C5B98C004576D0 /* LaunchScreen.storyboard in Resources */,
+				FE10E8DB272AC05A00A0BF97 /* GoogleService-Info.plist in Resources */,
 				FEBFFC0926C5B98C004576D0 /* Assets.xcassets in Resources */,
 				FEBFFC0726C5B98A004576D0 /* Main.storyboard in Resources */,
 			);
