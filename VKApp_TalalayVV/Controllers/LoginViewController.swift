@@ -49,16 +49,17 @@ class LoginViewController: UIViewController {
         else { return }
         
         Auth.auth().createUser(withEmail: email, password: password)
-        { authDataResult, error in
+        { [weak self] authData, error in
             guard
                 error == nil
             else {
-                print(error!.localizedDescription)
+                self!.showLoginError(
+                    title: "Error",
+                    message: error!.localizedDescription)
                 return
             }
             Auth.auth().signIn(withEmail: email, password: password)
         }
-        performSegue(withIdentifier: "loginScreenSegue", sender: nil)
     }
     
     override func viewDidLoad() {
