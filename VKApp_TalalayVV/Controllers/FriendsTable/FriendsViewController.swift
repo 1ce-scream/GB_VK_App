@@ -14,6 +14,9 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBAction func backToLogin(_ sender: Any) {
+        performSegue(withIdentifier: "exitSegue", sender: self)
+    }
     
     // MARK: - Private properties
     /// Массив имитирующий список друзей

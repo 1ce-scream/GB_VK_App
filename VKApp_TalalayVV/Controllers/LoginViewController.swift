@@ -6,13 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-    
-    /*
-     Связывание элементов на storyboard с IBOutlet
-     в контроллере
-     */
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bigStack: UIStackView!
@@ -25,26 +21,63 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordStack: UIStackView!
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
     
-    // Просто проверка работоспособности нажатия кнопки
+    private var handler: AuthStateDidChangeListenerHandle?
+    
+    @IBAction func exitSegue(unwindSegue: UIStoryboardSegue) {
+        do { try Auth.auth().signOut() } catch { print(error) }
+        loginTextField.text = ""
+        passwordTextField.text = ""
+        
+    }
+    
     @IBAction func entranceButton(_ sender: Any) {
-//        if loginTextField.hasText && passwordTextField.hasText {
-//            print("It's alive!!!")
-//        } else {
-//            print("Text fields are empty")
-//        }
+        checkUserData()
+    }
+    
+    @IBAction func anonymAuth(_ sender: Any) {
+        Auth.auth().signInAnonymously { authResult, authError in
+            
+        }
+    }
+    
+    @IBAction func registrationButton(_ sender: Any) {
+        guard
+            let email = loginTextField.text,
+            let password = passwordTextField.text
+        else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password)
+        { authDataResult, error in
+            guard
+                error == nil
+            else {
+                print(error!.localizedDescription)
+                return
+            }
+            Auth.auth().signIn(withEmail: email, password: password)
+        }
+        performSegue(withIdentifier: "loginScreenSegue", sender: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Жест нажатия
+    
         let hideKeyboardGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(hideKeyboard))
-        
-        // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
+        
+        handler = Auth.auth().addStateDidChangeListener {
+            [weak self] auth, user in
+            
+            if user != nil {
+                self?.performSegue(
+                    withIdentifier: "loginScreenSegue",
+                    sender: nil)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,61 +114,62 @@ class LoginViewController: UIViewController {
             object: nil)
     }
     
-    
-    /*
-    Мереопределение метода shouldPerformSegue с учетом проверки корректности
-    введенных значений
-    */
-    
-    override func shouldPerformSegue(
-        withIdentifier identifier: String,
-        sender: Any?) -> Bool {
-        
-        let checkResult = checkUserData()
-        
-        // Проверяем данные
-        // Если данные не верны, покажем ошибку
-        if !checkResult {
-            showLoginError()
-        }
-        
-        // Возвращаем результат
-        return checkResult
-    }
+//    override func shouldPerformSegue(
+//        withIdentifier identifier: String,
+//        sender: Any?) -> Bool {
+//
+//        let checkResult = checkUserData()
+//
+//        // Проверяем данные
+//        // Если данные не верны, покажем ошибку
+//        if !checkResult {
+//            showLoginError()
+//        }
+//
+//        // Возвращаем результат
+//        return checkResult
+//    }
     
     /// Метод для проверки корректности введенных значений в поля логин и пароль
-    func checkUserData() -> Bool {
-        guard let login = loginTextField.text,
-              let password = passwordTextField.text else { return false }
-        
-        if login == "admin" && password == "123456" {
-            return true
-        } else {
-            return false
+    func checkUserData() {
+        guard
+            let login = loginTextField.text,
+            let password = passwordTextField.text,
+            !login.isEmpty,
+            !password.isEmpty
+        else {
+            showLoginError(
+                title: "Неверные данные",
+                message: "Проверьте e-mail или пароль")
+            return
         }
+        
+        Auth.auth().signIn(
+            withEmail: login,
+            password: password) { [weak self] authResult, authError in
+                if let error = authError {
+                    self?.showLoginError(
+                        title: "Error",
+                        message: error.localizedDescription)
+                }
+            }
     }
     
     /// Метод для отображения пользователю ошибки в случае ввода некорректных данных
-    private func showLoginError() {
-        // Инициализация экземпляра контроллера
+    private func showLoginError(title: String, message: String) {
+        
         let alter = UIAlertController(
-            title: "Ошибка",
-            message: "Введены не верные данные пользователя",
+            title: title,
+            message: message,
             preferredStyle: .alert)
         
-        // Инициализация экземпляра кнопки для контроллера UIAlertController
-        // И обнуление информации в полях логин и пароль
         let action = UIAlertAction(
             title: "OK",
-            style: .cancel)
-        { _ in
-            self.loginTextField.text = ""
-            self.passwordTextField.text = ""
-        }
-        // Добавление кнопки на UIAlertController
-        alter.addAction(action)
+            style: .cancel) { _ in
+                self.passwordTextField.text = ""
+            }
         
-        // Показываем UIAlertController
+        alter.addAction(action)
         present(alter, animated: true, completion: nil)
         
     }
