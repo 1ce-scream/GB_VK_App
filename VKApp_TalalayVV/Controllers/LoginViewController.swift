@@ -64,14 +64,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         let hideKeyboardGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(hideKeyboard))
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
         handler = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
-            
             if user != nil {
                 self?.performSegue(
                     withIdentifier: "loginScreenSegue",
@@ -114,21 +113,6 @@ class LoginViewController: UIViewController {
             object: nil)
     }
     
-//    override func shouldPerformSegue(
-//        withIdentifier identifier: String,
-//        sender: Any?) -> Bool {
-//
-//        let checkResult = checkUserData()
-//
-//        // Проверяем данные
-//        // Если данные не верны, покажем ошибку
-//        if !checkResult {
-//            showLoginError()
-//        }
-//
-//        // Возвращаем результат
-//        return checkResult
-//    }
     
     /// Метод для проверки корректности введенных значений в поля логин и пароль
     func checkUserData() {
@@ -148,9 +132,13 @@ class LoginViewController: UIViewController {
             withEmail: login,
             password: password) { [weak self] authResult, authError in
                 if let error = authError {
-                    self?.showLoginError(
+                    self!.showLoginError(
                         title: "Error",
                         message: error.localizedDescription)
+                } else {
+                    self?.performSegue(
+                        withIdentifier: "loginScreenSegue",
+                        sender: nil)
                 }
             }
     }
@@ -183,7 +171,7 @@ class LoginViewController: UIViewController {
         // Получаем размер клавиатуры
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
-                        as! NSValue).cgRectValue.size
+                      as! NSValue).cgRectValue.size
         let contentInsets = UIEdgeInsets(top: 0.0,
                                          left: 0.0,
                                          bottom: kbSize.height,
