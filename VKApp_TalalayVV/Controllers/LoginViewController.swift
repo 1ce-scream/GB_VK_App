@@ -69,8 +69,7 @@ class LoginViewController: UIViewController {
             action: #selector(hideKeyboard))
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
-        handler = Auth.auth().addStateDidChangeListener {
-            [weak self] auth, user in
+        handler = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
             
             if user != nil {
                 self?.performSegue(
