@@ -25,7 +25,6 @@ class FriendsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         loadData()
-        collectionView.reloadData()
     }
     
     // MARK: - Methods
@@ -45,6 +44,7 @@ class FriendsCollectionViewController: UICollectionViewController {
             case .update(let objects, _, _, _):
                 self?.photos = Array(objects).filter {
                     $0.ownerID == self!.userID }
+                self?.collectionView.reloadData()
             case .error(let error):
                 print(error)
             }
