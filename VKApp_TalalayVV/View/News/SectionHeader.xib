@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dod-4Z-DMM" customClass="AvatarBackgroundShadowView" customModule="VKApp_TalalayVV" customModuleProvider="target">
                         <rect key="frame" x="8" y="1" width="45" height="45"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Du9-eb-pnM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Du9-eb-pnM" customClass="AvatarImage" customModule="VKApp_TalalayVV" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                             </imageView>
                         </subviews>
