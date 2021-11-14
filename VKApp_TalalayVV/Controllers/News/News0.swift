@@ -58,6 +58,7 @@ class News0: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             viewForFooterInSection section: Int) -> UIView? {
+        
         guard let footer = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: "Footer") as? SectionFooter
         else { return nil }
@@ -134,7 +135,8 @@ class News0: UITableViewController {
         return UITableView.automaticDimension
     }
     
-    //    override func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-    //        return 50
-    //    }
+//    override func tableView(_ tableView: UITableView,
+//                            estimatedHeightForFooterInSection section: Int) -> CGFloat {
+//        return 50
+//    }
 }
