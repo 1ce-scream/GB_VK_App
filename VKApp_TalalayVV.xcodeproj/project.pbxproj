@@ -30,6 +30,15 @@
 		FE43FD0726EFBB3F005449ED /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE43FD0626EFBB3F005449ED /* PhotoViewController.swift */; };
 		FE52E1E926E3879700498CB9 /* LetterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52E1E826E3879700498CB9 /* LetterControl.swift */; };
 		FE52E1EB26E3880000498CB9 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52E1EA26E3880000498CB9 /* FriendsViewController.swift */; };
+		FE5B09BD2741198700962C9C /* News0.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B09BC2741198700962C9C /* News0.swift */; };
+		FE5B09C0274119E100962C9C /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B09BE274119E100962C9C /* SectionHeader.swift */; };
+		FE5B09C1274119E100962C9C /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE5B09BF274119E100962C9C /* SectionHeader.xib */; };
+		FE5B09C42741223200962C9C /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B09C22741223200962C9C /* TextCell.swift */; };
+		FE5B09C52741223200962C9C /* TextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE5B09C32741223200962C9C /* TextCell.xib */; };
+		FE5B09C82741248C00962C9C /* SectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B09C62741248C00962C9C /* SectionFooter.swift */; };
+		FE5B09C92741248C00962C9C /* SectionFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE5B09C72741248C00962C9C /* SectionFooter.xib */; };
+		FE5B09CC27412A4700962C9C /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B09CA27412A4700962C9C /* PhotoCell.swift */; };
+		FE5B09CD27412A4700962C9C /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE5B09CB27412A4700962C9C /* PhotoCell.xib */; };
 		FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */; };
 		FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */; };
 		FEBFFC0426C5B98A004576D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFC0326C5B98A004576D0 /* LoginViewController.swift */; };
@@ -75,6 +84,15 @@
 		FE43FD0626EFBB3F005449ED /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		FE52E1E826E3879700498CB9 /* LetterControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterControl.swift; sourceTree = "<group>"; };
 		FE52E1EA26E3880000498CB9 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		FE5B09BC2741198700962C9C /* News0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News0.swift; sourceTree = "<group>"; };
+		FE5B09BE274119E100962C9C /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		FE5B09BF274119E100962C9C /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
+		FE5B09C22741223200962C9C /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		FE5B09C32741223200962C9C /* TextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCell.xib; sourceTree = "<group>"; };
+		FE5B09C62741248C00962C9C /* SectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooter.swift; sourceTree = "<group>"; };
+		FE5B09C72741248C00962C9C /* SectionFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionFooter.xib; sourceTree = "<group>"; };
+		FE5B09CA27412A4700962C9C /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		FE5B09CB27412A4700962C9C /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		FEBFFBFC26C5B98A004576D0 /* VKApp_TalalayVV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp_TalalayVV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +222,21 @@
 			path = Controls;
 			sourceTree = "<group>";
 		};
+		FE5B09BB2741187200962C9C /* News */ = {
+			isa = PBXGroup;
+			children = (
+				FE5B09BE274119E100962C9C /* SectionHeader.swift */,
+				FE5B09BF274119E100962C9C /* SectionHeader.xib */,
+				FE5B09C22741223200962C9C /* TextCell.swift */,
+				FE5B09C32741223200962C9C /* TextCell.xib */,
+				FE5B09C62741248C00962C9C /* SectionFooter.swift */,
+				FE5B09C72741248C00962C9C /* SectionFooter.xib */,
+				FE5B09CA27412A4700962C9C /* PhotoCell.swift */,
+				FE5B09CB27412A4700962C9C /* PhotoCell.xib */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		FEBFFBF326C5B98A004576D0 = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +277,7 @@
 		FEBFFC1326C676A8004576D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE5B09BB2741187200962C9C /* News */,
 				FE0D621F26D8FB88005AE0EC /* AvatarImageView.swift */,
 				FEBFFC0526C5B98A004576D0 /* Main.storyboard */,
 			);
@@ -282,6 +316,7 @@
 			children = (
 				FEE9F5F426E6378B00DCEDDA /* NewsViewController.swift */,
 				FEE9F5F726E63D7900DCEDDA /* NewsCell.swift */,
+				FE5B09BC2741198700962C9C /* News0.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -345,9 +380,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5B09C92741248C00962C9C /* SectionFooter.xib in Resources */,
+				FE5B09C1274119E100962C9C /* SectionHeader.xib in Resources */,
 				FEBFFC0C26C5B98C004576D0 /* LaunchScreen.storyboard in Resources */,
+				FE5B09C52741223200962C9C /* TextCell.xib in Resources */,
 				FEBFFC0926C5B98C004576D0 /* Assets.xcassets in Resources */,
 				FEBFFC0726C5B98A004576D0 /* Main.storyboard in Resources */,
+				FE5B09CD27412A4700962C9C /* PhotoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,10 +446,12 @@
 				FEEB7DA22709A61D00F74813 /* NetworkConstants.swift in Sources */,
 				FE0D621A26D578E8005AE0EC /* FriendsCollectionCell.swift in Sources */,
 				FE43FD0726EFBB3F005449ED /* PhotoViewController.swift in Sources */,
+				FE5B09C42741223200962C9C /* TextCell.swift in Sources */,
 				FE0D620A26D5758C005AE0EC /* Group.swift in Sources */,
 				FEBFFC0426C5B98A004576D0 /* LoginViewController.swift in Sources */,
 				FE52E1EB26E3880000498CB9 /* FriendsViewController.swift in Sources */,
 				FE0D621E26D579C9005AE0EC /* FriendsCell.swift in Sources */,
+				FE5B09BD2741198700962C9C /* News0.swift in Sources */,
 				FE0D61EB26CAEEDD005AE0EC /* GroupsTableViewController.swift in Sources */,
 				FE0D620F26D576C0005AE0EC /* GroupsSearchCell.swift in Sources */,
 				FECDAB8626F8B611005047A7 /* PopAnimator.swift in Sources */,
@@ -422,15 +463,18 @@
 				FEE9F5F826E63D7900DCEDDA /* NewsCell.swift in Sources */,
 				FE077BB4270F325200AB88D8 /* Response.swift in Sources */,
 				FE077BB2270F312400AB88D8 /* Friend.swift in Sources */,
+				FE5B09CC27412A4700962C9C /* PhotoCell.swift in Sources */,
 				FE0D621C26D5799E005AE0EC /* FriendsCollectionViewController.swift in Sources */,
 				FE1FE336271866BF007D41EE /* ResponseNews.swift in Sources */,
 				FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */,
+				FE5B09C0274119E100962C9C /* SectionHeader.swift in Sources */,
 				FEEB7D9E2707180400F74813 /* LoginWebViewController.swift in Sources */,
 				FECDAB8426F8B5FD005047A7 /* PushAnimator.swift in Sources */,
 				FE077BB9270F58B300AB88D8 /* UIImageView.swift in Sources */,
 				FE43FCF726E77AE1005449ED /* PhotoContainer.swift in Sources */,
 				FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */,
 				FEE9F5F526E6378B00DCEDDA /* NewsViewController.swift in Sources */,
+				FE5B09C82741248C00962C9C /* SectionFooter.swift in Sources */,
 				FE22817F271D91730068B5DB /* RealmService.swift in Sources */,
 				FE0D622026D8FB88005AE0EC /* AvatarImageView.swift in Sources */,
 				FE43FCF926E8BF50005449ED /* LoadingViewController.swift in Sources */,
