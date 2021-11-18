@@ -52,6 +52,7 @@ class  PhotoView: UIView {
             addSubview(collageView1)
             // Отключаем авторесайз
             collageView1.translatesAutoresizingMaskIntoConstraints = false
+            collageView1.contentMode = UIView.ContentMode.scaleAspectFill
             // Присваиваем значение
             collageView1.image = photos[0]
             // Задаем констрейнты
@@ -76,8 +77,8 @@ class  PhotoView: UIView {
             collageView1.image = photos[0]
             collageView2.image = photos[1]
             // Задаем contentMode для избежания искажения фото
-            collageView1.contentMode = UIView.ContentMode.scaleAspectFill
-            collageView2.contentMode = UIView.ContentMode.scaleAspectFill
+            collageView1.contentMode = UIView.ContentMode.scaleAspectFit
+            collageView2.contentMode = UIView.ContentMode.scaleAspectFit
             // Задаем констрейнты
             NSLayoutConstraint.activate([
                 collageView1.topAnchor.constraint(
