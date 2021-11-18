@@ -12,6 +12,7 @@
 		FE077BB4270F325200AB88D8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB3270F325200AB88D8 /* Response.swift */; };
 		FE077BB6270F472000AB88D8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB5270F472000AB88D8 /* Photo.swift */; };
 		FE077BB9270F58B300AB88D8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB8270F58B300AB88D8 /* UIImageView.swift */; };
+		FE0ADD8627467B200023B4BD /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0ADD8527467B200023B4BD /* DateFormatter.swift */; };
 		FE0D61EB26CAEEDD005AE0EC /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D61EA26CAEEDD005AE0EC /* GroupsTableViewController.swift */; };
 		FE0D620A26D5758C005AE0EC /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D620926D5758C005AE0EC /* Group.swift */; };
 		FE0D620C26D57671005AE0EC /* GroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D620B26D57671005AE0EC /* GroupsCell.swift */; };
@@ -66,6 +67,7 @@
 		FE077BB3270F325200AB88D8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		FE077BB5270F472000AB88D8 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		FE077BB8270F58B300AB88D8 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		FE0ADD8527467B200023B4BD /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		FE0D61EA26CAEEDD005AE0EC /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		FE0D620926D5758C005AE0EC /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		FE0D620B26D57671005AE0EC /* GroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				FE077BB8270F58B300AB88D8 /* UIImageView.swift */,
+				FE0ADD8527467B200023B4BD /* DateFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				FEE9F5F826E63D7900DCEDDA /* NewsCell.swift in Sources */,
 				FE077BB4270F325200AB88D8 /* Response.swift in Sources */,
 				FE077BB2270F312400AB88D8 /* Friend.swift in Sources */,
+				FE0ADD8627467B200023B4BD /* DateFormatter.swift in Sources */,
 				FE5B09CC27412A4700962C9C /* PhotoCell.swift in Sources */,
 				FE0D621C26D5799E005AE0EC /* FriendsCollectionViewController.swift in Sources */,
 				FE1FE336271866BF007D41EE /* ResponseNews.swift in Sources */,

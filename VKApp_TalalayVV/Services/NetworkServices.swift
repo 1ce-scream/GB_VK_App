@@ -91,8 +91,8 @@ class NetworkService {
             else { return }
             
             photos.forEach {
-            $0.likesCount = $0.likes?.count ?? 0
-            $0.isLiked = $0.likes?.userLikes ?? 0 > 0
+                $0.likesCount = $0.likes?.count ?? 0
+                $0.isLiked = $0.likes?.userLikes ?? 0 > 0
             }
             
             DispatchQueue.main.async {
@@ -194,7 +194,7 @@ class NetworkService {
             
             let objectsToDelete = try? RealmService.load(typeOf: Community.self)
                 .filter("id = %f", id)
-
+            
             guard let item = objectsToDelete else { return }
             try? RealmService.delete(object: item)
             
@@ -278,79 +278,81 @@ class NetworkService {
     }
     
     func getNews(onComplete: @escaping ([NewsModel]) -> Void) {
-//    func getNews() {
-            urlConstructor.path = "/method/newsfeed.get"
+        
+        urlConstructor.path = "/method/newsfeed.get"
+        
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "filters", value: "post"),
+            URLQueryItem(name: "start_from", value: "next_from"),
+            URLQueryItem(name: "count", value: "20"),
+            URLQueryItem(name: "access_token", value: Session.shared.token),
+            URLQueryItem(name: "v", value: constants.versionAPI),
+        ]
+        let task = session.dataTask(with: urlConstructor.url!) {
+            (responseData, urlResponse, error) in
             
-            urlConstructor.queryItems = [
-                URLQueryItem(name: "filters", value: "post"),
-                URLQueryItem(name: "start_from", value: "next_from"),
-                URLQueryItem(name: "count", value: "20"),
-                URLQueryItem(name: "access_token", value: Session.shared.token),
-                URLQueryItem(name: "v", value: constants.versionAPI),
-            ]
-            let task = session.dataTask(with: urlConstructor.url!) {
-                (responseData, urlResponse, error) in
-                
-                if let response = urlResponse as? HTTPURLResponse {
-                    print(response.statusCode)
-                }
-                
-                guard
-                    error == nil,
-                    let data = responseData
-                else { return }
-                
-                
-//                let json = try? JSONSerialization.jsonObject(
-//                    with: data,
-//                    options: .fragmentsAllowed)
-                guard
-                    let news = try? JSONDecoder().decode(
-                        Response<NewsModel>.self,
-                        from: data).response.items
-                else {
-                    print("News Error")
-                    return
-                }
-
-                guard
-                    let profiles = try? JSONDecoder().decode(
-                        ResponseNews.self,
-                        from: data).response.profiles
-                else {
-                    print("Profiles error")
-                    return
-                }
-
-                guard
-                    let groups = try? JSONDecoder().decode(
-                        ResponseNews.self,
-                        from: data).response.groups
-                else {
-                    print("Groups error")
-                    return
-                }
-
-                for i in 0..<news.count {
-                    if news[i].sourceID < 0 {
-                        let group = groups.first(
-                            where: { $0.id == -news[i].sourceID })
-                        news[i].avatarURL = group?.avatarURL
-                        news[i].creatorName = group?.name
-                    } else {
-                        let profile = profiles.first(
-                            where: { $0.id == news[i].sourceID })
-                        news[i].avatarURL = profile?.avatarURL
-                        news[i].creatorName = profile?.firstName
-                    }
-                }
-
-                DispatchQueue.main.async {
-                    onComplete(news)
+            if let response = urlResponse as? HTTPURLResponse {
+                print(response.statusCode)
+            }
+            
+            guard
+                error == nil,
+                let data = responseData
+            else { return }
+            
+            
+//            let json = try? JSONSerialization.jsonObject(
+//                with: data,
+//                options: .fragmentsAllowed)
+            guard
+                let news = try? JSONDecoder().decode(
+                    Response<NewsModel>.self,
+                    from: data).response.items
+            else {
+                print("News Error")
+                return
+            }
+            
+            guard
+                let profiles = try? JSONDecoder().decode(
+                    ResponseNews.self,
+                    from: data).response.profiles
+            else {
+                print("Profiles error")
+                return
+            }
+            
+            guard
+                let groups = try? JSONDecoder().decode(
+                    ResponseNews.self,
+                    from: data).response.groups
+            else {
+                print("Groups error")
+                return
+            }
+            
+            for i in 0..<news.count {
+                if news[i].sourceID < 0 {
+                    let group = groups.first(
+                        where: { $0.id == -news[i].sourceID })
+                    news[i].avatarURL = group?.avatarURL
+                    news[i].creatorName = group?.name
+                } else {
+                    let profile = profiles.first(
+                        where: { $0.id == news[i].sourceID })
+                    news[i].avatarURL = profile?.avatarURL
+                    news[i].creatorName = profile?.firstName
                 }
             }
+            
+            DispatchQueue.main.async {
+                onComplete(news)
+            }
+        }
+        DispatchQueue.global(qos: .utility).async {
             task.resume()
         }
+    }
     // MARK: - Image Services
     
     private var images = [String: UIImage]()

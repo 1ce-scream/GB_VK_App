@@ -10,6 +10,7 @@ import UIKit
 class NewsModel: Codable {
     let postID: Int
     let text: String
+    let date: Double
     let attachments: [Attachment]?
     let likes: LikeModel
     let sourceID: Int
@@ -26,12 +27,18 @@ class NewsModel: Codable {
     enum CodingKeys: String, CodingKey {
         case postID = "post_id"
         case text
+        case date
         case likes
         case attachments
         case sourceID = "source_id"
         case avatarURL
         case views
         case creatorName
+    }
+    
+    func getStringDate() -> String {
+        let dateFormatter = DateFormatterVK()
+        return dateFormatter.convertDate(timeIntervalSince1970: date)
     }
 }
 

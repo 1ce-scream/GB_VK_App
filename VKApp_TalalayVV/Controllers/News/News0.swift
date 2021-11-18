@@ -51,7 +51,7 @@ class News0: UITableViewController {
         else { return nil }
         
         header.nameLabel.text = news[section].creatorName
-        header.dateLabel.text = "10.10.2020"
+        header.dateLabel.text = news[section].getStringDate()
         header.avatarImageView.loadImage(by: news[section].avatarURL ?? "")
         return header
     }
