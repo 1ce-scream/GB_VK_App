@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		FE077BB6270F472000AB88D8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB5270F472000AB88D8 /* Photo.swift */; };
 		FE077BB9270F58B300AB88D8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB8270F58B300AB88D8 /* UIImageView.swift */; };
 		FE0ADD8627467B200023B4BD /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0ADD8527467B200023B4BD /* DateFormatter.swift */; };
+		FE0ADD8927467D580023B4BD /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = FE0ADD8827467D580023B4BD /* Nuke */; };
 		FE0D61EB26CAEEDD005AE0EC /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D61EA26CAEEDD005AE0EC /* GroupsTableViewController.swift */; };
 		FE0D620A26D5758C005AE0EC /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D620926D5758C005AE0EC /* Group.swift */; };
 		FE0D620C26D57671005AE0EC /* GroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D620B26D57671005AE0EC /* GroupsCell.swift */; };
@@ -122,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				620BD9D51D625C66A8CDC4E6 /* Pods_VKApp_TalalayVV.framework in Frameworks */,
+				FE0ADD8927467D580023B4BD /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +344,9 @@
 			dependencies = (
 			);
 			name = VKApp_TalalayVV;
+			packageProductDependencies = (
+				FE0ADD8827467D580023B4BD /* Nuke */,
+			);
 			productName = VKApp_TalalayVV;
 			productReference = FEBFFBFC26C5B98A004576D0 /* VKApp_TalalayVV.app */;
 			productType = "com.apple.product-type.application";
@@ -369,6 +374,9 @@
 				Base,
 			);
 			mainGroup = FEBFFBF326C5B98A004576D0;
+			packageReferences = (
+				FE0ADD8727467D580023B4BD /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = FEBFFBFD26C5B98A004576D0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -687,6 +695,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE0ADD8727467D580023B4BD /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE0ADD8827467D580023B4BD /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE0ADD8727467D580023B4BD /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FEBFFBF426C5B98A004576D0 /* Project object */;
 }

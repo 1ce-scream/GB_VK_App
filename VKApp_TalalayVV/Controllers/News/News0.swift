@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 class News0: UITableViewController {
     
@@ -52,7 +53,14 @@ class News0: UITableViewController {
         
         header.nameLabel.text = news[section].creatorName
         header.dateLabel.text = news[section].getStringDate()
-        header.avatarImageView.loadImage(by: news[section].avatarURL ?? "")
+//        header.avatarImageView.loadImage(by: news[section].avatarURL ?? "")
+//        Nuke.loadImage(with: news[section].avatarURL as! ImageRequestConvertible, into: header.avatarImageView)
+        
+        let urlString = news[section].avatarURL
+        if let url = URL(string: urlString ?? "") {
+            Nuke.loadImage(with: url, into: header.avatarImageView!)
+        }
+        
         return header
     }
     
@@ -102,6 +110,18 @@ class News0: UITableViewController {
             photoCell.photoView.setImages(
                 photos: photoCell.photoView.loadImages(
                     photosUrl: news[section].photosURL!))
+            
+//            let urlStrings = news[section].photosURL
+//            var photos = [UIImage]()
+//            urlStrings?.forEach { index in
+//                let testView = UIImageView()
+//                if let url = URL(string: index) {
+//                    Nuke.loadImage(with: url, into: testView)
+//                    guard let smth = testView.image else {return}
+//                    photos.append(smth)
+//                }
+//            }
+//            photoCell.photoView.setImages(photos: photos)
             return photoCell
         }
     return textCell

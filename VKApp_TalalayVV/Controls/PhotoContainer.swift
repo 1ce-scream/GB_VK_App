@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 class  PhotoView: UIView {
     
@@ -32,10 +33,15 @@ class  PhotoView: UIView {
     // MARK: Methods
     func loadImages(photosUrl: [String]) -> [UIImage?] {
         var photos: [UIImage?] = [UIImage(named: "Concert 3"),]
+//        let photo = UIImageView()
         photosUrl.forEach { index in
             let data = try? Data(contentsOf: URL(string: index)!)
             let image = UIImage(data: data!)
             photos.append(image)
+            
+//            let url = URL(string: index)
+//            Nuke.loadImage(with: url!, into: photo)
+//            photos.append(photo.image)
         }
         return photos
     }
