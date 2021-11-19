@@ -53,8 +53,6 @@ class News0: UITableViewController {
         
         header.nameLabel.text = news[section].creatorName
         header.dateLabel.text = news[section].getStringDate()
-//        header.avatarImageView.loadImage(by: news[section].avatarURL ?? "")
-//        Nuke.loadImage(with: news[section].avatarURL as! ImageRequestConvertible, into: header.avatarImageView)
         
         let urlString = news[section].avatarURL
         if let url = URL(string: urlString ?? "") {
@@ -90,42 +88,59 @@ class News0: UITableViewController {
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let section = indexPath.section
-        let textCell = tableView.dequeueReusableCell(
-            withIdentifier: "TextCell",
-            for: indexPath) as! TextCell
-        let photoCell = tableView.dequeueReusableCell(
-            withIdentifier: "PhotoCell",
-            for: indexPath) as! PhotoCell
-        textCell.postTextLabel.text = news[section].text
-        
-        if indexPath.row == 0 {
-            textCell.postTextLabel.numberOfLines = 0
-            textCell.postTextLabel.text = news[section].text
-            return textCell
-        }
-        
-        if indexPath.row == 1 {
-            photoCell.photoView.setImages(
-                photos: photoCell.photoView.loadImages(
-                    photosUrl: news[section].photosURL!))
             
-//            let urlStrings = news[section].photosURL
-//            var photos = [UIImage]()
-//            urlStrings?.forEach { index in
-//                let testView = UIImageView()
-//                if let url = URL(string: index) {
-//                    Nuke.loadImage(with: url, into: testView)
-//                    guard let smth = testView.image else {return}
-//                    photos.append(smth)
-//                }
+            let section = indexPath.section
+            let textCell = tableView.dequeueReusableCell(
+                withIdentifier: "TextCell",
+                for: indexPath) as! TextCell
+            let photoCell = tableView.dequeueReusableCell(
+                withIdentifier: "PhotoCell",
+                for: indexPath) as! PhotoCell
+            textCell.postTextLabel.text = news[section].text
+            
+            switch indexPath.row {
+            case 0:
+                textCell.postTextLabel.numberOfLines = 0
+                textCell.postTextLabel.text = news[section].text
+                return textCell
+                
+            case 1:
+                photoCell.photoView.setImages(
+                    photos: photoCell.photoView.loadImages(
+                        photosUrl: news[section].photosURL!))
+                return photoCell
+                
+            default:
+                return UITableViewCell()
+            }
+            
+            
+//            if indexPath.row == 0 {
+//                textCell.postTextLabel.numberOfLines = 0
+//                textCell.postTextLabel.text = news[section].text
+//                return textCell
 //            }
-//            photoCell.photoView.setImages(photos: photos)
-            return photoCell
+//
+//            if indexPath.row == 1 {
+//                photoCell.photoView.setImages(
+//                    photos: photoCell.photoView.loadImages(
+//                        photosUrl: news[section].photosURL!))
+//
+//                //            let urlStrings = news[section].photosURL
+//                //            var photos = [UIImage]()
+//                //            urlStrings?.forEach { index in
+//                //                let testView = UIImageView()
+//                //                if let url = URL(string: index) {
+//                //                    Nuke.loadImage(with: url, into: testView)
+//                //                    guard let smth = testView.image else {return}
+//                //                    photos.append(smth)
+//                //                }
+//                //            }
+//                //            photoCell.photoView.setImages(photos: photos)
+//                return photoCell
+//            }
+//            return textCell
         }
-    return textCell
-}
     
     override func tableView(_: UITableView,
                             heightForRowAt _: IndexPath) -> CGFloat {

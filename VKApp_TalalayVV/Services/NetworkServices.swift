@@ -349,9 +349,7 @@ class NetworkService {
                 onComplete(news)
             }
         }
-        DispatchQueue.global(qos: .utility).async {
-            task.resume()
-        }
+        task.resume()
     }
     // MARK: - Image Services
     
