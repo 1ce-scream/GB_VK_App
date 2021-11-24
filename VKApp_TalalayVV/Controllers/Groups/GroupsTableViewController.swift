@@ -16,18 +16,36 @@ class GroupsTableViewController: UITableViewController {
     private let networkService = NetworkService()
     /// Массив со списоком групп пользователя
     private var groups = [Community]()
-//    private var groups: Results<Community>?
     private var groupsNotification: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.getCommunities()
-        
+//        networkService.getCommunities()
+        getCommunities()
         loadData()
     }
     
-    func loadData() {
+    private func getCommunities() {
+        let operationQ = OperationQueue()
+        operationQ.maxConcurrentOperationCount = 10
+        let getDataOperation = GetGroupDataOperation()
+        let parseDataOperation = ParseGroupDataOperation()
+        let saveDataOperation = SaveGroupDataOperation()
+        
+        parseDataOperation.addDependency(getDataOperation)
+        saveDataOperation.addDependency(parseDataOperation)
+        
+        operationQ.addOperation(getDataOperation)
+        operationQ.addOperation(parseDataOperation)
+        operationQ.addOperation(saveDataOperation)
+        
+        saveDataOperation.completionBlock = {
+            print("Данные сохранены. Статус: \(saveDataOperation.state)")
+        }
+    }
+    
+    private func loadData() {
         let tmpCommunities = try? RealmService.load(typeOf: Community.self)
         groupsNotification = tmpCommunities?.observe(on: .main)
         { [weak self] realmChange in
@@ -36,14 +54,12 @@ class GroupsTableViewController: UITableViewController {
                 
             case .initial(let objects):
                 self?.groups = Array(objects)
-//                self?.groups = objects
                 self?.tableView.reloadData()
                 
             case let .update(objects, deletions, insertions, modifications):
                 self?.groups = Array(objects)
                 self?.tableView.reloadData()
                 
-//                self?.groups = objects
                 self?.tableView.performBatchUpdates {
                     let delete = deletions.map {IndexPath(
                         item: $0,
