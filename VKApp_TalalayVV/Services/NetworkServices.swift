@@ -320,6 +320,8 @@ class NetworkService {
         task.resume()
     }
     
+    //MARK: - News
+    
     func getNews(onComplete: @escaping ([NewsModel]) -> Void) {
         
         urlConstructor.path = "/method/newsfeed.get"

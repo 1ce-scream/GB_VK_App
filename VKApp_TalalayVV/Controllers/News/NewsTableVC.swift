@@ -105,9 +105,9 @@ class News: UITableViewController {
                 return textCell
                 
             case 1:
-                photoCell.photoView.setImages(
-                    photos: photoCell.photoView.loadImages(
-                        photosUrl: news[section].photosURL!))
+                photoCell.photoView.setImages(photos: news[section].photosURL!)
+//                    photos: photoCell.photoView.loadImages(
+//                        photosUrl: news[section].photosURL!))
                 return photoCell
                 
             default:

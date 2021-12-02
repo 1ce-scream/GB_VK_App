@@ -12,7 +12,6 @@ class  PhotoView: UIView {
     
     // MARK: Private properties
     
-    // Инициализируем imageViews
     private var collageView1 = UIImageView()
     private var collageView2 = UIImageView()
     private var collageView3 = UIImageView()
@@ -31,25 +30,12 @@ class  PhotoView: UIView {
     }
     
     // MARK: Methods
-    func loadImages(photosUrl: [String]) -> [UIImage?] {
-        var photos: [UIImage?] = [UIImage(named: "Concert 3"),]
-//        let photo = UIImageView()
-        photosUrl.forEach { index in
-            let data = try? Data(contentsOf: URL(string: index)!)
-            let image = UIImage(data: data!)
-            photos.append(image)
-            
-//            let url = URL(string: index)
-//            Nuke.loadImage(with: url!, into: photo)
-//            photos.append(photo.image)
-        }
-        return photos
-    }
+    
     /// Метод устанавливающий фото в контейнер исходя из их колличества
-    func setImages(photos: [UIImage?] = []){
+    func setImages(photos: [String] = []){
         // Проверяем не пуст ли массив с фото
         guard !photos.isEmpty else { return }
-        
+    
         // Присваиваем значения и задаем параметры imageViews
         // в зависимости от колличества фото
         switch photos.count {
@@ -60,7 +46,10 @@ class  PhotoView: UIView {
             collageView1.translatesAutoresizingMaskIntoConstraints = false
             collageView1.contentMode = UIView.ContentMode.scaleAspectFill
             // Присваиваем значение
-            collageView1.image = photos[0]
+            Nuke.loadImage(
+                with: URL(string: photos[0])!,
+                into: collageView1)
+//            collageView1.image = photos[0]
             // Задаем констрейнты
             NSLayoutConstraint.activate([
                 collageView1.topAnchor.constraint(
@@ -80,8 +69,14 @@ class  PhotoView: UIView {
             collageView1.translatesAutoresizingMaskIntoConstraints = false
             collageView2.translatesAutoresizingMaskIntoConstraints = false
             // Присваиваем значения
-            collageView1.image = photos[0]
-            collageView2.image = photos[1]
+            Nuke.loadImage(
+                with: URL(string: photos[0])!,
+                into: collageView1)
+            Nuke.loadImage(
+                with: URL(string: photos[1])!,
+                into: collageView2)
+//            collageView1.image = photos[0]
+//            collageView2.image = photos[1]
             // Задаем contentMode для избежания искажения фото
             collageView1.contentMode = UIView.ContentMode.scaleAspectFit
             collageView2.contentMode = UIView.ContentMode.scaleAspectFit
@@ -115,9 +110,18 @@ class  PhotoView: UIView {
             collageView2.translatesAutoresizingMaskIntoConstraints = false
             collageView3.translatesAutoresizingMaskIntoConstraints = false
             // Присваиваем значения
-            collageView1.image = photos[0]
-            collageView2.image = photos[1]
-            collageView3.image = photos[2]
+            Nuke.loadImage(
+                with: URL(string: photos[0])!,
+                into: collageView1)
+            Nuke.loadImage(
+                with: URL(string: photos[1])!,
+                into: collageView2)
+            Nuke.loadImage(
+                with: URL(string: photos[2])!,
+                into: collageView3)
+//            collageView1.image = photos[0]
+//            collageView2.image = photos[1]
+//            collageView3.image = photos[2]
             // Задаем contentMode для избежания искажения фото
             collageView1.contentMode = UIView.ContentMode.scaleAspectFill
             // Задаем констрейнты
@@ -165,10 +169,23 @@ class  PhotoView: UIView {
             collageView3.translatesAutoresizingMaskIntoConstraints = false
             collageView4.translatesAutoresizingMaskIntoConstraints = false
             // Присваиваем значения
-            collageView1.image = photos[0]
-            collageView2.image = photos[1]
-            collageView3.image = photos[2]
-            collageView4.image = photos[3]
+            
+            Nuke.loadImage(
+                with: URL(string: photos[0])!,
+                into: collageView1)
+            Nuke.loadImage(
+                with: URL(string: photos[1])!,
+                into: collageView2)
+            Nuke.loadImage(
+                with: URL(string: photos[2])!,
+                into: collageView3)
+            Nuke.loadImage(
+                with: URL(string: photos[3])!,
+                into: collageView4)
+//            collageView1.image = photos[0]
+//            collageView2.image = photos[1]
+//            collageView3.image = photos[2]
+//            collageView4.image = photos[3]
             // Задаем констрейнты
             NSLayoutConstraint.activate([
                 collageView1.topAnchor.constraint(
