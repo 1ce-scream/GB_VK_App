@@ -69,9 +69,13 @@ class NetworkService {
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
         
-        return Promise { resolver in
+        return Promise<Data> { resolver in
             session.dataTask(with: urlConstructor.url!) {
                 (responseData, urlResponse, error) in
+                
+                if let response = urlResponse as? HTTPURLResponse {
+                    print(response.statusCode)
+                }
                 
                 guard
                     error == nil,
