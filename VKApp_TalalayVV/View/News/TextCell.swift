@@ -13,7 +13,8 @@ class TextCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.postTextLabel.backgroundColor = .systemBackground
+        self.postTextLabel.isOpaque = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

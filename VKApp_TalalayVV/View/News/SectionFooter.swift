@@ -20,7 +20,11 @@ class SectionFooter: UITableViewHeaderFooterView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.viewCount.backgroundColor = .systemBackground
+        self.viewCount.isOpaque = true
+        self.repostButton.backgroundColor = .systemBackground
+        self.repostButton.isOpaque = true 
     }
 
 }

@@ -113,33 +113,6 @@ class News: UITableViewController {
             default:
                 return UITableViewCell()
             }
-            
-            
-//            if indexPath.row == 0 {
-//                textCell.postTextLabel.numberOfLines = 0
-//                textCell.postTextLabel.text = news[section].text
-//                return textCell
-//            }
-//
-//            if indexPath.row == 1 {
-//                photoCell.photoView.setImages(
-//                    photos: photoCell.photoView.loadImages(
-//                        photosUrl: news[section].photosURL!))
-//
-//                //            let urlStrings = news[section].photosURL
-//                //            var photos = [UIImage]()
-//                //            urlStrings?.forEach { index in
-//                //                let testView = UIImageView()
-//                //                if let url = URL(string: index) {
-//                //                    Nuke.loadImage(with: url, into: testView)
-//                //                    guard let smth = testView.image else {return}
-//                //                    photos.append(smth)
-//                //                }
-//                //            }
-//                //            photoCell.photoView.setImages(photos: photos)
-//                return photoCell
-//            }
-//            return textCell
         }
     
     override func tableView(_: UITableView,

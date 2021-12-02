@@ -21,6 +21,10 @@ class SectionHeader: UITableViewHeaderFooterView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.dateLabel.backgroundColor = .systemBackground
+        self.dateLabel.isOpaque = true
+        self.nameLabel.backgroundColor = .systemBackground
+        self.nameLabel.isOpaque = true
     }
 
 }

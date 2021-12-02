@@ -67,6 +67,7 @@ class LikeControl: UIControl {
         
         // Устанавливаем цвет текста
         likeCountLabel.textColor = .systemRed
+        likeCountLabel.backgroundColor = .systemBackground
         // Отключаем autoresize
         likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
         // Привязка к изображению

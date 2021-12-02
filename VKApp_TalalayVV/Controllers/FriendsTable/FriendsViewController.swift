@@ -236,13 +236,32 @@ extension FriendsViewController: UITableViewDataSource{
     
     
     // Метод задающий хэдер секциям
+    
     func tableView(
-        _ tableView: UITableView,
-        titleForHeaderInSection section: Int) -> String? {
+        _: UITableView,
+        viewForHeaderInSection section: Int) -> UIView? {
+            
+            let view = UIView(frame: CGRect(
+                x: 0,
+                y: 0,
+                width: view.frame.size.width,
+                height: 12))
+            
+            let label = UILabel(frame: CGRect(
+                x: 8,
+                y: 0,
+                width: view.frame.size.width,
+                height: 12))
             
             let letter = firstLetters[section].uppercased()
-            let header = String(letter)
-            return header
+            
+            label.text = letter
+            label.backgroundColor = .systemBackground
+            label.isOpaque = true
+            label.textColor = .black
+            view.addSubview(label)
+            
+            return view
         }
 }
 
