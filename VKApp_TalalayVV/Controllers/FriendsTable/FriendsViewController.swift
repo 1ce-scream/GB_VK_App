@@ -58,7 +58,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         let tmpFriends = try? RealmService.load(typeOf: Friend.self)
         friendsNotification = tmpFriends?.observe(on: .main)
         { [weak self] realmChange in
-            
+
             switch realmChange {
             case .initial(let objects):
                 self?.data = objects
