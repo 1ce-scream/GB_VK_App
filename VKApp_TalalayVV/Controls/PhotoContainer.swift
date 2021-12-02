@@ -44,7 +44,7 @@ class  PhotoView: UIView {
             addSubview(collageView1)
             // Отключаем авторесайз
             collageView1.translatesAutoresizingMaskIntoConstraints = false
-            collageView1.contentMode = UIView.ContentMode.scaleAspectFill
+            collageView1.contentMode = UIView.ContentMode.scaleAspectFit
             // Присваиваем значение
             Nuke.loadImage(
                 with: URL(string: photos[0])!,
@@ -123,7 +123,9 @@ class  PhotoView: UIView {
 //            collageView2.image = photos[1]
 //            collageView3.image = photos[2]
             // Задаем contentMode для избежания искажения фото
-            collageView1.contentMode = UIView.ContentMode.scaleAspectFill
+            collageView1.contentMode = UIView.ContentMode.scaleAspectFit
+            collageView2.contentMode = UIView.ContentMode.scaleAspectFit
+            collageView3.contentMode = UIView.ContentMode.scaleAspectFit
             // Задаем констрейнты
             NSLayoutConstraint.activate([
                 collageView1.topAnchor.constraint(
