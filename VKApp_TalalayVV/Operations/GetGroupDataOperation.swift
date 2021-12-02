@@ -36,6 +36,7 @@ final class GetGroupDataOperation: AsyncOperation {
             responseData, urlResponse, error in
 
             guard
+                !self.isCancelled,
                 error == nil,
                 let responseData = responseData
             else { return }
