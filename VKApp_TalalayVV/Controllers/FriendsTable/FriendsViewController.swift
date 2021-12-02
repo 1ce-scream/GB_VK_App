@@ -50,7 +50,10 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     }
     
     func loadData() {
-        networkService.getFriends()
+//        networkService.getFriends()
+        networkService.getFriendsPromise()
+            .done { try? RealmService.save(items: $0) }
+            .catch { print($0) }
         
         let tmpFriends = try? RealmService.load(typeOf: Friend.self)
         friendsNotification = tmpFriends?.observe(on: .main)
