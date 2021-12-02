@@ -8,7 +8,7 @@
 import UIKit
 import Nuke
 
-class News0: UITableViewController {
+class News: UITableViewController {
     
     private var news = [NewsModel]()
     private let networkService = NetworkService()
