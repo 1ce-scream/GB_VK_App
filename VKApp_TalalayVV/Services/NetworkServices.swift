@@ -59,7 +59,7 @@ class NetworkService {
     }
     
     //MARK: - Promise Friends request
-    func getFriendsPromise() -> Promise<[Friend]> {
+    func getFriendsPromise() -> Promise<Data> {
         urlConstructor.path = "/method/friends.get"
         
         urlConstructor.queryItems = [
@@ -77,14 +77,23 @@ class NetworkService {
                     error == nil,
                     let responseData = responseData
                 else { return resolver.reject(error!) }
-                    
-                guard let friends = try? JSONDecoder().decode(
-                    Response<Friend>.self,
-                    from: responseData).response.items
-                else { return resolver.reject(error!) }
                 
-                resolver.fulfill(friends)
+                resolver.fulfill(responseData)
             }.resume()
+        }
+    }
+    
+    func parseFriends(json: Data) -> Promise<[Friend]> {
+        return Promise<[Friend]> {
+            do {
+                let friends = try JSONDecoder().decode(
+                    Response<Friend>.self,
+                    from: json).response.items
+                $0.fulfill(friends)
+            } catch {
+                print(error)
+                $0.reject(error)
+            }
         }
     }
     //MARK: - Photo

@@ -52,6 +52,7 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
     func loadData() {
 //        networkService.getFriends()
         networkService.getFriendsPromise()
+            .then(networkService.parseFriends(json:))
             .done { try? RealmService.save(items: $0) }
             .catch { print($0) }
         
