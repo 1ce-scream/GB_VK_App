@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import PromiseKit
 
 class NetworkService {
     
@@ -57,6 +58,35 @@ class NetworkService {
         task.resume()
     }
     
+    //MARK: - Promise Friends request
+    func getFriendsPromise() -> Promise<[Friend]> {
+        urlConstructor.path = "/method/friends.get"
+        
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "order", value: "name"),
+            URLQueryItem(name: "fields", value: "photo_100"),
+            URLQueryItem(name: "access_token", value: Session.shared.token),
+            URLQueryItem(name: "v", value: constants.versionAPI),
+        ]
+        
+        return Promise { resolver in
+            session.dataTask(with: urlConstructor.url!) {
+                (responseData, urlResponse, error) in
+                
+                guard
+                    error == nil,
+                    let responseData = responseData
+                else { return resolver.reject(error!) }
+                    
+                guard let friends = try? JSONDecoder().decode(
+                    Response<Friend>.self,
+                    from: responseData).response.items
+                else { return resolver.reject(error!) }
+                
+                resolver.fulfill(friends)
+            }.resume()
+        }
+    }
     //MARK: - Photo
     /// Метод для получения всех фотографий пользователя
     func getPhoto(for ownerID: Int?) {
