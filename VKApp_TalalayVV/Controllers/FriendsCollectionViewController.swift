@@ -89,20 +89,12 @@ class FriendsCollectionViewController: UICollectionViewController {
                 for: indexPath) as? FriendsCollectionCell
             else { return UICollectionViewCell() }
             
-//            guard
-//                let photoURL = photos[indexPath.item].sizes.last?.url
-//            else { return cell }
-            
             let urlString = photos[indexPath.item].sizes.last?.url
             
             if let url = URL(string: urlString ?? "") {
                 Nuke.loadImage(with: url, into: cell.friendImageView)
             }
             
-//            cell.friendImageView.image = networkService.photo(
-//                atIndexpath: indexPath,
-//                byUrl: photoURL)
-
             let isLiked = photos[indexPath.item].isLiked
             if isLiked {
                 cell.likeControl.isLike = true
@@ -116,19 +108,5 @@ class FriendsCollectionViewController: UICollectionViewController {
             cell.likeControl.itemId = photos[indexPath.item].id
             return cell
         }
-    
-//    override func collectionView(
-//        _ collectionView: UICollectionView,
-//        didSelectItemAt indexPath: IndexPath) {
-//
-//            let photoView = PhotoViewController()
-//            photoView.photos = photos
-//            photoView.selectedPhoto = indexPath.item
-//            photoView.modalPresentationStyle = .automatic
-//            photoView.modalTransitionStyle = .coverVertical
-//            navigationController?.pushViewController(photoView, animated: true)
-//        }
-    // MARK: UICollectionViewDelegate
-    
 }
 

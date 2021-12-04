@@ -245,13 +245,13 @@ extension FriendsViewController: UITableViewDataSource{
                 x: 0,
                 y: 0,
                 width: view.frame.size.width,
-                height: 12))
+                height: 14))
             
             let label = UILabel(frame: CGRect(
                 x: 8,
                 y: 0,
                 width: view.frame.size.width,
-                height: 12))
+                height: 14))
             
             let letter = firstLetters[section].uppercased()
             
@@ -259,6 +259,7 @@ extension FriendsViewController: UITableViewDataSource{
             label.backgroundColor = .systemBackground
             label.isOpaque = true
             label.textColor = .black
+            label.font = UIFont.boldSystemFont(ofSize: 14)
             view.addSubview(label)
             
             return view
@@ -295,7 +296,7 @@ extension FriendsViewController: UITableViewDelegate {
         _ tableView: UITableView,
         heightForHeaderInSection section: Int) -> CGFloat {
             
-            return 12
+            return 10
         }
     
     func tableView(
