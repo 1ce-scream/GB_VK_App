@@ -95,8 +95,8 @@ extension LoginWebViewController: WKNavigationDelegate {
             
             // MARK: - Requests checking
             
-            print("Token = \(token) and UserID = \(userID)")
-            print(Session.shared.token!)
+            print("Token = \(token) \nUserID = \(userID)")
+//            print(Session.shared.token!)
             
 //            smth.getFriends()
 //            smth.getPhoto(for: Session.shared.userID)

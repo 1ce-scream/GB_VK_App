@@ -281,21 +281,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupsCells" id="JfX-I6-jup" customClass="GroupsCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="45.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JfX-I6-jup" id="cDH-Q3-4Kl">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Buo-Qc-Gtd" customClass="AvatarImage" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="0.5" width="45" height="45"/>
+                                            <rect key="frame" x="8" y="0.0" width="45" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="45" id="RNI-x5-CUD"/>
                                                 <constraint firstAttribute="height" constant="45" id="ypM-wA-G5K"/>
                                             </constraints>
                                         </imageView>
                                         <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFZ-ap-tbq">
-                                            <rect key="frame" x="61" y="12" width="325" height="21.5"/>
+                                            <rect key="frame" x="61" y="12" width="325" height="21"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -352,21 +352,21 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupSearchCells" id="lA6-Dx-MBB" customClass="GroupsSearchCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.5" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="45.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lA6-Dx-MBB" id="fbo-dR-Y9l">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4YJ-at-zel" customClass="AvatarImage" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="0.0" width="45" height="45"/>
+                                            <rect key="frame" x="8" y="0.5" width="45" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="45" id="JfQ-cX-saa"/>
                                                 <constraint firstAttribute="height" constant="45" id="urz-jL-F07"/>
                                             </constraints>
                                         </imageView>
                                         <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ub3-bB-aIX">
-                                            <rect key="frame" x="61" y="12" width="325" height="21"/>
+                                            <rect key="frame" x="61" y="12" width="325" height="21.5"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -425,17 +425,17 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendsCells" id="2zD-ec-rAs" customClass="FriendsCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="88.5" width="414" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2zD-ec-rAs" id="d2G-Ud-0ei">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJE-oe-klr" customClass="AvatarBackgroundShadowView" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="-0.5" width="45" height="45"/>
+                                                    <rect key="frame" x="8" y="-0.5" width="45" height="45.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9bf-aH-y3I" customClass="AvatarImage" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="45" id="PEq-lr-HDQ"/>
                                                                 <constraint firstAttribute="width" constant="45" id="WgJ-eN-iN9"/>
@@ -451,7 +451,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cko-uy-klS">
-                                                    <rect key="frame" x="61" y="12" width="325" height="22"/>
+                                                    <rect key="frame" x="61" y="12" width="325" height="22.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -609,7 +609,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cds-iL-jvx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" id="cds-iL-jvx">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cds-iL-jvx" id="eor-4k-LU1">
