@@ -7,7 +7,7 @@
 
 import UIKit
 import RealmSwift
-
+import Nuke
 
 class FriendsCollectionViewController: UICollectionViewController {
     // MARK: - Properties
@@ -59,8 +59,8 @@ class FriendsCollectionViewController: UICollectionViewController {
         
         friendPVC.photos = photos
         
-//        let index = collectionView.indexPathsForSelectedItems?.first
-//        friendPVC.selectedPhoto = index!.first!
+        let index = collectionView.indexPathsForSelectedItems?.first
+        friendPVC.selectedPhoto = index!.last!
         
     }
     
@@ -89,12 +89,19 @@ class FriendsCollectionViewController: UICollectionViewController {
                 for: indexPath) as? FriendsCollectionCell
             else { return UICollectionViewCell() }
             
-            guard let photoURL = photos[indexPath.item].sizes.last?.url
-            else { return cell }
+//            guard
+//                let photoURL = photos[indexPath.item].sizes.last?.url
+//            else { return cell }
             
-            cell.friendImageView.image = networkService.photo(
-                atIndexpath: indexPath,
-                byUrl: photoURL)
+            let urlString = photos[indexPath.item].sizes.last?.url
+            
+            if let url = URL(string: urlString ?? "") {
+                Nuke.loadImage(with: url, into: cell.friendImageView)
+            }
+            
+//            cell.friendImageView.image = networkService.photo(
+//                atIndexpath: indexPath,
+//                byUrl: photoURL)
 
             let isLiked = photos[indexPath.item].isLiked
             if isLiked {
