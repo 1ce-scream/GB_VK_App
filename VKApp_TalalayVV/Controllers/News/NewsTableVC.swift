@@ -25,7 +25,7 @@ class News: UITableViewController {
         tableView.dataSource = self
         
         registerNib()
-        
+        setupRefreshControl()
     }
     
     private func registerNib() {
@@ -42,6 +42,36 @@ class News: UITableViewController {
         
         let nibPhoto = UINib(nibName: "PhotoCell", bundle: nil)
         tableView.register(nibPhoto, forCellReuseIdentifier: "PhotoCell")
+    }
+    
+    
+    fileprivate func setupRefreshControl() {
+        tableView.refreshControl = UIRefreshControl()
+        
+        tableView.refreshControl?.attributedTitle = NSAttributedString(
+            string: "Обновление...")
+        tableView.refreshControl?.tintColor = .systemBlue
+        tableView.refreshControl?.addTarget(
+            self,
+            action: #selector(refreshNews),
+            for: .valueChanged)
+    }
+    
+    @objc func refreshNews() {
+        tableView.refreshControl?.beginRefreshing()
+        
+        let mostFreshNewsDate = self.news.first?.date ?? Date().timeIntervalSince1970
+        
+        networkService.getNews(startTime: String(mostFreshNewsDate + 1),
+                               onComplete: { [weak self] (news) in
+            
+            guard news.count > 0 else { return }
+            self?.news = news + self!.news
+            let indexSet = IndexSet(integersIn: 0..<news.count)
+            self?.tableView.insertSections(indexSet, with: .automatic)
+        })
+        
+        tableView.refreshControl?.endRefreshing()
     }
     
     override func tableView(_ tableView: UITableView,
@@ -106,8 +136,6 @@ class News: UITableViewController {
                 
             case 1:
                 photoCell.photoView.setImages(photos: news[section].photosURL!)
-//                    photos: photoCell.photoView.loadImages(
-//                        photosUrl: news[section].photosURL!))
                 return photoCell
                 
             default:

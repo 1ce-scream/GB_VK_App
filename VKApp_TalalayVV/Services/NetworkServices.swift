@@ -322,7 +322,8 @@ class NetworkService {
     
     //MARK: - News
     
-    func getNews(onComplete: @escaping ([NewsModel]) -> Void) {
+    func getNews(startTime: String? = nil,
+                 onComplete: @escaping ([NewsModel]) -> Void) {
         
         urlConstructor.path = "/method/newsfeed.get"
         
@@ -333,6 +334,12 @@ class NetworkService {
             URLQueryItem(name: "access_token", value: Session.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
+        
+        if let startTime = startTime {
+            urlConstructor.queryItems?.append(
+                URLQueryItem(name: "start_time", value: startTime))
+        }
+
         let task = session.dataTask(with: urlConstructor.url!) {
             (responseData, urlResponse, error) in
             
