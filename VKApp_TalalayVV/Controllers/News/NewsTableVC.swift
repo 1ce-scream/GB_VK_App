@@ -11,18 +11,22 @@ import Nuke
 class News: UITableViewController {
     
     private var news = [NewsModel]()
+    private var nextFrom: String!
+    private var isLoading = false
     private let networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.getNews(onComplete: { [weak self] (news) in
+        networkService.getNews(onComplete: { [weak self] (news , nextFrom) in
             self?.news = news
+            self?.nextFrom = nextFrom
             self?.tableView.reloadData()
         })
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         
         registerNib()
         setupRefreshControl()
@@ -63,12 +67,19 @@ class News: UITableViewController {
         let mostFreshNewsDate = self.news.first?.date ?? Date().timeIntervalSince1970
         
         networkService.getNews(startTime: String(mostFreshNewsDate + 1),
-                               onComplete: { [weak self] (news) in
+                               onComplete: { [weak self] (news, nextFrom) in
             
-            guard news.count > 0 else { return }
-            self?.news = news + self!.news
+            guard
+                let self = self,
+                    news.count > 0
+            else {
+                self!.tableView.refreshControl?.endRefreshing()
+                return }
+            
+            self.news = news + self.news
+//            self.nextFrom = nextFrom
             let indexSet = IndexSet(integersIn: 0..<news.count)
-            self?.tableView.insertSections(indexSet, with: .automatic)
+            self.tableView.insertSections(indexSet, with: .automatic)
         })
         
         tableView.refreshControl?.endRefreshing()
@@ -175,4 +186,33 @@ class News: UITableViewController {
 //                            estimatedHeightForFooterInSection section: Int) -> CGFloat {
 //        return 50
 //    }
+}
+
+extension News: UITableViewDataSourcePrefetching {
+    func tableView(
+        _ tableView: UITableView,
+        prefetchRowsAt indexPaths: [IndexPath]) {
+        
+            guard
+                let maxSection = indexPaths.map({ $0.section }).max()
+            else { return }
+            
+            if maxSection > news.count - 3, !isLoading {
+                isLoading = true
+                
+                networkService.getNews(startFrom: nextFrom) {
+                    [weak self] news,nextFrom  in
+                    
+                    guard let self = self else { return }
+                    let indexSet = IndexSet(
+                        integersIn: self.news.count ..<
+                        self.news.count + news.count)
+                    
+                    self.nextFrom = nextFrom
+                    self.news.append(contentsOf: news)
+                    self.tableView.insertSections(indexSet, with: .automatic)
+                    self.isLoading = false
+                }
+            }
+        }
 }

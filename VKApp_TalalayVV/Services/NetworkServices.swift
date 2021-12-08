@@ -323,13 +323,13 @@ class NetworkService {
     //MARK: - News
     
     func getNews(startTime: String? = nil,
-                 onComplete: @escaping ([NewsModel]) -> Void) {
+                 startFrom: String? = nil,
+                 onComplete: @escaping ([NewsModel], String?) -> Void) {
         
         urlConstructor.path = "/method/newsfeed.get"
         
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
-            URLQueryItem(name: "start_from", value: "next_from"),
             URLQueryItem(name: "count", value: "20"),
             URLQueryItem(name: "access_token", value: Session.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
@@ -338,6 +338,11 @@ class NetworkService {
         if let startTime = startTime {
             urlConstructor.queryItems?.append(
                 URLQueryItem(name: "start_time", value: startTime))
+        }
+        
+        if let startFrom = startFrom {
+            urlConstructor.queryItems?.append(
+                URLQueryItem(name: "start_from", value: startFrom))
         }
 
         let task = session.dataTask(with: urlConstructor.url!) {
@@ -383,6 +388,15 @@ class NetworkService {
                 return
             }
             
+            guard
+                let nextFrom = try? JSONDecoder().decode(
+                    VKResponse<NewsModel>.self,
+                    from: data).response.nextFrom
+            else {
+                print("smth went wrong")
+                return
+            }
+            
             for i in 0..<news.count {
                 if news[i].sourceID < 0 {
                     let group = groups.first(
@@ -398,7 +412,7 @@ class NetworkService {
             }
             
             DispatchQueue.main.async {
-                onComplete(news)
+                onComplete(news, nextFrom)
 //                print(json)
             }
         }
