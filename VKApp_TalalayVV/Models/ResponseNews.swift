@@ -7,15 +7,15 @@
 
 import Foundation
 
-class ResponseNews: Codable {
-    let response: ItemsNews
+class VKResponse<T:Codable>: Codable {
+    let response: ResponseNews<T>
 }
 
-class ItemsNews: Codable {
-    let items: [NewsModel]
-    let profiles: [ProfileNews]
-    let groups: [GroupNews]
-    let nextFrom: String
+class ResponseNews<T: Codable>: Codable {
+    let items: [T]
+    let profiles: [ProfileNews]?
+    let groups: [GroupNews]?
+    let nextFrom: String?
     
     enum CodingKeys: String, CodingKey {
         case items

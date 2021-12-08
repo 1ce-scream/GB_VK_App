@@ -358,7 +358,7 @@ class NetworkService {
 //                options: .fragmentsAllowed)
             guard
                 let news = try? JSONDecoder().decode(
-                    Response<NewsModel>.self,
+                    VKResponse<NewsModel>.self,
                     from: data).response.items
             else {
                 print("News Error")
@@ -367,7 +367,7 @@ class NetworkService {
             
             guard
                 let profiles = try? JSONDecoder().decode(
-                    ResponseNews.self,
+                    VKResponse<NewsModel>.self,
                     from: data).response.profiles
             else {
                 print("Profiles error")
@@ -376,7 +376,7 @@ class NetworkService {
             
             guard
                 let groups = try? JSONDecoder().decode(
-                    ResponseNews.self,
+                    VKResponse<NewsModel>.self,
                     from: data).response.groups
             else {
                 print("Groups error")
@@ -399,6 +399,7 @@ class NetworkService {
             
             DispatchQueue.main.async {
                 onComplete(news)
+//                print(json)
             }
         }
         task.resume()
