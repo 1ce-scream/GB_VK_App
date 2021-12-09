@@ -46,7 +46,7 @@ class TextCell: UITableViewCell {
         return (isTextFull ? "Скрыть" : "Показать полностью")
     }
     
-    public func cellInit(text: String?, isShowMoreBtn: Bool) {
+    public func configure(text: String?, isShowMoreBtn: Bool) {
         postTextLabel.text = text
         if isShowMoreBtn {
             isTextFull = false

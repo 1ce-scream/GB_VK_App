@@ -195,7 +195,7 @@ class News: UITableViewController, TextCellDelegate {
                     width: tableView.frame.width,
                     font: textFont)
                 
-                textCell.cellInit(
+                textCell.configure(
                     text: news[section].text,
                     isShowMoreBtn: textHeight > maxHeightTextCell)
                 textCell.delegate = self
