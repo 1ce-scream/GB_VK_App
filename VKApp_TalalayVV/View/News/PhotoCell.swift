@@ -22,15 +22,18 @@ class PhotoCell: UITableViewCell {
         newsImage.isOpaque = true
         
         contentView.addSubview(newsImage)
-        
         contentView.backgroundColor = .systemBackground
         contentView.isOpaque = true
         
         NSLayoutConstraint.activate([
-            newsImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-            newsImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            newsImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            newsImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            newsImage.topAnchor.constraint(
+                equalTo: contentView.topAnchor),
+            newsImage.bottomAnchor.constraint(
+                equalTo: contentView.bottomAnchor),
+            newsImage.leadingAnchor.constraint(
+                equalTo: contentView.leadingAnchor),
+            newsImage.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor),
         ])
     }
         

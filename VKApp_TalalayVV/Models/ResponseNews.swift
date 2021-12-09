@@ -13,8 +13,8 @@ class VKResponse<T:Codable>: Codable {
 
 class ResponseNews<T: Codable>: Codable {
     let items: [T]
-    let profiles: [ProfileNews]?
-    let groups: [GroupNews]?
+    let profiles: [Friend]?
+    let groups: [Community]?
     let nextFrom: String?
     
     enum CodingKeys: String, CodingKey {
@@ -22,31 +22,5 @@ class ResponseNews<T: Codable>: Codable {
         case profiles
         case groups
         case nextFrom = "next_from"
-    }
-}
-
-class ProfileNews: Codable {
-    let id: Int
-    let firstName: String
-    let lastName: String
-    let avatarURL: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case avatarURL = "photo_100"
-    }
-}
-
-class GroupNews: Codable {
-    let id: Int
-    let name: String
-    let avatarURL: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case avatarURL = "photo_100"
     }
 }
