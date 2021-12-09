@@ -228,13 +228,24 @@ class News: UITableViewController, TextCellDelegate {
         
         switch indexPath.row {
         case 0:
+            var cellHeight: CGFloat = 0
             let text =  news.text
-            if text == "" { return 0 }
+            if text == "" { cellHeight = 0 }
             let cell = tableView.cellForRow(at: indexPath) as? TextCell
-            return (cell?.isTextFull ?? false) ? UITableView.automaticDimension : maxHeightTextCell
+            let textHeight = text.getTextHeight(width: tableWidth, font: textFont)
+            if textHeight < maxHeightTextCell && cell?.isTextFull == true {
+                cellHeight = textHeight
+            }
+            if textHeight > maxHeightTextCell {
+                cellHeight = maxHeightTextCell
+            }
+            if cell?.isTextFull == false {
+               cellHeight = UITableView.automaticDimension
+            }
+            return cellHeight
         
         case 1:
-            let photoSizes = news.attachments!.last!.photo?.sizes
+            let photoSizes = news.attachments?.last?.photo?.sizes
             if photoSizes == nil { return 0 }
             guard
                 let ratio = photoSizes?.last?.aspectRatio
