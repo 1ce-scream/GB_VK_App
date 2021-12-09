@@ -9,11 +9,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    /*
-     Связывание элементов на storyboard с IBOutlet
-     в контроллере
-     */
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bigStack: UIStackView!
     @IBOutlet weak var logoAndAppNameStack: UIStackView!
@@ -35,15 +30,14 @@ class LoginViewController: UIViewController {
 //        }
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(hideKeyboard))
         
-        // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
     }
     
@@ -81,30 +75,21 @@ class LoginViewController: UIViewController {
             object: nil)
     }
     
-    
-    /*
-    Мереопределение метода shouldPerformSegue с учетом проверки корректности
-    введенных значений
-    */
-    
+    // MARK: - PerformSegue
     override func shouldPerformSegue(
         withIdentifier identifier: String,
         sender: Any?) -> Bool {
         
         let checkResult = checkUserData()
-        
-        // Проверяем данные
-        // Если данные не верны, покажем ошибку
         if !checkResult {
             showLoginError()
         }
-        
-        // Возвращаем результат
         return checkResult
     }
     
+    // MARK: - Private methods
     /// Метод для проверки корректности введенных значений в поля логин и пароль
-    func checkUserData() -> Bool {
+    private func checkUserData() -> Bool {
         guard let login = loginTextField.text,
               let password = passwordTextField.text else { return false }
         
@@ -117,14 +102,10 @@ class LoginViewController: UIViewController {
     
     /// Метод для отображения пользователю ошибки в случае ввода некорректных данных
     private func showLoginError() {
-        // Инициализация экземпляра контроллера
         let alter = UIAlertController(
             title: "Ошибка",
             message: "Введены не верные данные пользователя",
             preferredStyle: .alert)
-        
-        // Инициализация экземпляра кнопки для контроллера UIAlertController
-        // И обнуление информации в полях логин и пароль
         let action = UIAlertAction(
             title: "OK",
             style: .cancel)
@@ -132,15 +113,11 @@ class LoginViewController: UIViewController {
             self.loginTextField.text = ""
             self.passwordTextField.text = ""
         }
-        // Добавление кнопки на UIAlertController
         alter.addAction(action)
-        
-        // Показываем UIAlertController
         present(alter, animated: true, completion: nil)
-        
     }
     
-    
+    // MARK: - Actions
     //Код для взаимодействия клавиатуры и scrollview
     
     // Когда клавиатура появляется

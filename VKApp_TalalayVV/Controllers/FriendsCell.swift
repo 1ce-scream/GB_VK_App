@@ -9,7 +9,6 @@ import UIKit
 
 class FriendsCell: UITableViewCell {
     
-    // Связываем элементы ячейки с контроллером ячейки
     @IBOutlet weak var friendAvatarImageView: AvatarImage!
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var avatarBackgroundView: AvatarBackgroundShadowView!
@@ -17,13 +16,9 @@ class FriendsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Инициализируем распознаватель жестов
         let tap = UITapGestureRecognizer()
-        // Добавляем действие при нажатии
         tap.addTarget(self, action: #selector(tapOnAvatar(_:)))
-        // Добавляем распознаватель жестов к аватарке
         friendAvatarImageView.addGestureRecognizer(tap)
-        // Разрешаем взаимодействие
         friendAvatarImageView.isUserInteractionEnabled = true
     }
     
@@ -35,7 +30,7 @@ class FriendsCell: UITableViewCell {
         friendNameLabel.text = user.firstName + " " + user.lastName
     }
     
-    /// Метод действия при нажатии на аватарку
+    /// Действие  при нажатии на аватарку
     @objc func tapOnAvatar(_ tapGestureRecognizer: UITapGestureRecognizer) {
         UIView.animate(
             withDuration: 0.3,

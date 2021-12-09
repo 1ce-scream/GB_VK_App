@@ -12,7 +12,6 @@ class PhotoViewController: UIViewController {
     // MARK: - Рroperties
     
     /// Массив с фото
-//    var photos = [UIImage]()
     var photos = [Photo]()
     /// Индекс выбранного фото
     var selectedPhoto = 0
@@ -132,9 +131,6 @@ class PhotoViewController: UIViewController {
         ])
         
         // Присваиваем фото из массива по индексу
-//        middleImageView.image = photos[indexPhotoMid]
-//        leftImageView.image = photos[indexPhotoLeft]
-//        rightImageView.image = photos[indexPhotoRight]
         leftImageView.loadImage(by: (photos[indexPhotoLeft].sizes.last!.url))
         middleImageView.loadImage(by: (photos[indexPhotoMid].sizes.last!.url))
         rightImageView.loadImage(by: (photos[indexPhotoRight].sizes.last!.url))

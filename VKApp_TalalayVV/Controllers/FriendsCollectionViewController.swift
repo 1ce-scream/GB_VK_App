@@ -16,7 +16,9 @@ class FriendsCollectionViewController: UICollectionViewController {
     private var photos = [Photo]()
     /// ID друга
     var userID: Int?
+    /// Токен уведомлений
     private var notificationToken: NotificationToken?
+    /// Сетевые сервисы
     private let networkService = NetworkService()
    
     // MARK: - Lifecycle
@@ -30,6 +32,7 @@ class FriendsCollectionViewController: UICollectionViewController {
     
     // MARK: - Methods
     
+    /// Метод загрузки фото
     func loadData() {
         networkService.getPhoto(for: userID)
         
@@ -66,13 +69,11 @@ class FriendsCollectionViewController: UICollectionViewController {
     
     // MARK: - UICollectionViewDataSource
     
-    // Метод задающий количество секций коллекции
     override func numberOfSections(
         in collectionView: UICollectionView) -> Int {
             return 1
         }
     
-    // Метод задающий количество айтемов коллекции
     override func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int) -> Int {
@@ -83,10 +84,10 @@ class FriendsCollectionViewController: UICollectionViewController {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
-            // Получение ячейки из пула и проверка на соответствие ячейки необходимому типу
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "friendsCollectionCell",
-                for: indexPath) as? FriendsCollectionCell
+            guard
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "friendsCollectionCell",
+                    for: indexPath) as? FriendsCollectionCell
             else { return UICollectionViewCell() }
             
             let urlString = photos[indexPath.item].sizes.last?.url
@@ -109,4 +110,3 @@ class FriendsCollectionViewController: UICollectionViewController {
             return cell
         }
 }
-

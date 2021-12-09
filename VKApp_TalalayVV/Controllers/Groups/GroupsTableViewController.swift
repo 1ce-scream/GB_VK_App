@@ -16,16 +16,19 @@ class GroupsTableViewController: UITableViewController {
     private let networkService = NetworkService()
     /// Массив со списоком групп пользователя
     private var groups = [Community]()
+    /// Токен уведомлений
     private var groupsNotification: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        networkService.getCommunities()
         getCommunities()
         loadData()
     }
     
+    // MARK: - Private methods
+    
+    /// Метод для получения групп пользователя
     private func getCommunities() {
         let operationQ = OperationQueue()
         operationQ.maxConcurrentOperationCount = 10
@@ -45,6 +48,7 @@ class GroupsTableViewController: UITableViewController {
         }
     }
     
+    /// Метод загрузки данных из realm
     private func loadData() {
         let tmpCommunities = try? RealmService.load(typeOf: Community.self)
         groupsNotification = tmpCommunities?.observe(on: .main)
@@ -84,6 +88,9 @@ class GroupsTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Actions
+    
+    /// Добавление в группу
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         // Проверяем идентификатор перехода
         if segue.identifier == "addGroupSegue" {
@@ -116,18 +123,15 @@ class GroupsTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
     
-    // Метод задающий количество секций в таблице
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    // Метод задающий количество строк в секции
     override func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
             
-            //Количество строк задается равным длине массива
             groups.count
         }
     
@@ -141,20 +145,15 @@ class GroupsTableViewController: UITableViewController {
                 withIdentifier: "groupsCells",
                 for: indexPath) as? GroupsCell
             else { return UITableViewCell() }
-            
-            // Присваиваем данные каждой строке
+
             cell.configure(group: groups[indexPath.row])
-            
             return cell
         }
     
-    // Метод выделения ячейки
     override func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) {
             
-            //defer конструкция которая всегда выполняется в конце кода
-            //в независимоти от места ее написания
             defer {
                 // Метод для снятия выделения с ячейки
                 tableView.deselectRow(at: indexPath, animated: true)

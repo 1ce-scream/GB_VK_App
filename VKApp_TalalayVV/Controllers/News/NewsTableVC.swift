@@ -11,13 +11,21 @@ import SwiftUI
 
 class News: UITableViewController, TextCellDelegate {
 
+    // MARK: - Private properties
+    /// Массив моделей новостей
     private var news = [NewsModel]()
+    /// Переменная для infinite scrolling
     private var nextFrom: String!
+    /// Статус состояния загрузки
     private var isLoading = false
+    /// Сетевые сервисы
     private let networkService = NetworkService()
+    /// Размер шрифта для текстовой ячейки
     private let textFont = UIFont.systemFont(ofSize: 16)
+    /// Максимально допустимая высота ячейки
     private let maxHeightTextCell: CGFloat = 200
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +43,9 @@ class News: UITableViewController, TextCellDelegate {
         setupRefreshControl()
     }
     
+    // MARK: - Private methods
+    
+    /// Метод регистрации nib
     private func registerNib() {
         tableView.register(SectionHeader.nib,
                            forHeaderFooterViewReuseIdentifier: "Header"
@@ -51,6 +62,7 @@ class News: UITableViewController, TextCellDelegate {
         tableView.register(nibPhoto, forCellReuseIdentifier: "PhotoCell")
     }
     
+    /// Метод задания refresh control
     fileprivate func setupRefreshControl() {
         tableView.refreshControl = UIRefreshControl()
         
@@ -63,6 +75,8 @@ class News: UITableViewController, TextCellDelegate {
             for: .valueChanged)
     }
     
+    // MARK: - Methods
+    /// Метод для изменения высоты ячейки при нажатии кнопки
     func contentDidChange(cell: TextCell) {
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
@@ -72,6 +86,7 @@ class News: UITableViewController, TextCellDelegate {
 //        self.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
+    // MARK: - Actions
     @objc func refreshNews() {
         tableView.refreshControl?.beginRefreshing()
         
@@ -95,6 +110,8 @@ class News: UITableViewController, TextCellDelegate {
         tableView.refreshControl?.endRefreshing()
     }
     
+    // MARK: - Header
+    
     override func tableView(_ tableView: UITableView,
                             viewForHeaderInSection section: Int) -> UIView? {
         
@@ -113,6 +130,18 @@ class News: UITableViewController, TextCellDelegate {
         return header
     }
     
+    override func tableView(_: UITableView,
+                            heightForHeaderInSection _: Int) -> CGFloat {
+        
+        return UITableView.automaticDimension
+    }
+    
+    override func tableView(_: UITableView,
+                            estimatedHeightForHeaderInSection _: Int) -> CGFloat {
+        return 50
+    }
+    
+    // MARK: - Footer
     override func tableView(_ tableView: UITableView,
                             viewForFooterInSection section: Int) -> UIView? {
         
@@ -124,6 +153,18 @@ class News: UITableViewController, TextCellDelegate {
         footer.likeControll.setLike(count: news[section].likes.count)
         return footer
     }
+    
+    override func tableView(_ tableView: UITableView,
+                            heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -178,6 +219,7 @@ class News: UITableViewController, TextCellDelegate {
             }
         }
     
+    // MARK: - Calculation cell height
     override func tableView(_: UITableView,
                             heightForRowAt indexPath: IndexPath) -> CGFloat {
 
@@ -210,27 +252,6 @@ class News: UITableViewController, TextCellDelegate {
         
         return UITableView.automaticDimension
     }
-    
-    override func tableView(_: UITableView,
-                            heightForHeaderInSection _: Int) -> CGFloat {
-        
-        return UITableView.automaticDimension
-    }
-    
-    override func tableView(_: UITableView,
-                            estimatedHeightForHeaderInSection _: Int) -> CGFloat {
-        return 50
-    }
-    
-    override func tableView(_ tableView: UITableView,
-                            heightForFooterInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-//    override func tableView(_ tableView: UITableView,
-//                            estimatedHeightForFooterInSection section: Int) -> CGFloat {
-//        return 50
-//    }
 }
 
 extension News: UITableViewDataSourcePrefetching {

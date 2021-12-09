@@ -9,24 +9,19 @@ import UIKit
 
 class GroupsSearchCell: UITableViewCell {
     
-    // Связываем элементы ячейки с контроллером ячейки
     @IBOutlet weak var groupLogoImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Инициализируем распознаватель жестов
         let tap = UITapGestureRecognizer()
-        // Добавляем действие при нажатии
         tap.addTarget(self, action: #selector(tapOnGroupLogo(_:)))
-        // Добавляем распознаватель жестов к лого
         groupLogoImageView.addGestureRecognizer(tap)
-        // Разрешаем взаимодействие
         groupLogoImageView.isUserInteractionEnabled = true
     }
     
-    // Задаем конфигурацию ячейки
+    /// Метод конфигурации ячейки
     func configure(group: Community) {
         let url = URL(string: group.avatarURL)
         let responseData = try? Data(contentsOf: url!)
@@ -37,6 +32,7 @@ class GroupsSearchCell: UITableViewCell {
         groupNameLabel.text = group.name
     }
     
+    /// Действие  при нажатии на лого
     @objc func tapOnGroupLogo(_ tapGestureRecognizer: UITapGestureRecognizer) {
         UIView.animate(
             withDuration: 0.3,

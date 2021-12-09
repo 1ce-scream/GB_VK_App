@@ -16,8 +16,6 @@ class LoginWebViewController: UIViewController {
         }
     }
     
-//    let constants = NetworkConstants()
-    
     // Константы для проверки работоспособности запросов
     let smth = NetworkService()
     let alamo = AlamofireNS()
