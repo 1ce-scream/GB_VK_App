@@ -76,4 +76,7 @@ class PhotoNews: Codable {
 class SizeNews: Codable {
     let type: String?
     let url: String?
+    var width: Double
+    var height: Double
+    var aspectRatio: CGFloat { width / height }
 }

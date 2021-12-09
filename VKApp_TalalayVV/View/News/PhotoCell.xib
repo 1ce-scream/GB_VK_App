@@ -5,41 +5,20 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="PhotoCell" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PhotoCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="PhotoCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" id="KGk-i7-Jjw" customClass="PhotoCell" customModule="VKApp_TalalayVV" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCS-uy-L3q" customClass="PhotoView" customModule="VKApp_TalalayVV" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </subviews>
-                <constraints>
-                    <constraint firstAttribute="bottom" secondItem="CCS-uy-L3q" secondAttribute="bottom" id="08w-Ch-UH7"/>
-                    <constraint firstItem="CCS-uy-L3q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7hK-T1-sWg"/>
-                    <constraint firstAttribute="trailing" secondItem="CCS-uy-L3q" secondAttribute="trailing" id="VuD-0e-JTl"/>
-                    <constraint firstItem="CCS-uy-L3q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tQb-q8-DaQ"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <connections>
-                <outlet property="photoView" destination="CCS-uy-L3q" id="4U0-Mq-skC"/>
-            </connections>
             <point key="canvasLocation" x="139" y="119"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

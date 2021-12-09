@@ -51,6 +51,7 @@
 		FECDAB8626F8B611005047A7 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDAB8526F8B611005047A7 /* PopAnimator.swift */; };
 		FECDAB8826F8B68B005047A7 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDAB8726F8B68B005047A7 /* CustomNavigationController.swift */; };
 		FECDAB8A26F8BCB8005047A7 /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDAB8926F8BCB8005047A7 /* CustomInteractiveTransition.swift */; };
+		FEE0EEC12760DBFC00F08931 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE0EEC02760DBFC00F08931 /* StringExt.swift */; };
 		FEE9F5FA26E63D9600DCEDDA /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9F5F926E63D9600DCEDDA /* News.swift */; };
 		FEEB7D9E2707180400F74813 /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEB7D9D2707180400F74813 /* LoginWebViewController.swift */; };
 		FEEB7DA02709A5A600F74813 /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEB7D9F2709A5A600F74813 /* NetworkServices.swift */; };
@@ -110,6 +111,7 @@
 		FECDAB8526F8B611005047A7 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		FECDAB8726F8B68B005047A7 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FECDAB8926F8BCB8005047A7 /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
+		FEE0EEC02760DBFC00F08931 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		FEE9F5F926E63D9600DCEDDA /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		FEEB7D9D2707180400F74813 /* LoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 		FEEB7D9F2709A5A600F74813 /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				FE077BB8270F58B300AB88D8 /* UIImageView.swift */,
 				FE0ADD8527467B200023B4BD /* DateFormatter.swift */,
+				FEE0EEC02760DBFC00F08931 /* StringExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				FE1EB0BE2701E74600C80914 /* Session.swift in Sources */,
 				FE0D621226D577B2005AE0EC /* GroupsSearchTableViewController.swift in Sources */,
 				FEEB7DA62709B65D00F74813 /* AlamofireNS.swift in Sources */,
+				FEE0EEC12760DBFC00F08931 /* StringExt.swift in Sources */,
 				FEEB7DA22709A61D00F74813 /* NetworkConstants.swift in Sources */,
 				FE0D621A26D578E8005AE0EC /* FriendsCollectionCell.swift in Sources */,
 				FE43FD0726EFBB3F005449ED /* PhotoViewController.swift in Sources */,

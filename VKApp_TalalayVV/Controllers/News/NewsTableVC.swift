@@ -7,13 +7,16 @@
 
 import UIKit
 import Nuke
+import SwiftUI
 
-class News: UITableViewController {
-    
+class News: UITableViewController, TextCellDelegate {
+
     private var news = [NewsModel]()
     private var nextFrom: String!
     private var isLoading = false
     private let networkService = NetworkService()
+    private let textFont = UIFont.systemFont(ofSize: 16)
+    private let maxHeightTextCell: CGFloat = 200
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +51,6 @@ class News: UITableViewController {
         tableView.register(nibPhoto, forCellReuseIdentifier: "PhotoCell")
     }
     
-    
     fileprivate func setupRefreshControl() {
         tableView.refreshControl = UIRefreshControl()
         
@@ -59,6 +61,15 @@ class News: UITableViewController {
             self,
             action: #selector(refreshNews),
             for: .valueChanged)
+    }
+    
+    func contentDidChange(cell: TextCell) {
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+        
+//        guard let indexPath = tableView.indexPath(for: cell) else { return }
+//        cell.isTextFull.toggle()
+//        self.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     @objc func refreshNews() {
@@ -77,7 +88,6 @@ class News: UITableViewController {
                 return }
             
             self.news = news + self.news
-//            self.nextFrom = nextFrom
             let indexSet = IndexSet(integersIn: 0..<news.count)
             self.tableView.insertSections(indexSet, with: .automatic)
         })
@@ -131,22 +141,36 @@ class News: UITableViewController {
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
             let section = indexPath.section
-            let textCell = tableView.dequeueReusableCell(
-                withIdentifier: "TextCell",
-                for: indexPath) as! TextCell
-            let photoCell = tableView.dequeueReusableCell(
-                withIdentifier: "PhotoCell",
-                for: indexPath) as! PhotoCell
-            textCell.postTextLabel.text = news[section].text
             
             switch indexPath.row {
             case 0:
-                textCell.postTextLabel.numberOfLines = 0
-                textCell.postTextLabel.text = news[section].text
-                return textCell
+                guard
+                    let textCell = tableView.dequeueReusableCell(
+                        withIdentifier: "TextCell",
+                        for: indexPath) as? TextCell
+                else { return UITableViewCell() }
                 
+                let textHeight = news[section].text.getTextHeight(
+                    width: tableView.frame.width,
+                    font: textFont)
+                
+                textCell.cellInit(
+                    text: news[section].text,
+                    isShowMoreBtn: textHeight > maxHeightTextCell)
+                textCell.delegate = self
+                return textCell
             case 1:
-                photoCell.photoView.setImages(photos: news[section].photosURL!)
+                guard
+                    let photoCell = tableView.dequeueReusableCell(
+                        withIdentifier: "PhotoCell",
+                        for: indexPath) as? PhotoCell
+                else { return UITableViewCell()}
+                
+                let urlString = news[section].photosURL?.last
+                
+                if let url = URL(string: urlString ?? "") {
+                    Nuke.loadImage(with: url, into: photoCell.newsImage)
+                }
                 return photoCell
                 
             default:
@@ -155,11 +179,32 @@ class News: UITableViewController {
         }
     
     override func tableView(_: UITableView,
-                            heightForRowAt _: IndexPath) -> CGFloat {
+                            heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        let news = news[indexPath.section]
+        let tableWidth = tableView.bounds.width
         
-        return UITableView.automaticDimension
+        switch indexPath.row {
+        case 0:
+            let text =  news.text
+            if text == "" { return 0 }
+            let cell = tableView.cellForRow(at: indexPath) as? TextCell
+            return (cell?.isTextFull ?? false) ? UITableView.automaticDimension : maxHeightTextCell
+        
+        case 1:
+            let photoSizes = news.attachments!.last!.photo?.sizes
+            if photoSizes == nil { return 0 }
+            guard
+                let ratio = photoSizes?.last?.aspectRatio
+            else { return UITableView.automaticDimension }
+            let cellHeight = tableWidth * ratio
+            return cellHeight
+        
+        default:
+            return UITableView.automaticDimension
+        }
     }
-    
+   
     override func tableView(_: UITableView,
                             estimatedHeightForRowAt _: IndexPath) -> CGFloat {
         
