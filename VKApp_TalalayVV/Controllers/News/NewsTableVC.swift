@@ -219,6 +219,16 @@ class News: UITableViewController, TextCellDelegate {
             }
         }
     
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
+            
+            defer {
+                // Метод для снятия выделения с ячейки
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
+    
     // MARK: - Calculation cell height
     override func tableView(_: UITableView,
                             heightForRowAt indexPath: IndexPath) -> CGFloat {

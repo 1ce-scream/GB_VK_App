@@ -73,5 +73,4 @@ class GroupsSearchTableViewController: UITableViewController, UISearchBarDelegat
                 tableView.deselectRow(at: indexPath, animated: true)
             }
         }
-    
 }
