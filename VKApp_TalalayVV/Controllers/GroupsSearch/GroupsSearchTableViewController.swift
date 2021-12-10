@@ -18,6 +18,7 @@ class GroupsSearchTableViewController: UITableViewController, UISearchBarDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.keyboardDismissMode = .onDrag
         searchBar.delegate = self
         networkService.getSearchCommunity(
             text: "",

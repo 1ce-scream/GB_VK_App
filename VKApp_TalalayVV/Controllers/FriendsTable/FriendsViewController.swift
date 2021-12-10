@@ -41,8 +41,8 @@ class FriendsViewController: UIViewController, UISearchBarDelegate {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.keyboardDismissMode = .onDrag
         searchBar.delegate = self
-    
         loadData()
     }
     
