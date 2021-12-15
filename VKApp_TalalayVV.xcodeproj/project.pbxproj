@@ -13,7 +13,6 @@
 		FE077BB6270F472000AB88D8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB5270F472000AB88D8 /* Photo.swift */; };
 		FE077BB9270F58B300AB88D8 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE077BB8270F58B300AB88D8 /* UIImageView.swift */; };
 		FE0ADD8627467B200023B4BD /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0ADD8527467B200023B4BD /* DateFormatter.swift */; };
-		FE0ADD8927467D580023B4BD /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = FE0ADD8827467D580023B4BD /* Nuke */; };
 		FE0D61EB26CAEEDD005AE0EC /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D61EA26CAEEDD005AE0EC /* GroupsTableViewController.swift */; };
 		FE0D620A26D5758C005AE0EC /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D620926D5758C005AE0EC /* Group.swift */; };
 		FE0D620C26D57671005AE0EC /* GroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0D620B26D57671005AE0EC /* GroupsCell.swift */; };
@@ -40,6 +39,7 @@
 		FE5B09C92741248C00962C9C /* SectionFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE5B09C72741248C00962C9C /* SectionFooter.xib */; };
 		FE5B09CC27412A4700962C9C /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B09CA27412A4700962C9C /* PhotoCell.swift */; };
 		FE5B09CD27412A4700962C9C /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE5B09CB27412A4700962C9C /* PhotoCell.xib */; };
+		FE74B8A9276A46F2001C4DB4 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = FE74B8A8276A46F2001C4DB4 /* Nuke */; };
 		FEBFFC0026C5B98A004576D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFBFF26C5B98A004576D0 /* AppDelegate.swift */; };
 		FEBFFC0226C5B98A004576D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFC0126C5B98A004576D0 /* SceneDelegate.swift */; };
 		FEBFFC0426C5B98A004576D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBFFC0326C5B98A004576D0 /* LoginViewController.swift */; };
@@ -127,7 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				620BD9D51D625C66A8CDC4E6 /* Pods_VKApp_TalalayVV.framework in Frameworks */,
-				FE0ADD8927467D580023B4BD /* Nuke in Frameworks */,
+				FE74B8A9276A46F2001C4DB4 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +359,7 @@
 			);
 			name = VKApp_TalalayVV;
 			packageProductDependencies = (
-				FE0ADD8827467D580023B4BD /* Nuke */,
+				FE74B8A8276A46F2001C4DB4 /* Nuke */,
 			);
 			productName = VKApp_TalalayVV;
 			productReference = FEBFFBFC26C5B98A004576D0 /* VKApp_TalalayVV.app */;
@@ -724,7 +724,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FE0ADD8827467D580023B4BD /* Nuke */ = {
+		FE74B8A8276A46F2001C4DB4 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FE0ADD8727467D580023B4BD /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
