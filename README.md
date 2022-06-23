@@ -36,4 +36,9 @@
   - Text size calculation in UILabel
   - Nuke 
 -------------------------------------
-##### Additional frameworks used: Alamofire, Realm, PromiseKit, Nuke, Firebase (project was integrated with firebase auth)
+#### Additional frameworks used: 
+  - Alamofire 
+  - Realm
+  - PromiseKit 
+  - Nuke 
+  - Firebase (project was integrated with Firebase Authentication)
