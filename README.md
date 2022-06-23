@@ -36,7 +36,7 @@
   - Text size calculation in UILabel
   - Nuke 
 -------------------------------------
-#### Additional frameworks used: 
+### Additional frameworks used: 
   - Alamofire 
   - Realm
   - PromiseKit 
