@@ -23,7 +23,6 @@
   - Using WKWebView
   - Working with API (URLSession and some Alamofire)
   - Mapping json (and using Postman)
-  - Storage data (Realm)
   - Realm (saving data from api and loading for display)
   - Realm Notifications (UI updates based on notifications)
   - Firebase (Mechanisms "Registration" and "Authorization of users")
@@ -34,11 +33,14 @@
   - PromisKit (receiving, parsing and saving data are transferred to promises (friends))
   - Optimizations (Color Blended Layers, Color Misaligned Images)
   - Text size calculation in UILabel
-  - Nuke 
+  - Nuke (to optimize image loading and caching )
 -------------------------------------
-### Additional frameworks used: 
+### Additional tools and frameworks used: 
   - Alamofire 
   - Realm
   - PromiseKit 
   - Nuke 
   - Firebase (project was integrated with Firebase Authentication)
+  - Postman
+  - MongoDB
+  - Xcode Instruments
