@@ -7,7 +7,7 @@
   - Practice the acquired knowledge
 -------------------------------------
 ## About development
-##### Additional description: The project was created during three training courses
+##### Additional description: The project was created during three training courses. Used architectural pattern MVC.
 
 ### First stage - User interface:
   - Interface design with StoryBoard
